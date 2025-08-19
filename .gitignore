@@ -89,3 +89,6 @@ temp/
 # Replit specific (keeping for reference)
 .replit
 replit.nix
+
+# Auto-generated Drizzle migrations (exclude, keep only custom migrations)
+migrations/[0-9]*_*.sql
