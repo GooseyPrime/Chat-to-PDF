@@ -2,6 +2,23 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
+// Environment variable validation for production
+const requiredEnvVars = [
+  'DATABASE_URL',
+  'STRIPE_SECRET_KEY', 
+  'STRIPE_WEBHOOK_SECRET',
+  'VITE_FIREBASE_PROJECT_ID'
+];
+
+const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
+if (missingEnvVars.length > 0) {
+  console.error('❌ Missing required environment variables:', missingEnvVars.join(', '));
+  console.error('Please set these environment variables before starting the application.');
+  process.exit(1);
+}
+
+log('✅ All required environment variables are set');
+
 const app = express();
 
 // Add JSON parsing middleware but exclude webhook routes that need raw body
@@ -67,12 +84,30 @@ app.use((req, res, next) => {
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen({
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
+  const serverInstance = server.listen({
     port,
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
   });
+
+  // Graceful shutdown handling
+  const gracefulShutdown = (signal: string) => {
+    log(`${signal} received. Starting graceful shutdown...`);
+    serverInstance.close(() => {
+      log('HTTP server closed.');
+      process.exit(0);
+    });
+    
+    // Force shutdown after 10 seconds
+    setTimeout(() => {
+      log('Force shutdown after timeout');
+      process.exit(1);
+    }, 10000);
+  };
+
+  process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+  process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 })();

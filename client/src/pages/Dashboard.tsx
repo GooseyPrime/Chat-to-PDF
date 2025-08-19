@@ -24,15 +24,19 @@ export default function Dashboard() {
         description: "Your subscription has been activated. You can now generate PDFs.",
         variant: "default",
       });
-      // Refresh user data to show updated subscription
+      // Refresh user data to show updated subscription with more aggressive polling
       queryClient.invalidateQueries({ queryKey: ['/api/auth/user'] });
       queryClient.invalidateQueries({ queryKey: ['/api/user-stats'] });
       queryClient.invalidateQueries({ queryKey: ['/api/user-pdfs'] });
-      // Force a refetch of user data with a delay to ensure webhook has processed
-      setTimeout(() => {
-        queryClient.invalidateQueries({ queryKey: ['/api/auth/user'] });
-        queryClient.invalidateQueries({ queryKey: ['/api/user-stats'] });
-      }, 2000);
+      
+      // Force multiple refetches with delays to ensure webhook has processed
+      const refetchAttempts = [500, 1000, 2000, 5000];
+      refetchAttempts.forEach((delay) => {
+        setTimeout(() => {
+          queryClient.invalidateQueries({ queryKey: ['/api/auth/user'] });
+          queryClient.invalidateQueries({ queryKey: ['/api/user-stats'] });
+        }, delay);
+      });
       // Clean up URL without page reload
       window.history.replaceState({}, document.title, window.location.pathname);
     }

@@ -48,16 +48,22 @@ export default function UsageStats() {
                 <FileText className="h-5 w-5 text-blue-600" />
               </div>
               <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
-                ['pro_weekly', 'pro_annual', 'team'].includes(stats.subscriptionTier)
+                ['pro_weekly', 'pro_annual', 'team'].includes(stats.subscriptionTier) && stats.subscriptionStatus === 'active'
                   ? 'text-blue-700 bg-blue-100' 
-                  : stats.subscriptionTier === 'basic_weekly'
+                  : stats.subscriptionTier === 'basic_weekly' && stats.subscriptionStatus === 'active'
                   ? 'text-yellow-700 bg-yellow-100'
+                  : stats.subscriptionStatus === 'expired' 
+                  ? 'text-red-700 bg-red-100'
+                  : stats.subscriptionStatus === 'inactive' || !stats.subscriptionTier
+                  ? 'text-gray-700 bg-gray-100'
                   : 'text-red-700 bg-red-100'
               }`}>
-                {stats.subscriptionTier === 'pro_weekly' ? 'Pro Weekly' :
-                 stats.subscriptionTier === 'pro_annual' ? 'Pro Annual' :
-                 stats.subscriptionTier === 'basic_weekly' ? 'Basic' :
-                 stats.subscriptionTier === 'team' ? 'Team' : 'No Plan'}
+                {stats.subscriptionTier === 'pro_weekly' && stats.subscriptionStatus === 'active' ? 'Pro Weekly' :
+                 stats.subscriptionTier === 'pro_annual' && stats.subscriptionStatus === 'active' ? 'Pro Annual' :
+                 stats.subscriptionTier === 'basic_weekly' && stats.subscriptionStatus === 'active' ? 'Basic' :
+                 stats.subscriptionTier === 'team' && stats.subscriptionStatus === 'active' ? 'Team' : 
+                 stats.subscriptionStatus === 'expired' ? 'Expired' :
+                 stats.subscriptionStatus === 'inactive' ? 'Inactive' : 'No Plan'}
               </span>
             </div>
           </div>
@@ -112,10 +118,11 @@ export default function UsageStats() {
               <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                 <Crown className="h-5 w-5 text-purple-600" />
               </div>
-              {(!stats.subscriptionTier || stats.subscriptionTier === 'basic_weekly') && (
+              {(!stats.subscriptionTier || stats.subscriptionStatus !== 'active') && (
                 <Link href="/subscribe">
                   <Button size="sm" variant="ghost" className="text-xs">
-                    {!stats.subscriptionTier ? 'Subscribe' : 'Upgrade'}
+                    {!stats.subscriptionTier ? 'Subscribe' : 
+                     stats.subscriptionStatus === 'expired' ? 'Renew' : 'Subscribe'}
                   </Button>
                 </Link>
               )}
@@ -123,13 +130,15 @@ export default function UsageStats() {
           </div>
           <div className="mt-4">
             <div className="text-2xl font-bold text-gray-900">
-              {stats.subscriptionTier === 'pro_weekly' ? 'Pro Weekly' :
-               stats.subscriptionTier === 'pro_annual' ? 'Pro Annual' :
-               stats.subscriptionTier === 'basic_weekly' ? 'Basic' :
-               stats.subscriptionTier === 'team' ? 'Team' : 'No Plan'}
+              {stats.subscriptionTier === 'pro_weekly' && stats.subscriptionStatus === 'active' ? 'Pro Weekly' :
+               stats.subscriptionTier === 'pro_annual' && stats.subscriptionStatus === 'active' ? 'Pro Annual' :
+               stats.subscriptionTier === 'basic_weekly' && stats.subscriptionStatus === 'active' ? 'Basic' :
+               stats.subscriptionTier === 'team' && stats.subscriptionStatus === 'active' ? 'Team' : 
+               stats.subscriptionStatus === 'expired' ? 'Expired' :
+               stats.subscriptionStatus === 'inactive' ? 'Inactive' : 'No Plan'}
             </div>
             <div className="text-sm text-gray-600 mt-1">
-              {!stats.subscriptionTier ? 'Subscribe to get started' : 'Current Plan'}
+              {!stats.subscriptionTier || stats.subscriptionStatus !== 'active' ? 'Subscribe to get started' : 'Current Plan'}
             </div>
           </div>
         </CardContent>

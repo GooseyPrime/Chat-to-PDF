@@ -168,18 +168,24 @@ export default function PdfGenerator() {
 
   const isPlatformSupported = (url: string) => {
     const platform = getPlatformFromUrl(url);
-    if (userStats?.subscriptionTier === 'basic_weekly') {
+    
+    // Check if subscription is active first
+    if (!userStats?.subscriptionTier || userStats.subscriptionStatus !== 'active') {
+      return false;
+    }
+    
+    if (userStats.subscriptionTier === 'basic_weekly') {
       return platform === 'chatgpt';
     }
-    if (userStats?.subscriptionTier && ['pro_weekly', 'pro_annual', 'team'].includes(userStats.subscriptionTier)) {
+    if (['pro_weekly', 'pro_annual', 'team'].includes(userStats.subscriptionTier)) {
       return ['chatgpt', 'claude', 'gemini'].includes(platform);
     }
-    return false; // no subscription
+    return false;
   };
 
   const canGenerate = () => {
     // Users need an active subscription to generate PDFs
-    if (!userStats?.subscriptionTier) {
+    if (!userStats?.subscriptionTier || userStats.subscriptionStatus !== 'active') {
       return false;
     }
     if (userStats.subscriptionTier === 'basic_weekly') {
@@ -261,6 +267,13 @@ export default function PdfGenerator() {
                     Subscribe to a plan to generate PDFs! 
                     <Link href="/subscribe" className="ml-1 font-medium underline">
                       Choose Your Plan
+                    </Link>
+                  </>
+                ) : userStats.subscriptionStatus !== 'active' ? (
+                  <>
+                    Your subscription is {userStats.subscriptionStatus}. 
+                    <Link href="/subscribe" className="ml-1 font-medium underline">
+                      Renew Your Subscription
                     </Link>
                   </>
                 ) : userStats.subscriptionTier === 'basic_weekly' && userStats.dailyUsage >= userStats.dailyLimit ? (
