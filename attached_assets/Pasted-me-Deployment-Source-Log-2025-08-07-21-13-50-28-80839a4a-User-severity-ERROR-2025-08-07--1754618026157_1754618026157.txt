@@ -1,0 +1,348 @@
+me
+Deployment
+Source
+Log
+2025-08-07 21:13:50.28
+80839a4a
+User
+severity: 'ERROR',
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+internalPosition: undefined,
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+internalQuery: undefined,
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+where: undefined,
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+schema: 'public',
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+table: 'pdf_records',
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+column: undefined,
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+dataType: undefined,
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+constraint: 'pdf_records_user_id_users_id_fk',
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+file: 'ri_triggers.c',
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+line: '2621',
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+routine: 'ri_ReportViolation'
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+}
+2025-08-07 21:48:07.69
+0cb1e85b
+User
+1:48:07 AM [express] GET /api/auth/user 401 in 164ms :: {"message":"Unauthorized"}
+2025-08-07 21:48:07.70
+0cb1e85b
+User
+Migrating user brandonlane1977@gmail.com from old ID 29664754 to new Firebase ID DeVPHCUVFVWCIoYH6x3Ooamhop63
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+Firebase token verification error: error: update or delete on table "users" violates foreign key constraint "pdf_records_user_id_users_id_fk" on table "pdf_records"
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:141:9)
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:295:5) {
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+length: 312,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+severity: 'ERROR',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+code: '23503',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+detail: 'Key (id)=(29664754) is still referenced from table "pdf_records".',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+hint: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+position: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+internalPosition: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+internalQuery: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+where: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+schema: 'public',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+table: 'pdf_records',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+column: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+dataType: undefined,
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+constraint: 'pdf_records_user_id_users_id_fk',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+file: 'ri_triggers.c',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+line: '2621',
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+routine: 'ri_ReportViolation'
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+}
+2025-08-07 21:48:07.73
+0cb1e85b
+User
+1:48:07 AM [express] GET /api/user-stats 401 in 167ms :: {"message":"Unauthorized"}
+2025-08-07 21:48:07.75
+0cb1e85b
+User
+Migrating user brandonlane1977@gmail.com from old ID 29664754 to new Firebase ID DeVPHCUVFVWCIoYH6x3Ooamhop63
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+Firebase token verification error: error: update or delete on table "users" violates foreign key constraint "pdf_records_user_id_users_id_fk" on table "pdf_records"
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:141:9)
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:295:5) {
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+length: 312,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+severity: 'ERROR',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+code: '23503',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+detail: 'Key (id)=(29664754) is still referenced from table "pdf_records".',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+hint: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+position: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+internalPosition: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+internalQuery: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+where: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+schema: 'public',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+table: 'pdf_records',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+column: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+dataType: undefined,
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+constraint: 'pdf_records_user_id_users_id_fk',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+file: 'ri_triggers.c',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+line: '2621',
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+routine: 'ri_ReportViolation'
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+}
+2025-08-07 21:48:07.78
+0cb1e85b
+User
+1:48:07 AM [express] GET /api/user-pdfs 401 in 172ms :: {"message":"Unauthorized"}
+2025-08-07 21:48:15.84
+0cb1e85b
+User
+Migrating user brandonlane1977@gmail.com from old ID 29664754 to new Firebase ID DeVPHCUVFVWCIoYH6x3Ooamhop63
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+Firebase token verification error: error: update or delete on table "users" violates foreign key constraint "pdf_records_user_id_users_id_fk" on table "pdf_records"
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:141:9)
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:295:5) {
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+length: 312,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+severity: 'ERROR',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+code: '23503',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+detail: 'Key (id)=(29664754) is still referenced from table "pdf_records".',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+hint: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+position: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+internalPosition: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+internalQuery: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+where: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+schema: 'public',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+table: 'pdf_records',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+column: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+dataType: undefined,
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+constraint: 'pdf_records_user_id_users_id_fk',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+file: 'ri_triggers.c',
+2025-08-07 21:48:15.87
+0cb1e85b
+User
+line: '2621',

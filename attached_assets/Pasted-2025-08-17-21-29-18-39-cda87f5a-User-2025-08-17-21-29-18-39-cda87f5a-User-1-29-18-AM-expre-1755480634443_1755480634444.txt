@@ -1,0 +1,208 @@
+2025-08-17 21:29:18.39
+cda87f5a
+User
+}
+2025-08-17 21:29:18.39
+cda87f5a
+User
+1:29:18 AM [express] GET /api/auth/user 401 in 301ms :: {"message":"Unauthorized"}
+2025-08-17 21:29:19.58
+cda87f5a
+User
+Migrating user brandonlane1977@gmail.com from old ID 29664754 to new Firebase ID DeVPHCUVFVWCIoYH6x3Ooamhop63
+2025-08-17 21:29:19.62
+cda87f5a
+User
+❌ Migration failed for user brandonlane1977@gmail.com: error: insert or update on table "pdf_records" violates foreign key constraint "pdf_records_user_id_users_id_fk"
+2025-08-17 21:29:19.62
+cda87f5a
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-17 21:29:19.62
+cda87f5a
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-17 21:29:19.62
+cda87f5a
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:142:11)
+2025-08-17 21:29:19.62
+cda87f5a
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:315:5) {
+2025-08-17 21:29:19.62
+cda87f5a
+User
+length: 307,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+severity: 'ERROR',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+code: '23503',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+detail: 'Key (user_id)=(DeVPHCUVFVWCIoYH6x3Ooamhop63) is not present in table "users".',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+hint: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+position: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+internalPosition: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+internalQuery: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+where: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+schema: 'public',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+table: 'pdf_records',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+column: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+dataType: undefined,
+2025-08-17 21:29:19.62
+cda87f5a
+User
+constraint: 'pdf_records_user_id_users_id_fk',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+file: 'ri_triggers.c',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+line: '2608',
+2025-08-17 21:29:19.62
+cda87f5a
+User
+routine: 'ri_ReportViolation'
+2025-08-17 21:29:19.62
+cda87f5a
+User
+}
+2025-08-17 21:29:19.75
+cda87f5a
+User
+Firebase token verification error: error: update or delete on table "users" violates foreign key constraint "pdf_records_user_id_users_id_fk" on table "pdf_records"
+2025-08-17 21:29:19.75
+cda87f5a
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-17 21:29:19.75
+cda87f5a
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-17 21:29:19.75
+cda87f5a
+User
+at async NeonPreparedQuery.execute (file:///home/runner/workspace/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+2025-08-17 21:29:19.75
+cda87f5a
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:155:27)
+2025-08-17 21:29:19.75
+cda87f5a
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:315:5) {
+2025-08-17 21:29:19.75
+cda87f5a
+User
+length: 312,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+severity: 'ERROR',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+code: '23503',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+detail: 'Key (id)=(29664754) is still referenced from table "pdf_records".',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+hint: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+position: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+internalPosition: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+internalQuery: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+where: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+schema: 'public',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+table: 'pdf_records',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+column: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+dataType: undefined,
+2025-08-17 21:29:19.75
+cda87f5a
+User
+constraint: 'pdf_records_user_id_users_id_fk',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+file: 'ri_triggers.c',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+line: '2621',
+2025-08-17 21:29:19.75
+cda87f5a
+User
+routine: 'ri_ReportViolation'
+2025-08-17 21:29:19.75
+cda87f5a
+User
+}
+2025-08-17 21:29:19.76
+cda87f5a
+User
+1:29:19 AM [express] POST /api/create-subscription 401 in 306ms :: {"message":"Unauthorized"}
+2025-08-17 21:29:35.50
+cda87f5a
+User
+1:29:35 AM [express] GET /api/user-pdfs 401 in 1ms :: {"message":"No token provided"}

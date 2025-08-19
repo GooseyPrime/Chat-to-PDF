@@ -1,0 +1,304 @@
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+type: 'StripeInvalidRequestError',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+raw: {
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+message: 'You specified `payment` mode but passed a recurring price. Either switch to `subscription` mode or use only one-time prices.',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+param: 'line_items[0]',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+request_log_url: 'https://dashboard.stripe.com/logs/req_7PTmSyQF9UyZuS?t=1754616147',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+type: 'invalid_request_error',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+headers: {
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+server: 'nginx',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+date: 'Fri, 08 Aug 2025 01:22:27 GMT',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'content-type': 'application/json',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'content-length': '322',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+connection: 'keep-alive',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-allow-credentials': 'true',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-allow-methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-allow-origin': '*',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-max-age': '300',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'cache-control': 'no-cache, no-store',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'content-security-policy': "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests; report-uri https://q.stripe.com/csp-violation?q=Uw2TBncHkMlDWjg7qVIjSWGXasxGjsMrS61Mg_Ktr5gGcR-yJEztyMTHwWAyRvOXte_-eoWLby7HKcwE",
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'idempotency-key': 'stripe-node-retry-9fa6d961-96af-4d77-bcbd-9f3102c11ae7',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'original-request': 'req_7PTmSyQF9UyZuS',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'request-id': 'req_7PTmSyQF9UyZuS',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'stripe-should-retry': 'false',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'stripe-version': '2025-05-28.basil',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+vary: 'Origin',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'x-stripe-priority-routing-enabled': 'true',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'x-stripe-routing-context-priority-tier': 'livemode-critical',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'x-wc': 'ABGHIJ',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+},
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+statusCode: 400,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+requestId: 'req_7PTmSyQF9UyZuS'
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+},
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+rawType: 'invalid_request_error',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+code: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+doc_url: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+param: 'line_items[0]',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+detail: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+headers: {
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+server: 'nginx',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+date: 'Fri, 08 Aug 2025 01:22:27 GMT',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'content-type': 'application/json',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'content-length': '322',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+connection: 'keep-alive',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-allow-credentials': 'true',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-allow-methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-allow-origin': '*',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'access-control-max-age': '300',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'cache-control': 'no-cache, no-store',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'content-security-policy': "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests; report-uri https://q.stripe.com/csp-violation?q=Uw2TBncHkMlDWjg7qVIjSWGXasxGjsMrS61Mg_Ktr5gGcR-yJEztyMTHwWAyRvOXte_-eoWLby7HKcwE",
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'idempotency-key': 'stripe-node-retry-9fa6d961-96af-4d77-bcbd-9f3102c11ae7',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'original-request': 'req_7PTmSyQF9UyZuS',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'request-id': 'req_7PTmSyQF9UyZuS',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'stripe-should-retry': 'false',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'stripe-version': '2025-05-28.basil',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+vary: 'Origin',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'x-stripe-priority-routing-enabled': 'true',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'x-stripe-routing-context-priority-tier': 'livemode-critical',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'x-wc': 'ABGHIJ',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+},
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+requestId: 'req_7PTmSyQF9UyZuS',
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+statusCode: 400,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+userMessage: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+charge: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+decline_code: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+payment_intent: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+payment_method: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+payment_method_type: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+setup_intent: undefined,
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+source: undefined
+2025-08-07 21:22:27.83
+1eaeeda2
+User
+}
+2025-08-07 21:22:27.84
+1eaeeda2
+User
+1:22:27 AM [express] POST /api/create-subscription 500 in 344ms :: {"message":"You specified `paymen…
+2025-08-07 21:22:29.77
+26220fed
+System
+system: received signal terminated
+
+Wrap
+
+Colors

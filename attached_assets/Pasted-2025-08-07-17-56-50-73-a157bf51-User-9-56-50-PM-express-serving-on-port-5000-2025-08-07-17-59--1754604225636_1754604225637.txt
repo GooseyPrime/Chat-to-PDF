@@ -1,0 +1,76 @@
+2025-08-07 17:56:50.73
+a157bf51
+User
+9:56:50 PM [express] serving on port 5000
+2025-08-07 17:59:24.73
+27cb27b4
+System
+starting up user application
+2025-08-07 17:59:24.95
+27cb27b4
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 17:59:26.62
+27cb27b4
+User
+> rest-express@1.0.0 start
+2025-08-07 17:59:26.62
+27cb27b4
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 17:59:28.50
+27cb27b4
+User
+9:59:28 PM [express] serving on port 5000
+2025-08-07 18:01:47.83
+27cb27b4
+User
+10:01:47 PM [express] GET /api/auth/user 401 in 3ms :: {"message":"Unauthorized"}
+2025-08-07 18:01:57.69
+27cb27b4
+User
+Thu, 07 Aug 2025 22:01:57 GMT express deprecated req.host: Use req.hostname instead at file:/home/runner/workspace/node_modules/openid-client/build/passport.js:224:49
+2025-08-07 18:01:58.31
+27cb27b4
+User
+10:01:58 PM [express] GET /api/login 302 in 624ms
+2025-08-07 18:01:59.18
+a157bf51
+System
+system: received signal terminated
+2025-08-07 18:02:02.81
+27cb27b4
+User
+10:02:02 PM [express] GET /api/callback 302 in 657ms
+2025-08-07 18:02:03.59
+27cb27b4
+User
+10:02:03 PM [express] GET /api/auth/user 200 in 102ms :: {"id":"29664754","email":"brandonlane1977@gm…
+2025-08-07 18:02:03.94
+27cb27b4
+User
+10:02:03 PM [express] GET /api/user-stats 200 in 232ms :: {"dailyUsage":0,"dailyLimit":-1,"totalPdfs"…
+2025-08-07 18:02:04.00
+27cb27b4
+User
+10:02:04 PM [express] GET /api/user-pdfs 200 in 284ms :: [{"id":"XFkJuBBaNm4w489_U7iDu","userId":"296…
+2025-08-07 18:03:00.61
+27cb27b4
+User
+PDF generation error: TimeoutError: Timed out after 30000 ms while waiting for the WS endpoint URL to appear in stdout!
+2025-08-07 18:03:00.61
+27cb27b4
+User
+at ChromeLauncher.launch (file:///home/runner/workspace/node_modules/puppeteer-core/lib/esm/puppeteer/node/BrowserLauncher.js:126:23)
+2025-08-07 18:03:00.61
+27cb27b4
+User
+at async generatePdf (file:///home/runner/workspace/dist/index.js:355:15)
+2025-08-07 18:03:00.61
+27cb27b4
+User
+PDF generation failed: Error: Failed to generate PDF: Timed out after 30000 ms while waiting for the WS endpoint URL to appear in stdout!
+2025-08-07 18:03:00.61
+27cb27b4
+User
+at generatePdf (file:///home/runner/workspace/dist/index.js:479:11)

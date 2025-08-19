@@ -1,0 +1,1117 @@
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+stripe.js:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+value @ stripe.js:1
+cb=gapi.loaded_0?le=scs:140  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+_.em @ cb=gapi.loaded_0?le=scs:140
+recaptcha__en.js:662  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:662
+recaptcha__en.js:701  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:701  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:701
+js?id=AW-11411994397:127  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+Mc @ js?id=AW-11411994397:127
+js?id=AW-11411994397:127  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+Mc @ js?id=AW-11411994397:127
+js?id=AW-11411994397:518  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+q @ js?id=AW-11411994397:518
+stripe.js:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+value @ stripe.js:1
+framework-a33509a425efe2eb.js:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+e @ framework-a33509a425efe2eb.js:1
+recaptcha__en.js:662  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:662
+recaptcha__en.js:701  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:701  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:662  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:662
+recaptcha__en.js:701  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:701  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+(anonymous) @ recaptcha__en.js:701
+framework-a33509a425efe2eb.js:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+e @ framework-a33509a425efe2eb.js:1
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+stripe.js:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+value @ stripe.js:1
+cb=gapi.loaded_0?le=scs:140  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+_.em @ cb=gapi.loaded_0?le=scs:140
+recaptcha__en.js:662  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:662
+recaptcha__en.js:701  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:701  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:701
+js?id=AW-11411994397:127  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+Mc @ js?id=AW-11411994397:127
+js?id=AW-11411994397:127  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+Mc @ js?id=AW-11411994397:127
+js?id=AW-11411994397:518  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+q @ js?id=AW-11411994397:518
+stripe.js:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+value @ stripe.js:1
+framework-a33509a425efe2eb.js:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+e @ framework-a33509a425efe2eb.js:1
+recaptcha__en.js:662  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:662
+recaptcha__en.js:701  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:701  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:662  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:662
+recaptcha__en.js:701  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:701
+recaptcha__en.js:701  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+(anonymous) @ recaptcha__en.js:701
+framework-a33509a425efe2eb.js:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+e @ framework-a33509a425efe2eb.js:1
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+/t/intellme:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+/t/intellme:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+/t/intellme:1  The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+_app-948045aeb087b41c.js:13 
+      /////////////////////
+   ///////////////////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////        Curious and driven?
+  ///////////////@@@@@@@///////        Work with us!
+  ///////////////@@@@@@@///////
+  ///////////////@@@@@@@///////        https://join.replit.com/hack.with.us
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@#//////////////
+   ///////////////////////////
+      /////////////////////
+      
+_app-948045aeb087b41c.js:13 [LaunchDarkly] LaunchDarkly client initialized
+/t/intellme:1 Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner.
+attached_assets/image_1754606888826.png:1   Failed to load resource: the server responded with a status of 404 ()
+framework-a33509a425efe2eb.js:1  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'ambient-light-sensor'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'battery'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'execution-while-not-rendered'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'execution-while-out-of-viewport'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'layout-animations'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'legacy-image-formats'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'navigation-override'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'oversized-images'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'publickey-credentials'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'speaker-selection'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'unoptimized-images'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'unsized-media'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Unrecognized feature: 'pointer-lock'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Allow attribute will take precedence over 'allowfullscreen'.
+_ @ framework-a33509a425efe2eb.js:1
+framework-a33509a425efe2eb.js:1  Allow attribute will take precedence over 'allowpaymentrequest'.
+_ @ framework-a33509a425efe2eb.js:1
+ChatTranscriptConverter:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ChatTranscriptConverter:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ChatTranscriptConverter:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ChatTranscriptConverter:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ChatTranscriptConverter:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+content.js:832 Hide That! -- settings changed.
+content.js:832 Hide That! -- settings changed.
+3635-ce9863806bd9de0e.js:1  WebSocket connection to 'wss://eval.riker.platform.replit.com/wsv2/v2.public.Q2dZSWxKait4QVlTQmdpenRQN0VCaUlGY21sclpYSXdBRHJrQVFva1pHTTVZVEF4WTJJdFl6Z3haUzAwT1RsbUxUaGtNemt0TldKak5USXpOR00yTVdVekVnTnVhWGdhRjNKbGNHeHBkQzF5WlhCc0xXWnBiR1Z6TFhKcGEyVnlJaGREYUdGMFZISmhibk5qY21sd2RFTnZiblpsY25SbGNpb1BZbkpoYm1SdmJteGhibVV4T1RjM1FsRUtHSEpsY0d4cGRDMXlaWEJzTFdKc2IyTnJjeTF5YVd0bGNoSVdjbVZ3YkdsMExYSmxjR3d0YldWMFlTMXlhV3RsY2hvZGNtVndiR2wwTFcxaGNtZGhjbWx1WlMxaWJHOWphM010Y21sclpYSktCd2p5eTVJT0VBRlFBRm9JWlhod2JHOXlaWEp5Q2dvR2QzUjFjekExRUFKNEFGSWp...YWlZKUlNERk5VelJ3TldSalpGUk9Xa1k1VmxwaGQwaG5XWGwxU21SRmEya2xNa0pNVTJkNk1UWnhURU1sTWtKS1NuWXhUMjU0U0cxNldUazFaRGMzV0V4RmRrSnJSblVsTWtKcUpUSkdWbTVpTWlVeVJuRWxNa1ppTjBSdFF5VXlRbGd3TW0xVVpIQnZhMjRsTWtKWVUyYzBURkZaWkRaU2N5VXlSa28zUTJKWmEyazJURkpDTjFaM1RGZFlZMGd5SlRKR1luQTFkRFJOZDBwck4wRWxNa0k1VTFwclFuQlBjbFpQZVVWV2NsVmxhWGg2U201R05VZzNlRkJvZDFka2JDVXlRa2QxWTBaNlVGaEpTVWRHZFhjbE0wUWxNMFE9E5fQJLnj2AXeQOXDBPv9hMQfaa44ycSYHpql7alcfbriIj3UU4sZHCLVqcehDWKPXGEIFwvO_WB7CPxZ4fVmDg.Q2dad2NtOWtPak1pQ25KbGNHeHBkQzVqYjIwPQ' failed: 
+connect @ 3635-ce9863806bd9de0e.js:1
+framework-a33509a425efe2eb.js:1  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+_ @ framework-a33509a425efe2eb.js:1
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'ambient-light-sensor'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'battery'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'execution-while-not-rendered'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'execution-while-out-of-viewport'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'layout-animations'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'legacy-image-formats'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'navigation-override'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'oversized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'publickey-credentials'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'speaker-selection'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'unoptimized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Unrecognized feature: 'unsized-media'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Allow attribute will take precedence over 'allowfullscreen'.
+workspace_iframe.html?initialPath=%2F&id=%3Aro1%3A:32  Allow attribute will take precedence over 'allowpaymentrequest'.
+Console.js:61 [vite] connecting...
+Console.js:61 [vite] connected.
+dc9a01cb-c81e-499f-8d39-5bc5234c61e3-00-2gaubz9ion135.riker.replit.dev/api/user-stats:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+dc9a01cb-c81e-499f-8d39-5bc5234c61e3-00-2gaubz9ion135.riker.replit.dev/api/auth/user:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+dc9a01cb-c81e-499f-8d39-5bc5234c61e3-00-2gaubz9ion135.riker.replit.dev/api/user-pdfs:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+dc9a01cb-c81e-499f-8d39-5bc5234c61e3-00-2gaubz9ion135.riker.replit.dev/api/auth/user:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+dc9a01cb-c81e-499f-8d39-5bc5234c61e3-00-2gaubz9ion135.riker.replit.dev/api/create-subscription:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+Console.js:61  Subscription creation error: Error: 401: {"message":"Unauthorized"}
+    at throwIfResNotOk (queryClient.ts:7:11)
+    at async apiRequest (queryClient.ts:36:3)
+    at async handleSubscribe (Subscribe.tsx:30:19)
+Mt.forEach.n.<computed> @ Console.js:61
+dc9a01cb-c81e-499f-8d39-5bc5234c61e3-00-2gaubz9ion135.riker.replit.dev/api/create-subscription:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+Console.js:61  Subscription creation error: Error: 401: {"message":"Unauthorized"}
+    at throwIfResNotOk (queryClient.ts:7:11)
+    at async apiRequest (queryClient.ts:36:3)
+    at async handleSubscribe (Subscribe.tsx:30:19)
+Mt.forEach.n.<computed> @ Console.js:61
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+Fetch finished loading: POST "<URL>".
+_app-948045aeb087b41c.js:13 Fetch finished loading: GET "https://api.sorryapp.com/v1/pages/27c7b5fc".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:1
+o @ _app-948045aeb087b41c.js:20
+(anonymous) @ 9089-ef8cbcfa0b465a73.js:1
+(anonymous) @ main-6f9427affd75c2b7.js:1
+n @ main-6f9427affd75c2b7.js:1
+u @ main-6f9427affd75c2b7.js:1
+(anonymous) @ main-6f9427affd75c2b7.js:1
+(anonymous) @ main-6f9427affd75c2b7.js:1
+n @ 9089-ef8cbcfa0b465a73.js:1
+n @ _app-948045aeb087b41c.js:13
+_app-948045aeb087b41c.js:13 Fetch finished loading: GET "https://api.sorryapp.com/v1/pages/27c7b5fc".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:1
+o @ _app-948045aeb087b41c.js:20
+(anonymous) @ 9089-ef8cbcfa0b465a73.js:1
+(anonymous) @ main-6f9427affd75c2b7.js:1
+n @ main-6f9427affd75c2b7.js:1
+u @ main-6f9427affd75c2b7.js:1
+(anonymous) @ main-6f9427affd75c2b7.js:1
+(anonymous) @ main-6f9427affd75c2b7.js:1
+n @ 9089-ef8cbcfa0b465a73.js:1
+n @ _app-948045aeb087b41c.js:13
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took <N>ms
+[Violation] Forced reflow while executing JavaScript took 116ms
+[Violation] Forced reflow while executing JavaScript took 61ms
+[Violation] Forced reflow while executing JavaScript took 37ms
+[Violation] Forced reflow while executing JavaScript took 162ms
+[Violation] Forced reflow while executing JavaScript took 92ms
+[Violation] Forced reflow while executing JavaScript took 107ms
+[Violation] Forced reflow while executing JavaScript took 58ms
+[Violation] Forced reflow while executing JavaScript took 45ms
+[Violation] Forced reflow while executing JavaScript took 50ms
+[Violation] 'requestAnimationFrame' handler took <N>ms
+[Violation] 'requestAnimationFrame' handler took <N>ms
+[Violation] 'requestAnimationFrame' handler took <N>ms
+[Violation] 'requestAnimationFrame' handler took <N>ms
+[Violation] 'requestAnimationFrame' handler took <N>ms
+[Violation] 'requestAnimationFrame' handler took <N>ms
+_app-948045aeb087b41c.js:13 [Violation] 'requestAnimationFrame' handler took 62ms
+_app-948045aeb087b41c.js:13 [Violation] 'requestAnimationFrame' handler took 195ms
+_app-948045aeb087b41c.js:13 [Violation] 'requestAnimationFrame' handler took 92ms
+_app-948045aeb087b41c.js:13 [Violation] 'requestAnimationFrame' handler took 127ms
+_app-948045aeb087b41c.js:13 [Violation] 'requestAnimationFrame' handler took 58ms
+_app-948045aeb087b41c.js:13 [Violation] 'requestAnimationFrame' handler took 50ms
+XHR finished loading: POST "<URL>".
+XHR finished loading: POST "<URL>".
+XHR finished loading: POST "<URL>".
+XHR finished loading: POST "<URL>".
+XHR finished loading: POST "<URL>".
+XHR finished loading: POST "<URL>".
+_app-948045aeb087b41c.js:13 XHR finished loading: POST "https://stats.g.doubleclick.net/j/collect?t=dc&aip=1&_r=3&v=1&_v=j102&tid=UA-25629695-1&cid=1583435872.1744321229&jid=2144781975&gjid=57142594&_gid=1853230486.1755286550&_u=SCCAgEAjQAAAAGgCIAD~&z=1657419670".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:20
+o @ _app-948045aeb087b41c.js:20
+wd @ analytics.js:46
+pe @ analytics.js:44
+(anonymous) @ analytics.js:83
+Ha.D @ analytics.js:47
+pc.send @ analytics.js:87
+X.b.<computed> @ analytics.js:68
+Z.v @ analytics.js:102
+Z.D @ analytics.js:101
+N @ analytics.js:103
+w.track @ index.js:360
+track @ protos.js:372
+e.invoke @ protos.js:178
+(anonymous) @ index.ts:270
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+t.send @ ajs-destination.bundle.8e6b895db75187c55313.js:1
+(anonymous) @ index.ts:286
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+t.track @ ajs-destination.bundle.8e6b895db75187c55313.js:1
+(anonymous) @ delivery.js:28
+(anonymous) @ delivery.js:11
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+(anonymous) @ delivery.js:4
+o @ delivery.js:27
+(anonymous) @ event-queue.js:325
+(anonymous) @ event-queue.js:323
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ event-queue.js:321
+(anonymous) @ event-queue.js:320
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+n.flushOne @ event-queue.js:273
+(anonymous) @ event-queue.js:181
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+n.deliver @ event-queue.js:169
+(anonymous) @ event-queue.js:135
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n.dispatchSingle @ event-queue.js:128
+(anonymous) @ dispatch.js:25
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+p @ dispatch.js:18
+(anonymous) @ index.ts:460
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n._dispatch @ index.ts:454
+(anonymous) @ index.ts:253
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n.track @ index.ts:241
+A @ _app-948045aeb087b41c.js:1
+x @ 6412-dff5421f5be1563f.js:1
+onToggleDevtools @ 6412-dff5421f5be1563f.js:1
+(anonymous) @ _app-948045aeb087b41c.js:28
+(anonymous) @ _app-948045aeb087b41c.js:23
+onClick @ _app-948045aeb087b41c.js:28
+push.75409.r.d.c @ _app-948045aeb087b41c.js:28
+eB @ framework-a33509a425efe2eb.js:1
+eH @ framework-a33509a425efe2eb.js:1
+(anonymous) @ framework-a33509a425efe2eb.js:1
+re @ framework-a33509a425efe2eb.js:1
+rt @ framework-a33509a425efe2eb.js:1
+(anonymous) @ framework-a33509a425efe2eb.js:1
+uT @ framework-a33509a425efe2eb.js:1
+eM @ framework-a33509a425efe2eb.js:1
+ru @ framework-a33509a425efe2eb.js:1
+tB @ framework-a33509a425efe2eb.js:1
+tD @ framework-a33509a425efe2eb.js:1
+n @ _app-948045aeb087b41c.js:13
+_app-948045aeb087b41c.js:13 XHR finished loading: POST "https://events.launchdarkly.com/events/bulk/62b35a865152ab14c5942820".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:20
+o @ _app-948045aeb087b41c.js:20
+promise @ _app-948045aeb087b41c.js:40
+(anonymous) @ _app-948045aeb087b41c.js:40
+(anonymous) @ _app-948045aeb087b41c.js:40
+t @ _app-948045aeb087b41c.js:40
+push.89357.a.sendChunk @ _app-948045aeb087b41c.js:40
+push.89357.a.sendEvents @ _app-948045aeb087b41c.js:40
+push.89357.a.flush @ _app-948045aeb087b41c.js:40
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+_app-948045aeb087b41c.js:13 XHR finished loading: POST "https://stats.g.doubleclick.net/j/collect?t=dc&aip=1&_r=3&v=1&_v=j102&tid=UA-25629695-1&cid=1583435872.1744321229&jid=1770376042&gjid=2055938167&_gid=1853230486.1755286550&_u=SCCAgEAjQAAAAGgCIAD~&z=502730280".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:20
+o @ _app-948045aeb087b41c.js:20
+wd @ analytics.js:46
+pe @ analytics.js:44
+(anonymous) @ analytics.js:83
+Ha.D @ analytics.js:47
+pc.send @ analytics.js:87
+X.b.<computed> @ analytics.js:68
+Z.v @ analytics.js:102
+Z.D @ analytics.js:101
+N @ analytics.js:103
+w.track @ index.js:360
+track @ protos.js:372
+e.invoke @ protos.js:178
+(anonymous) @ index.ts:270
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+t.send @ ajs-destination.bundle.8e6b895db75187c55313.js:1
+(anonymous) @ index.ts:286
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+t.track @ ajs-destination.bundle.8e6b895db75187c55313.js:1
+(anonymous) @ delivery.js:28
+(anonymous) @ delivery.js:11
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+(anonymous) @ delivery.js:4
+o @ delivery.js:27
+(anonymous) @ event-queue.js:325
+(anonymous) @ event-queue.js:323
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ event-queue.js:321
+(anonymous) @ event-queue.js:320
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+n.flushOne @ event-queue.js:273
+(anonymous) @ event-queue.js:181
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+n.deliver @ event-queue.js:169
+(anonymous) @ event-queue.js:135
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n.dispatchSingle @ event-queue.js:128
+(anonymous) @ dispatch.js:25
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+p @ dispatch.js:18
+(anonymous) @ index.ts:460
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n._dispatch @ index.ts:454
+(anonymous) @ index.ts:253
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n.track @ index.ts:241
+A @ _app-948045aeb087b41c.js:1
+a @ 6412-dff5421f5be1563f.js:1
+(anonymous) @ 6412-dff5421f5be1563f.js:1
+oO @ framework-a33509a425efe2eb.js:1
+uB @ framework-a33509a425efe2eb.js:1
+u_ @ framework-a33509a425efe2eb.js:1
+r6 @ framework-a33509a425efe2eb.js:1
+(anonymous) @ framework-a33509a425efe2eb.js:1
+uO @ framework-a33509a425efe2eb.js:1
+uS @ framework-a33509a425efe2eb.js:1
+C @ framework-a33509a425efe2eb.js:1
+z @ framework-a33509a425efe2eb.js:1
+_app-948045aeb087b41c.js:13 XHR finished loading: POST "https://events.launchdarkly.com/events/bulk/62b35a865152ab14c5942820".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:20
+o @ _app-948045aeb087b41c.js:20
+promise @ _app-948045aeb087b41c.js:40
+(anonymous) @ _app-948045aeb087b41c.js:40
+(anonymous) @ _app-948045aeb087b41c.js:40
+t @ _app-948045aeb087b41c.js:40
+push.89357.a.sendChunk @ _app-948045aeb087b41c.js:40
+push.89357.a.sendEvents @ _app-948045aeb087b41c.js:40
+push.89357.a.flush @ _app-948045aeb087b41c.js:40
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+_app-948045aeb087b41c.js:13 XHR finished loading: POST "https://stats.g.doubleclick.net/j/collect?t=dc&aip=1&_r=3&v=1&_v=j102&tid=UA-25629695-1&cid=1583435872.1744321229&jid=447340271&gjid=1212249056&_gid=1853230486.1755286550&_u=SCCAgEAjQAAAAGgCIAD~&z=662087843".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:20
+o @ _app-948045aeb087b41c.js:20
+wd @ analytics.js:46
+pe @ analytics.js:44
+(anonymous) @ analytics.js:83
+Ha.D @ analytics.js:47
+pc.send @ analytics.js:87
+X.b.<computed> @ analytics.js:68
+Z.v @ analytics.js:102
+Z.D @ analytics.js:101
+N @ analytics.js:103
+w.track @ index.js:360
+track @ protos.js:372
+e.invoke @ protos.js:178
+(anonymous) @ index.ts:270
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+t.send @ ajs-destination.bundle.8e6b895db75187c55313.js:1
+(anonymous) @ index.ts:286
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+t.track @ ajs-destination.bundle.8e6b895db75187c55313.js:1
+(anonymous) @ delivery.js:28
+(anonymous) @ delivery.js:11
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+(anonymous) @ delivery.js:4
+o @ delivery.js:27
+(anonymous) @ event-queue.js:325
+(anonymous) @ event-queue.js:323
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ event-queue.js:321
+(anonymous) @ event-queue.js:320
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+n.flushOne @ event-queue.js:273
+(anonymous) @ event-queue.js:181
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+s @ tslib.es6.js:73
+Promise.then
+a @ tslib.es6.js:76
+(anonymous) @ tslib.es6.js:76
+u @ tslib.es6.js:72
+n.deliver @ event-queue.js:169
+(anonymous) @ event-queue.js:135
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n.dispatchSingle @ event-queue.js:128
+(anonymous) @ dispatch.js:25
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+p @ dispatch.js:18
+(anonymous) @ index.ts:460
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n._dispatch @ index.ts:454
+(anonymous) @ index.ts:253
+(anonymous) @ tslib.es6.js:103
+(anonymous) @ tslib.es6.js:108
+(anonymous) @ tslib.es6.js:80
+u @ tslib.es6.js:72
+n.track @ index.ts:241
+A @ _app-948045aeb087b41c.js:1
+(anonymous) @ replEnvironmentDesktop-cdca638e444634dc.js:1
+eB @ framework-a33509a425efe2eb.js:1
+eH @ framework-a33509a425efe2eb.js:1
+(anonymous) @ framework-a33509a425efe2eb.js:1
+re @ framework-a33509a425efe2eb.js:1
+rt @ framework-a33509a425efe2eb.js:1
+(anonymous) @ framework-a33509a425efe2eb.js:1
+uT @ framework-a33509a425efe2eb.js:1
+eM @ framework-a33509a425efe2eb.js:1
+ru @ framework-a33509a425efe2eb.js:1
+tB @ framework-a33509a425efe2eb.js:1
+tD @ framework-a33509a425efe2eb.js:1
+n @ _app-948045aeb087b41c.js:13
+_app-948045aeb087b41c.js:13 XHR finished loading: POST "https://events.launchdarkly.com/events/bulk/62b35a865152ab14c5942820".
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:13
+(anonymous) @ _app-948045aeb087b41c.js:20
+o @ _app-948045aeb087b41c.js:20
+promise @ _app-948045aeb087b41c.js:40
+(anonymous) @ _app-948045aeb087b41c.js:40
+(anonymous) @ _app-948045aeb087b41c.js:40
+t @ _app-948045aeb087b41c.js:40
+push.89357.a.sendChunk @ _app-948045aeb087b41c.js:40
+push.89357.a.sendEvents @ _app-948045aeb087b41c.js:40
+push.89357.a.flush @ _app-948045aeb087b41c.js:40
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13
+setTimeout
+(anonymous) @ _app-948045aeb087b41c.js:13
+e @ _app-948045aeb087b41c.js:40
+n @ _app-948045aeb087b41c.js:13

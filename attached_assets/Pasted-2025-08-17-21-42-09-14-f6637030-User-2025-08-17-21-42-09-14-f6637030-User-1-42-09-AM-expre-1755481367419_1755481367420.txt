@@ -1,0 +1,308 @@
+2025-08-17 21:42:09.14
+f6637030
+User
+}
+2025-08-17 21:42:09.14
+f6637030
+User
+1:42:09 AM [express] GET /api/user-stats 401 in 138ms :: {"message":"Unauthorized"}
+2025-08-17 21:42:09.19
+f6637030
+User
+Firebase token verification error: error: duplicate key value violates unique constraint "users_email_unique"
+2025-08-17 21:42:09.19
+f6637030
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-17 21:42:09.19
+f6637030
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-17 21:42:09.19
+f6637030
+User
+at async NeonPreparedQuery.execute (file:///home/runner/workspace/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+2025-08-17 21:42:09.19
+f6637030
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:141:20)
+2025-08-17 21:42:09.19
+f6637030
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:290:5) {
+2025-08-17 21:42:09.19
+f6637030
+User
+length: 223,
+2025-08-17 21:42:09.19
+f6637030
+User
+severity: 'ERROR',
+2025-08-17 21:42:09.19
+f6637030
+User
+code: '23505',
+2025-08-17 21:42:09.19
+f6637030
+User
+detail: 'Key (email)=(brandonlane1977@gmail.com) already exists.',
+2025-08-17 21:42:09.19
+f6637030
+User
+hint: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+position: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+internalPosition: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+internalQuery: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+where: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+schema: 'public',
+2025-08-17 21:42:09.19
+f6637030
+User
+table: 'users',
+2025-08-17 21:42:09.19
+f6637030
+User
+column: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+dataType: undefined,
+2025-08-17 21:42:09.19
+f6637030
+User
+constraint: 'users_email_unique',
+2025-08-17 21:42:09.19
+f6637030
+User
+file: 'nbtinsert.c',
+2025-08-17 21:42:09.19
+f6637030
+User
+line: '666',
+2025-08-17 21:42:09.19
+f6637030
+User
+routine: '_bt_check_unique'
+2025-08-17 21:42:09.19
+f6637030
+User
+}
+2025-08-17 21:42:09.19
+f6637030
+User
+1:42:09 AM [express] GET /api/user-pdfs 401 in 137ms :: {"message":"Unauthorized"}
+2025-08-17 21:42:19.04
+f6637030
+User
+Firebase token verification error: error: duplicate key value violates unique constraint "users_email_unique"
+2025-08-17 21:42:19.04
+f6637030
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-17 21:42:19.04
+f6637030
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-17 21:42:19.04
+f6637030
+User
+at async NeonPreparedQuery.execute (file:///home/runner/workspace/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+2025-08-17 21:42:19.04
+f6637030
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:141:20)
+2025-08-17 21:42:19.04
+f6637030
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:290:5) {
+2025-08-17 21:42:19.04
+f6637030
+User
+length: 223,
+2025-08-17 21:42:19.04
+f6637030
+User
+severity: 'ERROR',
+2025-08-17 21:42:19.04
+f6637030
+User
+code: '23505',
+2025-08-17 21:42:19.04
+f6637030
+User
+detail: 'Key (email)=(brandonlane1977@gmail.com) already exists.',
+2025-08-17 21:42:19.04
+f6637030
+User
+hint: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+position: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+internalPosition: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+internalQuery: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+where: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+schema: 'public',
+2025-08-17 21:42:19.04
+f6637030
+User
+table: 'users',
+2025-08-17 21:42:19.04
+f6637030
+User
+column: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+dataType: undefined,
+2025-08-17 21:42:19.04
+f6637030
+User
+constraint: 'users_email_unique',
+2025-08-17 21:42:19.04
+f6637030
+User
+file: 'nbtinsert.c',
+2025-08-17 21:42:19.04
+f6637030
+User
+line: '666',
+2025-08-17 21:42:19.04
+f6637030
+User
+routine: '_bt_check_unique'
+2025-08-17 21:42:19.04
+f6637030
+User
+}
+2025-08-17 21:42:19.04
+f6637030
+User
+1:42:19 AM [express] GET /api/auth/user 401 in 149ms :: {"message":"Unauthorized"}
+2025-08-17 21:42:20.40
+f6637030
+User
+Firebase token verification error: error: duplicate key value violates unique constraint "users_email_unique"
+2025-08-17 21:42:20.40
+f6637030
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-17 21:42:20.40
+f6637030
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-17 21:42:20.40
+f6637030
+User
+at async NeonPreparedQuery.execute (file:///home/runner/workspace/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+2025-08-17 21:42:20.40
+f6637030
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:141:20)
+2025-08-17 21:42:20.40
+f6637030
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:290:5) {
+2025-08-17 21:42:20.40
+f6637030
+User
+length: 223,
+2025-08-17 21:42:20.40
+f6637030
+User
+severity: 'ERROR',
+2025-08-17 21:42:20.40
+f6637030
+User
+code: '23505',
+2025-08-17 21:42:20.40
+f6637030
+User
+detail: 'Key (email)=(brandonlane1977@gmail.com) already exists.',
+2025-08-17 21:42:20.40
+f6637030
+User
+hint: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+position: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+internalPosition: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+internalQuery: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+where: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+schema: 'public',
+2025-08-17 21:42:20.40
+f6637030
+User
+table: 'users',
+2025-08-17 21:42:20.40
+f6637030
+User
+column: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+dataType: undefined,
+2025-08-17 21:42:20.40
+f6637030
+User
+constraint: 'users_email_unique',
+2025-08-17 21:42:20.40
+f6637030
+User
+file: 'nbtinsert.c',
+2025-08-17 21:42:20.40
+f6637030
+User
+line: '666',
+2025-08-17 21:42:20.40
+f6637030
+User
+routine: '_bt_check_unique'
+2025-08-17 21:42:20.40
+f6637030
+User
+}
+2025-08-17 21:42:20.40
+f6637030
+User
+1:42:20 AM [express] POST /api/create-subscription 401 in 141ms :: {"message":"Unauthorized"}

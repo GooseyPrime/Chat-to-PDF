@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat PDF Exporter</title>
+</head>
+<body style="font-family:sans-serif; max-width:600px; margin:50px auto; text-align:center;">
+  <h1>AI Chat PDF Exporter</h1>
+  <input id="urlInput" type="text" placeholder="Paste ChatGPT, Claude, or Gemini URL" style="width:100%; padding:10px;" />
+  <button onclick="generatePDF()" style="margin-top:20px; padding:10px 20px;">Download PDF</button>
+  <p id="status"></p>
+
+  <script>
+    async function generatePDF() {
+      const url = document.getElementById('urlInput').value;
+      if (!url) return alert('Please enter a URL.');
+
+      document.getElementById('status').innerText = 'Generating...';
+      const res = await fetch('/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+
+      if (res.ok) {
+        const blob = await res.blob();
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'chat-export.pdf';
+        link.click();
+        document.getElementById('status').innerText = 'Done!';
+      } else {
+        document.getElementById('status').innerText = 'Failed to generate PDF';
+      }
+    }
+  </script>
+</body>
+</html>

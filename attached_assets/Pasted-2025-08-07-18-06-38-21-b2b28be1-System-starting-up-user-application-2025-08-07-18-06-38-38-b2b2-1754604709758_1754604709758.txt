@@ -1,0 +1,80 @@
+2025-08-07 18:06:38.21
+b2b28be1
+System
+starting up user application
+2025-08-07 18:06:38.38
+b2b28be1
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 18:06:39.53
+b2b28be1
+User
+> rest-express@1.0.0 start
+2025-08-07 18:06:39.53
+b2b28be1
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 18:06:41.01
+b2b28be1
+User
+10:06:40 PM [express] serving on port 5000
+2025-08-07 18:06:46.34
+b2b28be1
+System
+starting up user application
+2025-08-07 18:06:46.65
+b2b28be1
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 18:06:48.81
+b2b28be1
+User
+> rest-express@1.0.0 start
+2025-08-07 18:06:48.81
+b2b28be1
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 18:06:51.21
+b2b28be1
+User
+10:06:51 PM [express] serving on port 5000
+2025-08-07 18:07:51.17
+27cb27b4
+System
+system: received signal terminated
+2025-08-07 18:08:17.55
+b2b28be1
+User
+10:08:17 PM [express] GET /api/auth/user 304 in 231ms :: {"id":"29664754","email":"brandonlane1977@gm…
+2025-08-07 18:08:17.89
+b2b28be1
+User
+10:08:17 PM [express] GET /api/user-stats 304 in 234ms :: {"dailyUsage":0,"dailyLimit":-1,"totalPdfs"…
+2025-08-07 18:08:17.92
+b2b28be1
+User
+10:08:17 PM [express] GET /api/user-pdfs 200 in 193ms :: [{"id":"hDvq3LkbvDB8H1SgwBuGG","userId":"296…
+2025-08-07 18:08:48.72
+b2b28be1
+User
+Found Chrome at: /nix/store/zi4f80l169xlmivz8vja8wlphq74qqk0-chromium-125.0.6422.141/bin/chromium-browser
+2025-08-07 18:08:48.72
+b2b28be1
+User
+🌐 Using Chrome executable: /nix/store/zi4f80l169xlmivz8vja8wlphq74qqk0-chromium-125.0.6422.141/bin/chromium-browser
+2025-08-07 18:08:48.75
+b2b28be1
+User
+10:08:48 PM [express] POST /api/generate-pdf 200 in 2446ms :: {"message":"PDF generation started","re…
+2025-08-07 18:08:49.09
+b2b28be1
+User
+10:08:49 PM [express] GET /api/user-stats 200 in 231ms :: {"dailyUsage":0,"dailyLimit":-1,"totalPdfs"…
+2025-08-07 18:08:49.30
+b2b28be1
+User
+10:08:49 PM [express] GET /api/user-pdfs 200 in 408ms :: [{"id":"0Fo29CgadEw_jSjIVpHH0","userId":"296…
+2025-08-07 18:10:29.68
+b2b28be1
+User
+✅ Chrome browser launched successfully

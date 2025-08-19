@@ -1,0 +1,284 @@
+025-08-07 19:49:27.32
+daed6943
+System
+starting up user application
+2025-08-07 19:49:27.40
+daed6943
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 19:49:28.22
+daed6943
+User
+> rest-express@1.0.0 start
+2025-08-07 19:49:28.22
+daed6943
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 19:49:29.17
+daed6943
+User
+11:49:29 PM [express] serving on port 5000
+2025-08-07 20:05:51.99
+daed6943
+System
+system: received signal terminated
+2025-08-07 20:06:50.39
+daed6943
+System
+starting up user application
+2025-08-07 20:06:50.45
+daed6943
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 20:06:51.38
+daed6943
+User
+> rest-express@1.0.0 start
+2025-08-07 20:06:51.38
+daed6943
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 20:06:52.25
+daed6943
+User
+12:06:52 AM [express] serving on port 5000
+2025-08-07 20:24:42.00
+daed6943
+System
+system: received signal terminated
+2025-08-07 20:34:40.17
+daed6943
+System
+starting up user application
+2025-08-07 20:34:40.28
+daed6943
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 20:34:41.03
+daed6943
+User
+> rest-express@1.0.0 start
+2025-08-07 20:34:41.03
+daed6943
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 20:34:41.84
+daed6943
+User
+12:34:41 AM [express] serving on port 5000
+2025-08-07 20:49:52.00
+daed6943
+System
+system: received signal terminated
+2025-08-07 21:10:40.75
+daed6943
+System
+starting up user application
+2025-08-07 21:10:40.82
+daed6943
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 21:10:41.37
+daed6943
+User
+> rest-express@1.0.0 start
+2025-08-07 21:10:41.37
+daed6943
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 21:10:42.17
+daed6943
+User
+1:10:42 AM [express] serving on port 5000
+2025-08-07 21:12:49.06
+80839a4a
+System
+starting up user application
+2025-08-07 21:12:49.66
+80839a4a
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-08-07 21:12:52.62
+80839a4a
+User
+> rest-express@1.0.0 start
+2025-08-07 21:12:52.62
+80839a4a
+User
+> NODE_ENV=production node dist/index.js
+2025-08-07 21:12:54.81
+80839a4a
+User
+1:12:54 AM [express] serving on port 5000
+2025-08-07 21:13:31.97
+80839a4a
+User
+Firebase token verification error: error: duplicate key value violates unique constraint "users_email_unique"
+2025-08-07 21:13:31.97
+80839a4a
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-07 21:13:31.97
+80839a4a
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-07 21:13:31.97
+80839a4a
+User
+at async NeonPreparedQuery.execute (file:///home/runner/workspace/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+2025-08-07 21:13:31.97
+80839a4a
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:137:20)
+2025-08-07 21:13:31.97
+80839a4a
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:242:5) {
+2025-08-07 21:13:31.97
+80839a4a
+User
+length: 223,
+2025-08-07 21:13:31.97
+80839a4a
+User
+severity: 'ERROR',
+2025-08-07 21:13:31.97
+80839a4a
+User
+code: '23505',
+2025-08-07 21:13:31.97
+80839a4a
+User
+detail: 'Key (email)=(brandonlane1977@gmail.com) already exists.',
+2025-08-07 21:13:31.97
+80839a4a
+User
+hint: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+position: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+internalPosition: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+internalQuery: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+where: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+schema: 'public',
+2025-08-07 21:13:31.97
+80839a4a
+User
+table: 'users',
+2025-08-07 21:13:31.97
+80839a4a
+User
+column: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+dataType: undefined,
+2025-08-07 21:13:31.97
+80839a4a
+User
+constraint: 'users_email_unique',
+2025-08-07 21:13:31.97
+80839a4a
+User
+file: 'nbtinsert.c',
+2025-08-07 21:13:31.97
+80839a4a
+User
+line: '666',
+2025-08-07 21:13:31.97
+80839a4a
+User
+routine: '_bt_check_unique'
+2025-08-07 21:13:31.97
+80839a4a
+User
+}
+2025-08-07 21:13:31.97
+80839a4a
+User
+1:13:31 AM [express] GET /api/auth/user 401 in 1021ms :: {"message":"Unauthorized"}
+2025-08-07 21:13:32.59
+80839a4a
+User
+Firebase token verification error: error: duplicate key value violates unique constraint "users_email_unique"
+2025-08-07 21:13:32.59
+80839a4a
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-08-07 21:13:32.59
+80839a4a
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-07 21:13:32.59
+80839a4a
+User
+at async NeonPreparedQuery.execute (file:///home/runner/workspace/node_modules/drizzle-orm/neon-serverless/session.js:76:20)
+2025-08-07 21:13:32.59
+80839a4a
+User
+at async DatabaseStorage.upsertUser (file:///home/runner/workspace/dist/index.js:137:20)
+2025-08-07 21:13:32.59
+80839a4a
+User
+at async verifyFirebaseToken (file:///home/runner/workspace/dist/index.js:242:5) {
+2025-08-07 21:13:32.59
+80839a4a
+User
+length: 223,
+2025-08-07 21:13:32.59
+80839a4a
+User
+severity: 'ERROR',
+2025-08-07 21:13:32.59
+80839a4a
+User
+code: '23505',
+2025-08-07 21:13:32.59
+80839a4a
+User
+detail: 'Key (email)=(brandonlane1977@gmail.com) already exists.',
+2025-08-07 21:13:32.59
+80839a4a
+User
+hint: undefined,
+2025-08-07 21:13:32.59
+80839a4a
+User
+position: undefined,
+2025-08-07 21:13:32.59
+80839a4a
+User
+internalPosition: undefined,
+2025-08-07 21:13:32.59
+80839a4a
+User
+internalQuery: undefined,
+2025-08-07 21:13:32.59
+80839a4a
+User
+where: undefined,
+2025-08-07 21:13:32.59
+80839a4a
+User
+schema: 'public',
+2025-08-07 21:13:32.59
+80839a4a
+User
+table: 'users',
+2025-08-07 21:13:32.59
+80839a4a
+User
+column: undefined,
