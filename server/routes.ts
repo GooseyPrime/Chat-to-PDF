@@ -9,7 +9,7 @@ import { insertPdfRecordSchema } from "@shared/schema";
 import { nanoid } from "nanoid";
 import { db } from "./db";
 import { users } from "@shared/schema";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
@@ -199,12 +199,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Health check endpoint for Railway
-  app.get('/api/health', (req, res) => {
-    res.status(200).json({ 
-      status: 'healthy', 
-      timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV || 'development'
-    });
+  app.get('/api/health', async (req, res) => {
+    try {
+      // Test database connectivity
+      await db.execute(sql`SELECT 1 as health_check`);
+      
+      res.status(200).json({ 
+        status: 'healthy', 
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development',
+        database: 'connected'
+      });
+    } catch (error) {
+      console.error('Health check failed - database issue:', error);
+      res.status(503).json({ 
+        status: 'unhealthy', 
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development',
+        database: 'disconnected',
+        error: 'Database connectivity failed'
+      });
+    }
   });
 
   // No need for session setup with Firebase Auth
