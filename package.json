@@ -10,8 +10,7 @@
     "start:railway": "npm run build && npm start",
     "check": "tsc",
     "db:push": "drizzle-kit push",
-    "db:generate": "drizzle-kit generate",
-    "postinstall": "npm run build"
+    "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
