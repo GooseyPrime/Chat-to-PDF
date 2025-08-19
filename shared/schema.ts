@@ -26,7 +26,7 @@ export const sessions = pgTable(
 // User storage table
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().notNull(),
-  email: varchar("email").unique(),
+  email: varchar("email"), // Removed unique constraint to allow multiple Firebase UIDs with same email
   firstName: varchar("first_name"),
   lastName: varchar("last_name"),
   profileImageUrl: varchar("profile_image_url"),
@@ -38,12 +38,15 @@ export const users = pgTable("users", {
   lastUsageReset: timestamp("last_usage_reset").defaultNow(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
-});
+}, (table) => [
+  // Add non-unique index for email performance
+  index("users_email_idx").on(table.email),
+]);
 
 // PDF generation records
 export const pdfRecords = pgTable("pdf_records", {
   id: varchar("id").primaryKey().notNull(),
-  userId: varchar("user_id").notNull().references(() => users.id),
+  userId: varchar("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   originalUrl: text("original_url").notNull(),
   platform: varchar("platform").notNull(), // chatgpt, claude, gemini
   fileName: text("file_name").notNull(),
@@ -58,7 +61,7 @@ export const pdfRecords = pgTable("pdf_records", {
 // Subscription history
 export const subscriptionHistory = pgTable("subscription_history", {
   id: varchar("id").primaryKey().notNull(),
-  userId: varchar("user_id").notNull().references(() => users.id),
+  userId: varchar("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   stripeSubscriptionId: varchar("stripe_subscription_id"),
   tier: varchar("tier").notNull(),
   status: varchar("status").notNull(),

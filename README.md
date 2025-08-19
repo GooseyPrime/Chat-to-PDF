@@ -69,15 +69,32 @@ For a quick automated setup, run:
 
 ## Railway Deployment
 
-Railway is the recommended platform for deploying this application. Follow these steps:
+Railway is the recommended platform for deploying this application. Follow these steps for a robust, fail-proof deployment:
 
 ### 1. Prerequisites
 
 - A Railway account ([railway.app](https://railway.app))
 - Your environment variables ready
 - A PostgreSQL database (Neon recommended)
+- Firebase project set up with authentication enabled
+- Stripe account with webhook configuration
 
-### 2. Deploy to Railway
+### 2. Pre-Deployment Verification
+
+Before deploying, run the verification script to catch issues early:
+
+```bash
+./scripts/verify-deployment.sh
+```
+
+This script will:
+- ✅ Verify all required environment variables
+- ✅ Test the build process
+- ✅ Check for build artifacts
+- ✅ Validate database schema (if accessible)
+- ✅ Ensure migration files are present
+
+### 3. Deploy to Railway
 
 1. **Connect your repository**:
    - Go to [Railway Dashboard](https://railway.app/dashboard)
@@ -89,14 +106,14 @@ Railway is the recommended platform for deploying this application. Follow these
    In your Railway project settings, add these variables:
 
    ```bash
-   # Database
+   # Database (Required)
    DATABASE_URL=postgresql://username:password@host/database
 
-   # Stripe Configuration
+   # Stripe Configuration (Required)
    STRIPE_SECRET_KEY=sk_live_...  # Use live keys for production
    STRIPE_WEBHOOK_SECRET=whsec_...
 
-   # Firebase Configuration
+   # Firebase Configuration (Required)
    VITE_FIREBASE_PROJECT_ID=your-project-id
    VITE_FIREBASE_API_KEY=your-api-key  
    VITE_FIREBASE_APP_ID=your-app-id
@@ -105,71 +122,182 @@ Railway is the recommended platform for deploying this application. Follow these
    NODE_ENV=production
    ```
 
-3. **Stripe Webhook Configuration**:
-   - In your Stripe Dashboard, go to Webhooks
-   - Add a new webhook endpoint: `https://your-railway-app.railway.app/api/stripe-webhook`
-   - Enable these events:
-     - `checkout.session.completed`
-     - `payment_intent.payment_failed`
-     - `invoice.payment_succeeded`
-     - `customer.subscription.deleted`
+   **⚠️ Important Notes:**
+   - Use live Stripe keys for production deployments
+   - Ensure Firebase project has your Railway domain in authorized domains
+   - DATABASE_URL must be accessible from Railway
 
-4. **Deploy**:
+3. **Deploy**:
    - Railway will automatically detect the `Dockerfile` and `railway.json`
    - The application will build and deploy automatically
    - Monitor the build logs in the Railway dashboard
 
-### 3. Post-Deployment
+### 4. Post-Deployment Database Migration
 
-1. **Verify the deployment**:
-   - Check the health endpoint: `https://your-app.railway.app/api/health`
-   - Test the login flow with Firebase Auth
-   - Test a subscription purchase
+**Critical Step:** After your first deployment, you must run the database migration to fix constraint issues:
 
-2. **Configure your domain** (optional):
-   - In Railway project settings, add a custom domain
-   - Update Firebase Auth authorized domains
-   - Update Stripe webhook URLs if using custom domain
+#### Option 1: SQL Migration (Recommended)
 
-### 4. Environment Variables Reference
+1. **Access Railway Shell**:
+   ```bash
+   # In Railway dashboard, go to your project
+   # Click on "Shell" or "Console"
+   ```
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `DATABASE_URL` | PostgreSQL connection string (Neon recommended) | ✅ |
-| `STRIPE_SECRET_KEY` | Stripe secret key (sk_live_... for production) | ✅ |
-| `STRIPE_WEBHOOK_SECRET` | Stripe webhook endpoint secret | ✅ |
-| `VITE_FIREBASE_PROJECT_ID` | Firebase project ID | ✅ |
-| `VITE_FIREBASE_API_KEY` | Firebase API key | ✅ |
-| `VITE_FIREBASE_APP_ID` | Firebase app ID | ✅ |
-| `NODE_ENV` | Set to 'production' for production builds | ⚠️ |
+2. **Run the migration**:
+   ```bash
+   psql $DATABASE_URL < migrations/fix-railway-deployment.sql
+   ```
 
-### 5. Troubleshooting
+#### Option 2: App-side Migration (Alternative)
 
-**Build Issues**:
-- Ensure all environment variables are set
-- Check Railway build logs for specific errors
-- Verify Dockerfile syntax
+If SQL access is not available, you can run the app-side migration:
 
-**Database Issues**:
-- Ensure DATABASE_URL is correctly formatted
-- Run database migrations if needed: `npm run db:push`
-- Check Neon database connectivity
+```bash
+# In Railway shell or after deployment
+node migrations/app-migration.js
+```
 
-**Stripe Issues**:
-- Verify webhook endpoint URL is correct
-- Check webhook secret matches Railway environment
-- Ensure Stripe keys are for the correct environment (test/live)
+3. **Verify migration success**:
+   ```bash
+   # Check health endpoint
+   curl https://your-app.railway.app/api/health
+   
+   # Should return: {"status": "healthy", "timestamp": "...", "database": "connected"}
+   ```
 
-**Firebase Issues**:
-- Add Railway domain to Firebase Auth authorized domains
-- Verify Firebase configuration variables are correct
+   **What this migration fixes:**
+   - ❌ Removes `users_email_unique` constraint (allows multiple Firebase UIDs with same email)
+   - ✅ Adds `ON DELETE CASCADE` to foreign key relationships
+   - 🚀 Prevents deployment failures and database constraint violations
 
-### 6. Monitoring and Maintenance
+### 5. Stripe Webhook Configuration
 
-- Monitor application logs in Railway dashboard
+1. **Set up webhook endpoint**:
+   - In your Stripe Dashboard, go to Webhooks
+   - Add endpoint: `https://your-railway-app.railway.app/api/stripe-webhook`
+   - **Important:** Ensure URL ends with `/api/stripe-webhook` (no trailing slash)
+
+2. **Enable required events**:
+   ```
+   ✅ checkout.session.completed
+   ✅ payment_intent.payment_failed  
+   ✅ invoice.payment_succeeded
+   ✅ customer.subscription.deleted
+   ```
+
+3. **Copy webhook secret**:
+   - Copy the webhook signing secret from Stripe
+   - Add it as `STRIPE_WEBHOOK_SECRET` in Railway environment variables
+
+### 6. Firebase Authentication Setup
+
+1. **Add Railway domain to Firebase**:
+   - Go to Firebase Console → Authentication → Settings
+   - Add your Railway domain to "Authorized domains"
+   - Example: `your-app.railway.app`
+
+2. **Verify configuration**:
+   - Test login flow on deployed application
+   - Check browser console for Firebase errors
+
+### 7. Environment Variables Reference
+
+| Variable | Description | Required | Example |
+|----------|-------------|----------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | ✅ | `postgresql://user:pass@host/db` |
+| `STRIPE_SECRET_KEY` | Stripe secret key | ✅ | `sk_live_...` |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook endpoint secret | ✅ | `whsec_...` |
+| `VITE_FIREBASE_PROJECT_ID` | Firebase project ID | ✅ | `my-project-123` |
+| `VITE_FIREBASE_API_KEY` | Firebase API key | ✅ | `AIza...` |
+| `VITE_FIREBASE_APP_ID` | Firebase app ID | ✅ | `1:123:web:...` |
+| `NODE_ENV` | Environment mode | ⚠️ | `production` |
+
+### 8. Troubleshooting Common Issues
+
+**Build Failures:**
+```bash
+# Issue: xcopy command not found
+# Solution: Already fixed in package.json, use 'cp' instead
+
+# Issue: Missing environment variables
+# Solution: Verify all required vars are set in Railway
+```
+
+**Database Constraint Errors:**
+```bash
+# Issue: "duplicate key value violates unique constraint users_email_unique"
+# Solution: Run the migration script (step 4 above)
+
+# Issue: "violates foreign key constraint pdf_records_user_id_users_id_fk"
+# Solution: Migration adds ON DELETE CASCADE (step 4 above)
+```
+
+**Stripe Webhook Issues:**
+```bash
+# Issue: Webhook signature verification fails
+# Solution: Ensure STRIPE_WEBHOOK_SECRET matches Stripe dashboard
+
+# Issue: 404 on webhook URL
+# Solution: Verify URL is https://your-app.railway.app/api/stripe-webhook
+```
+
+**Firebase Authentication Issues:**
+```bash
+# Issue: "auth/unauthorized-domain"
+# Solution: Add Railway domain to Firebase authorized domains
+
+# Issue: Firebase config errors
+# Solution: Verify all VITE_FIREBASE_* variables are correct
+```
+
+### 9. Health Monitoring
+
+**Health Check Endpoint:**
+```bash
+GET https://your-app.railway.app/api/health
+
+# Expected Response:
+{
+  "status": "healthy",
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "database": "connected",
+  "environment": "production"
+}
+```
+
+**Monitoring Setup:**
 - Set up uptime monitoring for the health endpoint
-- Regularly update dependencies for security
-- Monitor Stripe webhook delivery in Stripe dashboard
+- Monitor Railway logs for errors
+- Check Stripe webhook delivery status
+- Monitor database connection and performance
+
+### 10. Custom Domain (Optional)
+
+1. **Configure custom domain in Railway**:
+   - Go to Project Settings → Domains
+   - Add your custom domain
+
+2. **Update configurations**:
+   - Add domain to Firebase authorized domains
+   - Update Stripe webhook URL to use custom domain
+   - Update any hardcoded URLs in your application
+
+### 11. Deployment Checklist
+
+Before going live, ensure:
+
+- [ ] ✅ Pre-deployment verification script passes
+- [ ] ✅ All environment variables set in Railway
+- [ ] ✅ Database migration completed successfully
+- [ ] ✅ Stripe webhooks configured and tested
+- [ ] ✅ Firebase authentication working
+- [ ] ✅ Health endpoint returns healthy status
+- [ ] ✅ Test user registration and subscription flow
+- [ ] ✅ Test PDF generation functionality
+- [ ] ✅ Monitor deployment logs for errors
+
+This comprehensive setup ensures a robust, production-ready deployment that handles the common failure scenarios encountered with Railway deployments.
 
 ## Development Notes
 
