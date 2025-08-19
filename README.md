@@ -21,13 +21,28 @@ Convert your chat conversations from ChatGPT, Claude, and Gemini into beautifull
 
 ## Local Development
 
+### Quick Setup
+
+For a quick automated setup, run:
+
+```bash
+./scripts/setup-dev.sh
+```
+
+### Manual Setup
+
 1. **Install dependencies**:
    ```bash
-   npm install
+   PUPPETEER_SKIP_DOWNLOAD=true npm install
    ```
 
 2. **Set up environment variables**:
-   Create a `.env` file with the following variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+   Required variables:
    ```
    # Database
    DATABASE_URL=your_neon_postgres_url
