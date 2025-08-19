@@ -14,8 +14,7 @@ COPY package*.json ./
 
 # Install all dependencies (including dev dependencies for build)
 # Skip Puppeteer download - Railway will handle Chrome
-ENV PUPPETEER_SKIP_DOWNLOAD=true
-RUN npm ci --no-audit --no-fund
+RUN PUPPETEER_SKIP_DOWNLOAD=true npm ci --no-audit --no-fund
 
 # Copy source code
 COPY . .
