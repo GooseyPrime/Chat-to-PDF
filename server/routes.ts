@@ -124,9 +124,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
             periodEnd: periodEnd
           });
           
-          console.log(`✅ Checkout completed: Updated user ${userId} subscription to ${tier}`);
+          console.log(`✅ Checkout completed: Updated user ${userId} subscription to ${tier}:active`);
           console.log(`✅ Subscription history logged for period ${periodDays} days`);
-          console.log(`✅ User after update:`, JSON.stringify(updatedUser, null, 2));
+          console.log(`✅ User subscription after update:`, {
+            id: updatedUser.id,
+            email: updatedUser.email,
+            subscriptionTier: updatedUser.subscriptionTier,
+            subscriptionStatus: updatedUser.subscriptionStatus,
+            updatedAt: updatedUser.updatedAt
+          });
           
           // Update Stripe customer ID if present
           if (session.customer && typeof session.customer === 'string') {
@@ -190,6 +196,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Still return 200 to prevent Stripe from retrying
       res.status(200).json({ received: true, error: 'Processing failed' });
     }
+  });
+
+  // Health check endpoint for Railway
+  app.get('/api/health', (req, res) => {
+    res.status(200).json({ 
+      status: 'healthy', 
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || 'development'
+    });
   });
 
   // No need for session setup with Firebase Auth
