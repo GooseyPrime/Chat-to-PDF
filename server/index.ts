@@ -1,23 +1,9 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { appConfig } from "./config/environment";
 
-// Environment variable validation for production
-const requiredEnvVars = [
-  'DATABASE_URL',
-  'STRIPE_SECRET_KEY', 
-  'STRIPE_WEBHOOK_SECRET',
-  'VITE_FIREBASE_PROJECT_ID'
-];
-
-const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
-if (missingEnvVars.length > 0) {
-  console.error('❌ Missing required environment variables:', missingEnvVars.join(', '));
-  console.error('Please set these environment variables before starting the application.');
-  process.exit(1);
-}
-
-log('✅ All required environment variables are set');
+log('✅ Environment configuration loaded successfully');
 
 // Check database migration status on startup
 async function checkMigrationStatus() {
@@ -110,16 +96,19 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
+  // ALWAYS serve the app on port from environment configuration
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
+  const port = appConfig.port;
   const serverInstance = server.listen({
     port,
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
+    if (appConfig.isRailway) {
+      log(`🚂 Railway deployment detected. Public domain: ${appConfig.railway.publicDomain || 'pending'}`);
+    }
   });
 
   // Graceful shutdown handling
