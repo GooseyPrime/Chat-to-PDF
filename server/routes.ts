@@ -10,12 +10,9 @@ import { nanoid } from "nanoid";
 import { db } from "./db";
 import { users } from "@shared/schema";
 import { eq, sql } from "drizzle-orm";
+import { stripeConfig } from "./config/environment";
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(stripeConfig.secretKey);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auto-expire subscriptions every hour
@@ -31,7 +28,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // This handles the raw body needed for signature verification
   app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), async (req, res) => {
     const sig = req.headers['stripe-signature'] as string;
-    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!; // Using secret from environment
+    const webhookSecret = stripeConfig.webhookSecret;
     
     console.log('🔔 Stripe webhook received at:', new Date().toISOString());
     console.log('🔔 Headers:', req.headers);
@@ -333,15 +330,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Map plan types to one-time payment Stripe price IDs from environment variables
       const priceMapping = {
         'basic_weekly': {
-          priceId: 'price_1Rg6fnJF6bibA8nesbJ1RvxA',
+          priceId: stripeConfig.priceIds.basicWeekly,
           amount: 499 // $4.99 in cents
         },
         'pro_weekly': {
-          priceId: 'price_1Rtf6CJF6bibA8nef9w5LhLE',
+          priceId: stripeConfig.priceIds.proWeekly,
           amount: 999 // $9.99 in cents
         },
         'pro_annual': {
-          priceId: 'price_1Rtf9YJF6bibA8nemK14siZ5',
+          priceId: stripeConfig.priceIds.proAnnual,
           amount: 5999 // $59.99 in cents
         }
       };
