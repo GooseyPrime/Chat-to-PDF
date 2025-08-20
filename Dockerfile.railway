@@ -1,0 +1,26 @@
+# Railway-optimized Dockerfile
+# Uses Node.js 20 and minimal setup to avoid build issues
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies with Railway-specific settings
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV NODE_ENV=production
+RUN npm ci --omit=dev
+
+# Copy source code
+COPY . .
+
+# Build the application
+RUN npm run build
+
+# Expose port (Railway will override with PORT env var)
+EXPOSE 5000
+
+# Start the application
+CMD ["npm", "start"]
