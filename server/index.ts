@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { appConfig } from "./config/environment";
+import healthRoutes from './routes/health';
 
 log('✅ Environment configuration loaded successfully');
 
@@ -45,6 +46,9 @@ app.use((req, res, next) => {
   }
 });
 app.use(express.urlencoded({ extended: false }));
+
+// Register health route
+app.use('/api', healthRoutes);
 
 app.use((req, res, next) => {
   const start = Date.now();
