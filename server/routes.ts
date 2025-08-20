@@ -15,16 +15,6 @@ import { stripeConfig } from "./config/environment";
 const stripe = new Stripe(stripeConfig.secretKey);
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Health check endpoint for Railway
-  app.get('/api/health', (req, res) => {
-    res.json({ 
-      status: 'healthy', 
-      timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV,
-      service: 'chat-to-pdf'
-    });
-  });
-
   // Auto-expire subscriptions every hour
   setInterval(async () => {
     try {
@@ -202,56 +192,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error('Error processing webhook:', processError);
       // Still return 200 to prevent Stripe from retrying
       res.status(200).json({ received: true, error: 'Processing failed' });
-    }
-  });
-
-  // Health check endpoint for Railway
-  app.get('/api/health', async (req, res) => {
-    try {
-      // Test database connectivity
-      await db.execute(sql`SELECT 1 as health_check`);
-      
-      // Check for problematic constraints that cause deployment failures
-      let migrationWarning = null;
-      let migrationRequired = false;
-      
-      try {
-        const constraintCheck = await db.execute(sql`
-          SELECT conname FROM pg_constraint WHERE conname = 'users_email_unique'
-        `);
-        
-        if (Array.isArray(constraintCheck) && constraintCheck.length > 0) {
-          migrationWarning = 'users_email_unique constraint exists - may cause authentication failures';
-          migrationRequired = true;
-          console.warn('⚠️ Health check detected users_email_unique constraint - run migration to fix');
-        }
-      } catch (constraintError) {
-        // If we can't check constraints, it's not critical for health check
-        console.warn('Could not check database constraints:', constraintError);
-      }
-      
-      const healthResponse = { 
-        status: 'healthy', 
-        timestamp: new Date().toISOString(),
-        environment: process.env.NODE_ENV || 'development',
-        database: 'connected',
-        ...(migrationWarning && { 
-          warning: migrationWarning,
-          migrationRequired,
-          migrationScript: 'migrations/fix-railway-deployment.sql'
-        })
-      };
-      
-      res.status(200).json(healthResponse);
-    } catch (error) {
-      console.error('Health check failed - database issue:', error);
-      res.status(503).json({ 
-        status: 'unhealthy', 
-        timestamp: new Date().toISOString(),
-        environment: process.env.NODE_ENV || 'development',
-        database: 'disconnected',
-        error: 'Database connectivity failed'
-      });
     }
   });
 
