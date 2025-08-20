@@ -14,8 +14,10 @@ COPY package*.json ./
 
 # Install all dependencies (including dev dependencies for build)
 # Skip Puppeteer download - Railway will handle Chrome
+
 # Configure npm to handle certificate issues in Docker
 RUN npm config set strict-ssl false
+
 RUN PUPPETEER_SKIP_DOWNLOAD=true npm ci --no-audit --no-fund
 
 # Copy source code
