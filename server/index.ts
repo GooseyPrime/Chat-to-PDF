@@ -19,6 +19,35 @@ if (missingEnvVars.length > 0) {
 
 log('✅ All required environment variables are set');
 
+// Check database migration status on startup
+async function checkMigrationStatus() {
+  try {
+    const { db } = await import('./db');
+    const { sql } = await import('drizzle-orm');
+    
+    // Check for problematic constraints
+    const constraintCheck = await db.execute(sql`
+      SELECT conname FROM pg_constraint WHERE conname = 'users_email_unique'
+    `);
+    
+    if (Array.isArray(constraintCheck) && constraintCheck.length > 0) {
+      console.warn('⚠️ WARNING: users_email_unique constraint detected in database');
+      console.warn('⚠️ This may cause authentication failures and deployment issues');
+      console.warn('⚠️ Run the migration script to fix: migrations/fix-railway-deployment.sql');
+      console.warn('⚠️ Or use the app-side migration: node migrations/app-migration.js');
+    } else {
+      log('✅ Database migration status: users_email_unique constraint properly removed');
+    }
+  } catch (error: any) {
+    // Don't fail startup if migration check fails, just warn
+    console.warn('⚠️ Could not check migration status on startup:', error?.message || 'Unknown error');
+    console.warn('⚠️ This is normal for first deployment or if database is not yet accessible');
+  }
+}
+
+// Run migration check in background (don't block startup)
+checkMigrationStatus();
+
 const app = express();
 
 // Add JSON parsing middleware but exclude webhook routes that need raw body

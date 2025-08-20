@@ -164,6 +164,10 @@ node migrations/app-migration.js
    curl https://your-app.railway.app/api/health
    
    # Should return: {"status": "healthy", "timestamp": "...", "database": "connected"}
+   # If migration needed, will also include: {"warning": "...", "migrationRequired": true}
+   
+   # Check detailed migration status
+   curl https://your-app.railway.app/api/migration-status
    ```
 
    **What this migration fixes:**
