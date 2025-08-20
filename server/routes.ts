@@ -204,12 +204,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Test database connectivity
       await db.execute(sql`SELECT 1 as health_check`);
       
-      res.status(200).json({ 
+      // Check for problematic constraints that cause deployment failures
+      let migrationWarning = null;
+      let migrationRequired = false;
+      
+      try {
+        const constraintCheck = await db.execute(sql`
+          SELECT conname FROM pg_constraint WHERE conname = 'users_email_unique'
+        `);
+        
+        if (Array.isArray(constraintCheck) && constraintCheck.length > 0) {
+          migrationWarning = 'users_email_unique constraint exists - may cause authentication failures';
+          migrationRequired = true;
+          console.warn('⚠️ Health check detected users_email_unique constraint - run migration to fix');
+        }
+      } catch (constraintError) {
+        // If we can't check constraints, it's not critical for health check
+        console.warn('Could not check database constraints:', constraintError);
+      }
+      
+      const healthResponse = { 
         status: 'healthy', 
         timestamp: new Date().toISOString(),
         environment: process.env.NODE_ENV || 'development',
-        database: 'connected'
-      });
+        database: 'connected',
+        ...(migrationWarning && { 
+          warning: migrationWarning,
+          migrationRequired,
+          migrationScript: 'migrations/fix-railway-deployment.sql'
+        })
+      };
+      
+      res.status(200).json(healthResponse);
     } catch (error) {
       console.error('Health check failed - database issue:', error);
       res.status(503).json({ 
@@ -218,6 +244,59 @@ export async function registerRoutes(app: Express): Promise<Server> {
         environment: process.env.NODE_ENV || 'development',
         database: 'disconnected',
         error: 'Database connectivity failed'
+      });
+    }
+  });
+
+  // Migration status endpoint for debugging
+  app.get('/api/migration-status', async (req, res) => {
+    try {
+      // Check for problematic constraints
+      const constraintCheck = await db.execute(sql`
+        SELECT conname FROM pg_constraint WHERE conname = 'users_email_unique'
+      `);
+      
+      // Check foreign key constraints
+      const fkCheck = await db.execute(sql`
+        SELECT constraint_name, delete_rule 
+        FROM information_schema.referential_constraints 
+        WHERE constraint_name IN ('pdf_records_user_id_users_id_fk', 'subscription_history_user_id_users_id_fk')
+      `);
+      
+      // Check email index
+      const indexCheck = await db.execute(sql`
+        SELECT indexname FROM pg_indexes WHERE indexname = 'users_email_idx'
+      `);
+      
+      const constraintRows = Array.isArray(constraintCheck) ? constraintCheck : [];
+      const fkRows = Array.isArray(fkCheck) ? fkCheck : [];
+      const indexRows = Array.isArray(indexCheck) ? indexCheck : [];
+      
+      const migrationStatus = {
+        timestamp: new Date().toISOString(),
+        checks: {
+          users_email_unique_removed: constraintRows.length === 0,
+          foreign_keys_have_cascade: fkRows.filter((fk: any) => fk.delete_rule === 'CASCADE').length === fkRows.length,
+          email_index_exists: indexRows.length > 0
+        },
+        details: {
+          problematic_constraints: constraintRows.map((c: any) => c.conname),
+          foreign_key_constraints: fkRows.map((fk: any) => ({ name: fk.constraint_name, delete_rule: fk.delete_rule })),
+          email_index: indexRows.map((i: any) => i.indexname)
+        },
+        migration_required: constraintRows.length > 0,
+        migration_scripts: [
+          'migrations/fix-railway-deployment.sql',
+          'migrations/app-migration.js (alternative)'
+        ]
+      };
+      
+      res.json(migrationStatus);
+    } catch (error: any) {
+      console.error('Migration status check failed:', error);
+      res.status(500).json({ 
+        error: 'Failed to check migration status',
+        message: error?.message || 'Unknown error'
       });
     }
   });
