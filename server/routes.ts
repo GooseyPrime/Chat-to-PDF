@@ -15,6 +15,16 @@ import { stripeConfig } from "./config/environment";
 const stripe = new Stripe(stripeConfig.secretKey);
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Health check endpoint for Railway
+  app.get('/api/health', (req, res) => {
+    res.json({ 
+      status: 'healthy', 
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV,
+      service: 'chat-to-pdf'
+    });
+  });
+
   // Auto-expire subscriptions every hour
   setInterval(async () => {
     try {
