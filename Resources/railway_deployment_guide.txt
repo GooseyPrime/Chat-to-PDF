@@ -1,0 +1,353 @@
+# 🚂 **Railway Deployment Guide - ChatTranscriptConverter**
+
+## 📋 **Service Naming Convention**
+
+### **Railway Project Structure**
+```
+Project Name: chat-transcript-converter
+├── Service: chat-transcript-app (main application)
+├── Service: postgresql (database plugin)
+└── Environment: production
+```
+
+### **Recommended Naming**
+- **Project Name**: `chat-transcript-converter` or `chattranscriptconverter`
+- **Service Name**: `chat-transcript-app` or `ctc-app`
+- **Domain**: `chat-transcript-converter.up.railway.app` (auto-generated)
+- **Custom Domain**: `yourdomain.com` (if you have one)
+
+---
+
+## 🚀 **Step-by-Step Deployment**
+
+### **1. Prepare Your Repository**
+
+```bash
+# 1. Update package.json (already done)
+# 2. Commit all changes
+git add .
+git commit -m "Prepare for Railway deployment"
+git push origin main
+```
+
+### **2. Create Railway Project**
+
+1. **Go to Railway**: https://railway.app
+2. **Click "New Project"**
+3. **Select "Deploy from GitHub repo"**
+4. **Choose your repository**
+5. **Name your project**: `chat-transcript-converter`
+
+### **3. Add PostgreSQL Database**
+
+1. **In your Railway project dashboard**
+2. **Click "New Service"**
+3. **Select "Database"**
+4. **Choose "PostgreSQL"**
+5. **Railway will automatically create `DATABASE_URL`**
+
+### **4. Configure Environment Variables**
+
+**Go to your service → Variables tab and add:**
+
+#### **🔑 Required Secrets**
+```bash
+# Stripe Configuration
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_PUBLISHABLE_KEY=pk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_BASIC_WEEKLY_PRICE_ID=price_...
+STRIPE_PRO_WEEKLY_PRICE_ID=price_...
+STRIPE_PRO_ANNUAL_PRICE_ID=price_...
+
+# Firebase Configuration
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-...@your-project.iam.gserviceaccount.com
+
+# Application Security
+NODE_ENV=production
+SESSION_SECRET=your-32-character-secure-secret
+STORAGE_PATH=/app/storage
+
+# Frontend Configuration
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_STRIPE_PUBLISHABLE_KEY=pk_live_...
+```
+
+#### **📝 How to Get Each Secret**
+
+**Stripe Secrets:**
+1. Go to https://dashboard.stripe.com/apikeys
+2. Copy your **Live** keys (not test keys)
+3. For webhook secret: Create webhook endpoint first (see step 5)
+
+**Firebase Secrets:**
+1. Go to https://console.firebase.google.com/
+2. Select your project → Project Settings
+3. Service Accounts tab → Generate new private key
+4. Copy values from downloaded JSON
+
+**Session Secret:**
+```bash
+# Generate secure secret:
+openssl rand -hex 32
+```
+
+### **5. Configure Stripe Webhook**
+
+**After deployment (you'll need the Railway URL):**
+
+1. **Go to Stripe Dashboard** → Webhooks
+2. **Add endpoint**: `https://your-app.up.railway.app/api/stripe-webhook`
+3. **Select events**:
+   - `checkout.session.completed`
+   - `payment_intent.payment_failed`
+   - `customer.subscription.deleted`
+4. **Copy webhook secret** → Add to Railway as `STRIPE_WEBHOOK_SECRET`
+
+### **6. Deploy**
+
+Railway will automatically deploy when you push to main branch.
+
+**Monitor deployment:**
+1. Go to **Deployments** tab
+2. Watch build logs
+3. Ensure deployment succeeds
+
+### **7. Run Database Migration**
+
+**Option A: Using Railway CLI**
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login and connect
+railway login
+railway link
+
+# Run migration
+railway run psql $DATABASE_URL -f database_migration.sql
+```
+
+**Option B: Direct PostgreSQL connection**
+```bash
+# Get DATABASE_URL from Railway dashboard
+# Run migration locally
+psql "postgresql://username:password@host:port/database" -f database_migration.sql
+```
+
+### **8. Verify Deployment**
+
+**Check health endpoint:**
+```bash
+curl https://your-app.up.railway.app/health
+```
+
+**Expected response:**
+```json
+{
+  "status": "healthy",
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "environment": "production",
+  "railway": {
+    "environment": "production",
+    "deploymentId": "...",
+    "serviceId": "...",
+    "projectId": "..."
+  }
+}
+```
+
+---
+
+## 🔧 **Railway-Specific Configuration**
+
+### **Build & Start Commands**
+Railway will automatically detect these from `package.json`:
+- **Build Command**: `npm run build`
+- **Start Command**: `npm run start`
+
+### **Environment Detection**
+The app automatically detects Railway environment and:
+- Uses Railway-provided `PORT`
+- Enables proxy trust for Railway load balancer
+- Adds Railway-specific health checks
+- Includes Railway metadata in logs
+
+### **Storage Configuration**
+```bash
+# Railway provides ephemeral storage
+# For persistent storage, use Railway Volumes (coming soon)
+STORAGE_PATH=/app/storage
+```
+
+### **Custom Domain Setup**
+1. **Railway Dashboard** → Settings → Domains
+2. **Add custom domain**: `yourdomain.com`
+3. **Configure DNS** (Railway provides instructions)
+4. **Update environment variables**:
+   ```bash
+   APP_URL=https://yourdomain.com
+   CLIENT_URL=https://yourdomain.com
+   ```
+
+---
+
+## 📊 **Monitoring & Maintenance**
+
+### **Railway Dashboard Monitoring**
+- **Metrics**: CPU, Memory, Network usage
+- **Logs**: Real-time application logs
+- **Deployments**: History and rollback options
+
+### **Application Monitoring Endpoints**
+```bash
+# Health check
+https://your-app.up.railway.app/health
+
+# System stats (admin only)
+https://your-app.up.railway.app/api/admin/system-stats
+
+# Deployment info
+https://your-app.up.railway.app/api/deployment-info
+```
+
+### **Log Monitoring**
+```bash
+# Railway CLI
+railway logs
+
+# Follow logs
+railway logs --follow
+```
+
+---
+
+## 🚨 **Troubleshooting**
+
+### **Common Issues**
+
+#### **1. Build Failures**
+```bash
+# Check build logs in Railway dashboard
+# Common fixes:
+- Ensure all dependencies in package.json
+- Check TypeScript compilation errors
+- Verify environment variables set
+```
+
+#### **2. Database Connection Issues**
+```bash
+# Verify DATABASE_URL is set
+# Railway PostgreSQL format:
+postgresql://username:password@host:port/database
+
+# Test connection
+railway run psql $DATABASE_URL -c "SELECT 1;"
+```
+
+#### **3. Stripe Webhook Issues**
+```bash
+# Ensure webhook URL is correct
+# Format: https://your-app.up.railway.app/api/stripe-webhook
+# Verify webhook secret matches environment variable
+# Check Railway logs for webhook errors
+```
+
+#### **4. PDF Generation Issues**
+```bash
+# Railway includes Chrome/Chromium
+# If issues persist, check logs for Chrome errors
+# Verify storage path is writable: /app/storage
+```
+
+### **Debug Commands**
+```bash
+# Railway CLI debugging
+railway shell  # Access container shell
+railway logs --follow  # Real-time logs
+railway status  # Service status
+
+# Test endpoints
+curl https://your-app.up.railway.app/health
+curl https://your-app.up.railway.app/api/deployment-info
+```
+
+---
+
+## 🔄 **Deployment Workflow**
+
+### **Automatic Deployments**
+```bash
+# Railway automatically deploys on push to main
+git add .
+git commit -m "Update feature"
+git push origin main
+# Railway deploys automatically
+```
+
+### **Manual Deployments**
+```bash
+# Railway CLI
+railway up
+
+# Or redeploy from dashboard
+# Go to Deployments → Click "Deploy Latest"
+```
+
+### **Environment Management**
+```bash
+# Multiple environments
+railway environment create staging
+railway environment switch staging
+# Configure different variables for staging
+```
+
+---
+
+## 📈 **Scaling & Optimization**
+
+### **Vertical Scaling**
+Railway automatically scales based on usage.
+
+### **Performance Optimization**
+- **Static assets**: Served efficiently by Railway
+- **Caching**: Built-in Redis caching in app
+- **Database**: Connection pooling enabled
+- **Monitoring**: Use Railway metrics + custom endpoints
+
+### **Cost Optimization**
+- **Start with Hobby plan** ($5/month)
+- **Monitor usage** in Railway dashboard
+- **Optimize PDF storage** (implement cleanup)
+- **Use caching** to reduce database queries
+
+---
+
+## ✅ **Post-Deployment Checklist**
+
+- [ ] Application health check passes
+- [ ] Database migration completed
+- [ ] Stripe webhooks working
+- [ ] Firebase authentication working
+- [ ] PDF generation working
+- [ ] Custom domain configured (if applicable)
+- [ ] Monitoring alerts set up
+- [ ] Backup strategy implemented
+
+**Your ChatTranscriptConverter is now live on Railway! 🎉**
+
+**Production URL**: `https://your-app.up.railway.app`
+
+---
+
+## 🔗 **Quick Links**
+
+- **Railway Dashboard**: https://railway.app/project/[your-project-id]
+- **PostgreSQL Admin**: Use Railway web interface or connect with your favorite client
+- **Stripe Dashboard**: https://dashboard.stripe.com/
+- **Firebase Console**: https://console.firebase.google.com/
+- **Application Health**: https://your-app.up.railway.app/health
