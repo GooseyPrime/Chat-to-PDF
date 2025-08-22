@@ -105,10 +105,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
             break;
           }
           
-          const user = await storage.getUser(userId);
+          let user = await storage.getUser(userId);
           if (!user) {
-            console.error('User not found for checkout session:', session.id);
-            break;
+            // For subscription purchases, we may need to create the user if they don't exist
+            // This can happen when users purchase before signing up
+            console.log(`⚠️ User ${userId} not found for checkout session ${session.id}, attempting to create user`);
+            
+            // Get customer details from Stripe session
+            let customerEmail = '';
+            if (session.customer_details?.email) {
+              customerEmail = session.customer_details.email;
+            } else if (session.customer && typeof session.customer === 'string') {
+              // If we have a customer ID, fetch the customer details from Stripe
+              try {
+                const customer = await stripe.customers.retrieve(session.customer);
+                if (customer && !customer.deleted && customer.email) {
+                  customerEmail = customer.email;
+                }
+              } catch (err) {
+                console.error('Failed to retrieve customer details:', err);
+              }
+            }
+            
+            if (customerEmail) {
+              // Create a new user with the email from Stripe
+              try {
+                user = await storage.upsertUser({
+                  id: userId,
+                  email: customerEmail,
+                });
+                console.log(`✅ Created new user ${userId} with email ${customerEmail} from Stripe checkout`);
+              } catch (createError) {
+                console.error(`❌ Failed to create user ${userId}:`, createError);
+                break;
+              }
+            } else {
+              console.error(`❌ No email found for user ${userId} in checkout session ${session.id}`);
+              break;
+            }
           }
           
           // Set tier and status based on plan type and activate the plan
@@ -323,7 +357,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       console.log(`Creating checkout session for plan: ${planType}, price ID: ${planConfig.priceId}`);
 
-      // Create Stripe Checkout session for one-time payment with promo codes
+      // Create Stripe Checkout session for subscription with promo codes
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items: [
@@ -332,7 +366,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             quantity: 1,
           },
         ],
-        mode: 'payment',
+        mode: 'subscription',
         allow_promotion_codes: true,
         customer_creation: 'always',
         billing_address_collection: 'required',

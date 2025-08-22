@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Sparkles, Rocket, Shield, Check, CheckCircle } from "lucide-react";
+import SubscribeButton from "@/components/SubscribeButton";
 import GoogleSignIn from "@/components/GoogleSignIn";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
@@ -225,24 +226,14 @@ export default function Landing() {
                   </li>
                 </ul>
                 <div className="w-full flex justify-center">
-                  {isAuthenticated ? (
-                    <Button 
-                      onClick={() => handleSubscribe('basic_weekly')}
-                      className="w-full"
-                      disabled={processingPlan === 'basic_weekly'}
-                    >
-                      {processingPlan === 'basic_weekly' ? (
-                        <>
-                          <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
-                          Processing...
-                        </>
-                      ) : (
-                        'Get Started'
-                      )}
-                    </Button>
-                  ) : (
-                    <GoogleSignIn />
-                  )}
+                  <SubscribeButton 
+                    planType="basic_weekly"
+                    planName="Basic Weekly"
+                    className="w-full"
+                    disabled={processingPlan === 'basic_weekly'}
+                  >
+                    Get Started
+                  </SubscribeButton>
                 </div>
               </CardContent>
             </Card>
@@ -287,24 +278,14 @@ export default function Landing() {
                   </li>
                 </ul>
                 <div className="w-full flex justify-center">
-                  {isAuthenticated ? (
-                    <Button 
-                      onClick={() => handleSubscribe('pro_weekly')}
-                      className="w-full bg-white text-primary hover:bg-gray-50"
-                      disabled={processingPlan === 'pro_weekly'}
-                    >
-                      {processingPlan === 'pro_weekly' ? (
-                        <>
-                          <div className="animate-spin w-4 h-4 border-2 border-primary border-t-transparent rounded-full mr-2" />
-                          Processing...
-                        </>
-                      ) : (
-                        'Upgrade Now'
-                      )}
-                    </Button>
-                  ) : (
-                    <GoogleSignIn />
-                  )}
+                  <SubscribeButton 
+                    planType="pro_weekly"
+                    planName="Pro Weekly"
+                    className="w-full bg-white text-primary hover:bg-gray-50"
+                    disabled={processingPlan === 'pro_weekly'}
+                  >
+                    Upgrade Now
+                  </SubscribeButton>
                 </div>
               </CardContent>
             </Card>
@@ -350,24 +331,14 @@ export default function Landing() {
                   </li>
                 </ul>
                 <div className="w-full flex justify-center">
-                  {isAuthenticated ? (
-                    <Button 
-                      onClick={() => handleSubscribe('pro_annual')}
-                      className="w-full"
-                      disabled={processingPlan === 'pro_annual'}
-                    >
-                      {processingPlan === 'pro_annual' ? (
-                        <>
-                          <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
-                          Processing...
-                        </>
-                      ) : (
-                        'Get Best Value'
-                      )}
-                    </Button>
-                  ) : (
-                    <GoogleSignIn />
-                  )}
+                  <SubscribeButton 
+                    planType="pro_annual"
+                    planName="Pro Annual"
+                    className="w-full"
+                    disabled={processingPlan === 'pro_annual'}
+                  >
+                    Get Best Value
+                  </SubscribeButton>
                 </div>
               </CardContent>
             </Card>

@@ -3,6 +3,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { FileText, ArrowLeft, Lock } from "lucide-react";
 import { Link } from "wouter";
+import SubscribeButton from "@/components/SubscribeButton";
 
 export default function Subscribe() {
   const { isAuthenticated, firebaseUser, isLoading } = useAuth();
@@ -54,6 +55,7 @@ export default function Subscribe() {
             </p>
           </div>
 
+
           {/* Authentication Notice */}
           {!isAuthenticated && (
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-8">
@@ -63,13 +65,14 @@ export default function Subscribe() {
             </div>
           )}
 
+
           {/* Stripe Pricing Table */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
             {!pricingTableLoaded && (
               <div className="flex items-center justify-center py-12">
                 <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mr-3" />
                 <span className="text-gray-600 dark:text-gray-400">Loading pricing options...</span>
-              </div>
+              </div>\
             )}
             
             <stripe-pricing-table 
@@ -87,6 +90,7 @@ export default function Subscribe() {
                 </p>
               </div>
             )}
+
           </div>
 
           {/* Security Notice */}
