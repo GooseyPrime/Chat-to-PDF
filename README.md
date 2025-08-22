@@ -64,7 +64,9 @@ For a quick automated setup, run:
 
 4. **Build for production**:
    ```bash
-   npm run build
+   npm run build        # Build both client and server
+   npm run build:client # Build only client (Vite)
+   npm run build:server # Build only server (ESBuild)
    ```
 
 ## Railway Deployment
@@ -321,6 +323,26 @@ Before going live, ensure:
 This comprehensive setup ensures a robust, production-ready deployment that handles the common failure scenarios encountered with Railway deployments.
 
 ## Development Notes
+
+### Build System
+
+The application uses a dual build system:
+
+- **Client Build**: Vite for the React frontend
+  - Builds to `dist/public/`
+  - Includes CSS bundling with Tailwind CSS
+  - TypeScript compilation and module bundling
+
+- **Server Build**: ESBuild for the Node.js backend
+  - Builds to `dist/index.js`
+  - Bundles server code while keeping external dependencies
+  - Optimized for production deployment
+
+### Configuration Files
+
+- `vite.config.ts`: Vite configuration for client build
+- `esbuild.config.js`: ESBuild configuration for server build
+- `build-server.js`: Custom build script with enhanced functionality
 
 The application uses:
 - Port 5000 (configurable via Railway)
