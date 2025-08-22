@@ -3,9 +3,6 @@ import { z } from 'zod';
 
 // Railway-aware environment validation schema
 const envSchema = z.object({
-  // Database
-  DATABASE_URL: z.string().url('DATABASE_URL must be a valid URL'),
-  
   // Stripe Configuration
   STRIPE_SECRET_KEY: z.string().startsWith('sk_', 'STRIPE_SECRET_KEY must start with sk_'),
   STRIPE_WEBHOOK_SECRET: z.string().startsWith('whsec_', 'STRIPE_WEBHOOK_SECRET must start with whsec_'),
@@ -61,7 +58,6 @@ export function validateEnvironment(): Environment {
         console.error(`  - ${err.path.join('.')}: ${err.message}`);
       });
       console.error('\n📝 Required environment variables for Railway:');
-      console.error('  DATABASE_URL=postgresql://...');
       console.error('  STRIPE_SECRET_KEY=sk_live_...');
       console.error('  STRIPE_WEBHOOK_SECRET=whsec_...');
       console.error('  STRIPE_PUBLISHABLE_KEY=pk_live_...');
@@ -69,6 +65,8 @@ export function validateEnvironment(): Environment {
       console.error('  STRIPE_PRO_WEEKLY_PRICE_ID=price_...');
       console.error('  STRIPE_PRO_ANNUAL_PRICE_ID=price_...');
       console.error('  FIREBASE_PROJECT_ID=your-project-id');
+      console.error('  FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"');
+      console.error('  FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxx@your-project.iam.gserviceaccount.com');
       console.error('  SESSION_SECRET=your-secret-key');
       console.error('  NODE_ENV=production');
       if (isRailway) {
@@ -103,11 +101,8 @@ export const firebaseConfig = {
   clientEmail: env.FIREBASE_CLIENT_EMAIL,
 };
 
-// Database configuration
-export const dbConfig = {
-  url: env.DATABASE_URL,
-  ssl: env.NODE_ENV === 'production',
-};
+// Database configuration - removed, now using Firebase Firestore
+// export const dbConfig = { ... };
 
 // Railway-aware application configuration
 export const appConfig = {

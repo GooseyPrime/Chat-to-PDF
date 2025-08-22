@@ -101,7 +101,7 @@ export class FirestoreStorage implements IStorage {
       
       await userRef.set(mergedData, { merge: true });
       
-      return this.convertTimestampsToDate({ id: userData.id, ...mergedData }) as User;
+      return this.convertTimestampsToDate(mergedData) as User;
     } catch (error) {
       console.error('Error upserting user:', error);
       throw error;
@@ -358,9 +358,17 @@ export class FirestoreStorage implements IStorage {
       }
 
       const now = new Date();
-      const periodEnd = activeSubscription.periodEnd instanceof Date 
-        ? activeSubscription.periodEnd 
-        : new Date(activeSubscription.periodEnd);
+      let periodEnd: Date;
+      
+      if (activeSubscription.periodEnd instanceof Date) {
+        periodEnd = activeSubscription.periodEnd;
+      } else if (activeSubscription.periodEnd && typeof activeSubscription.periodEnd === 'object' && 'toDate' in activeSubscription.periodEnd) {
+        // Handle Firestore Timestamp
+        periodEnd = (activeSubscription.periodEnd as any).toDate();
+      } else {
+        // Fallback for other date formats
+        periodEnd = new Date(activeSubscription.periodEnd!);
+      }
         
       if (now > periodEnd) {
         // Subscription has expired

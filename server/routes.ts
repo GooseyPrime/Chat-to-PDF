@@ -198,7 +198,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Check Firestore connectivity
       await storage.expireAllExpiredSubscriptions(); // This will test Firestore connection
       
-      const healthStatus = {
+      const healthStatus: any = {
         status: 'healthy',
         timestamp: new Date().toISOString(),
         environment: process.env.NODE_ENV || 'development',
@@ -612,7 +612,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json({
         dailyUsage,
-        dailyLimit: getDailyLimit(user.subscriptionTier),
+        dailyLimit: getDailyLimit(user.subscriptionTier || null),
         totalPdfs: totalPdfs.length,
         subscriptionTier: user.subscriptionTier || null,
         subscriptionStatus: user.subscriptionStatus,

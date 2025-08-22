@@ -12,9 +12,7 @@ const config = {
     'puppeteer',
     'express',
     'firebase-admin',
-    'stripe',
-    'drizzle-orm',
-    '@neondatabase/serverless'
+    'stripe'
   ],
   packages: 'external',
   sourcemap: process.env.NODE_ENV === 'development',
