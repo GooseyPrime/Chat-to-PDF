@@ -12,7 +12,10 @@ const config = {
     'puppeteer',
     'express',
     'firebase-admin',
-    'stripe'
+    'stripe',
+    'vite',
+    '@vitejs/plugin-react',
+    '../vite.config'
   ],
   packages: 'external',
   sourcemap: process.env.NODE_ENV === 'development',

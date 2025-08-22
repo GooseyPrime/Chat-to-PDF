@@ -23,7 +23,10 @@ const buildConfig = {
     'firebase-admin',
     'stripe',
     'ws',
-    'bufferutil'
+    'bufferutil',
+    'vite',
+    '@vitejs/plugin-react',
+    '../vite.config'
   ],
   packages: 'external',
   sourcemap: process.env.NODE_ENV === 'development',
