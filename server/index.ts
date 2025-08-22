@@ -63,9 +63,7 @@ app.use((req, res, next) => {
   const permissionsPolicy = [
     'payment=(self "https://js.stripe.com")',
     'camera=(),geolocation=(),microphone=()',
-    'speaker-selection=(),ambient-light-sensor=(),battery=()',
     'accelerometer=(),gyroscope=(),magnetometer=()',
-    'publickey-credentials=(self)',
     'autoplay=(self)',
     'encrypted-media=(self)',
     'fullscreen=(self)',
