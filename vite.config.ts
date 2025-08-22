@@ -5,16 +5,10 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const inProd = process.env.NODE_ENV === "production";
-const inReplit = Boolean(process.env.REPL_ID);
 
 export default defineConfig({
   plugins: [
     react(),
-    // only load replit plugin in dev on Replit
-    ...(!inProd && inReplit
-      ? [await import("@replit/vite-plugin-runtime-error-modal").then(m => m.default())]
-      : []),
   ],
   resolve: {
     alias: {
