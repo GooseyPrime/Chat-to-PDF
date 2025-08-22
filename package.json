@@ -6,7 +6,9 @@
   "scripts": {
     "preinstall": "export PUPPETEER_SKIP_DOWNLOAD=true",
     "dev": "NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && cp dist/public/index.html dist/index.html",
+    "build": "vite build && node build-server.js",
+    "build:client": "vite build",
+    "build:server": "node build-server.js",
     "start": "NODE_ENV=production node dist/index.js",
     "start:railway": "npm start",
     "check": "tsc",
