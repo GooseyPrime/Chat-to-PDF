@@ -5,11 +5,15 @@ import GoogleSignIn from "@/components/GoogleSignIn";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useLocation } from "wouter";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Landing() {
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
+  const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const { isAuthenticated } = useAuth();
   const [, navigate] = useLocation();
+  const { toast } = useToast();
 
   useEffect(() => {
     // Check for payment success parameter
@@ -46,6 +50,43 @@ export default function Landing() {
     console.log('Login clicked - authentication handled by GoogleSignIn component');
   };
 
+  const handleSubscribe = async (planType: string) => {
+    if (!isAuthenticated) {
+      toast({
+        title: "Authentication Required",
+        description: "Please log in to subscribe to a plan.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setProcessingPlan(planType);
+
+    try {
+      const res = await apiRequest("POST", "/api/create-subscription", { planType });
+      const data = await res.json();
+      console.log("Checkout response:", data);
+      
+      if (!data.sessionUrl) {
+        throw new Error("No checkout URL received from server");
+      }
+      
+      // Add a small delay to ensure state is properly updated before redirect
+      setTimeout(() => {
+        window.location.assign(data.sessionUrl);
+      }, 100);
+      
+    } catch (error) {
+      console.error("Subscription creation error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to start checkout. Please try again.",
+        variant: "destructive",
+      });
+      setProcessingPlan(null);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Payment Success Banner */}
@@ -74,12 +115,6 @@ export default function Landing() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#features" className="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                  Features
-                </a>
-                <a href="#pricing" className="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                  Pricing
-                </a>
                 <GoogleSignIn />
               </div>
             </div>
@@ -190,7 +225,24 @@ export default function Landing() {
                   </li>
                 </ul>
                 <div className="w-full flex justify-center">
-                  <GoogleSignIn />
+                  {isAuthenticated ? (
+                    <Button 
+                      onClick={() => handleSubscribe('basic_weekly')}
+                      className="w-full"
+                      disabled={processingPlan === 'basic_weekly'}
+                    >
+                      {processingPlan === 'basic_weekly' ? (
+                        <>
+                          <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
+                          Processing...
+                        </>
+                      ) : (
+                        'Get Started'
+                      )}
+                    </Button>
+                  ) : (
+                    <GoogleSignIn />
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -235,7 +287,24 @@ export default function Landing() {
                   </li>
                 </ul>
                 <div className="w-full flex justify-center">
-                  <GoogleSignIn />
+                  {isAuthenticated ? (
+                    <Button 
+                      onClick={() => handleSubscribe('pro_weekly')}
+                      className="w-full bg-white text-primary hover:bg-gray-50"
+                      disabled={processingPlan === 'pro_weekly'}
+                    >
+                      {processingPlan === 'pro_weekly' ? (
+                        <>
+                          <div className="animate-spin w-4 h-4 border-2 border-primary border-t-transparent rounded-full mr-2" />
+                          Processing...
+                        </>
+                      ) : (
+                        'Upgrade Now'
+                      )}
+                    </Button>
+                  ) : (
+                    <GoogleSignIn />
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -281,7 +350,24 @@ export default function Landing() {
                   </li>
                 </ul>
                 <div className="w-full flex justify-center">
-                  <GoogleSignIn />
+                  {isAuthenticated ? (
+                    <Button 
+                      onClick={() => handleSubscribe('pro_annual')}
+                      className="w-full"
+                      disabled={processingPlan === 'pro_annual'}
+                    >
+                      {processingPlan === 'pro_annual' ? (
+                        <>
+                          <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
+                          Processing...
+                        </>
+                      ) : (
+                        'Get Best Value'
+                      )}
+                    </Button>
+                  ) : (
+                    <GoogleSignIn />
+                  )}
                 </div>
               </CardContent>
             </Card>
