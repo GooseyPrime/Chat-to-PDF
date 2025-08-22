@@ -17,7 +17,6 @@ const envSchema = z.object({
   FIREBASE_PROJECT_ID: z.string().min(1, 'FIREBASE_PROJECT_ID is required'),
   FIREBASE_PRIVATE_KEY: z.string().optional(),
   FIREBASE_CLIENT_EMAIL: z.string().email().optional(),
-  GOOGLE_CREDENTIALS: z.string().optional(),
   
   // Google Cloud credentials (preferred method)
   GOOGLE_CREDENTIALS: z.string().optional(),
