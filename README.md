@@ -485,17 +485,31 @@ MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
 # Error: Firebase Admin initialization failed
 # Check these in Railway Dashboard → Variables:
 
+# Option 1: If using GOOGLE_CREDENTIALS (recommended):
+# 1. Verify FIREBASE_PROJECT_ID matches your Firebase project
+# 2. Ensure GOOGLE_CREDENTIALS is valid JSON from Firebase service account
+# 3. Check that JSON contains: project_id, private_key, client_email
+
+# Option 2: If using individual variables:
 # 1. Verify FIREBASE_PROJECT_ID matches your Firebase project
 # 2. Ensure FIREBASE_CLIENT_EMAIL has correct format:
 #    firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 # 3. Confirm private key starts with -----BEGIN PRIVATE KEY-----
+
 # 4. Check Railway logs for specific error details:
 railway logs --tail
 ```
 
 **Testing Firebase Configuration:**
 ```powershell
-# Test your Firebase credentials locally:
+# Option 1: Test with GOOGLE_CREDENTIALS (if using this method):
+# 1. Download the service account JSON from Firebase Console
+# 2. Set GOOGLE_CREDENTIALS environment variable to the JSON content:
+$env:GOOGLE_CREDENTIALS='{"type":"service_account","project_id":"..."}'
+# 3. Test connection with Firebase CLI:
+firebase firestore:get --project your-project-id /test
+
+# Option 2: Test with GOOGLE_APPLICATION_CREDENTIALS (alternative):
 # 1. Download the service account JSON from Firebase Console
 # 2. Set environment variable to the JSON file path:
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"

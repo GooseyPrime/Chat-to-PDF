@@ -54,6 +54,11 @@ STRIPE_PRO_ANNUAL_PRICE_ID=price_...
 
 # Firebase Configuration
 FIREBASE_PROJECT_ID=your-project-id
+
+# Option 1: GOOGLE_CREDENTIALS (Recommended)
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"...","private_key":"...","client_email":"..."}
+
+# Option 2: Individual Variables (Alternative)
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 FIREBASE_CLIENT_EMAIL=firebase-adminsdk-...@your-project.iam.gserviceaccount.com
 
