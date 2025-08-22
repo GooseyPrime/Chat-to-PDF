@@ -1,98 +1,95 @@
-import {
-  pgTable,
-  text,
-  varchar,
-  timestamp,
-  jsonb,
-  index,
-  integer,
-  boolean,
-  decimal,
-} from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
+import { Timestamp } from "firebase/firestore";
 
-// Session storage table for Replit Auth
-export const sessions = pgTable(
-  "sessions",
-  {
-    sid: varchar("sid").primaryKey(),
-    sess: jsonb("sess").notNull(),
-    expire: timestamp("expire").notNull(),
-  },
-  (table) => [index("IDX_session_expire").on(table.expire)],
-);
+// Firebase Firestore doesn't require table schemas like SQL databases,
+// but we define TypeScript types and Zod schemas for data validation
 
-// User storage table
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().notNull(),
-  email: varchar("email"), // Removed unique constraint to allow multiple Firebase UIDs with same email
-  firstName: varchar("first_name"),
-  lastName: varchar("last_name"),
-  profileImageUrl: varchar("profile_image_url"),
-  stripeCustomerId: varchar("stripe_customer_id"),
-  stripeSubscriptionId: varchar("stripe_subscription_id"),
-  subscriptionStatus: varchar("subscription_status").default("inactive"), // active, inactive, canceled, past_due
-  subscriptionTier: varchar("subscription_tier"), // basic_weekly, pro_monthly, pro_annual, team
-  dailyUsage: integer("daily_usage").default(0),
-  lastUsageReset: timestamp("last_usage_reset").defaultNow(),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
-}, (table) => [
-  // Add non-unique index for email performance
-  index("users_email_idx").on(table.email),
-]);
+// User document type (stored in 'users' collection)
+export interface User {
+  id: string; // Firebase UID as document ID
+  email?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  profileImageUrl?: string | null;
+  stripeCustomerId?: string | null;
+  stripeSubscriptionId?: string | null;
+  subscriptionStatus?: string; // active, inactive, canceled, past_due, expired
+  subscriptionTier?: string | null; // basic_weekly, pro_weekly, pro_annual, team
+  dailyUsage?: number;
+  lastUsageReset?: Date | Timestamp | null;
+  createdAt?: Date | Timestamp;
+  updatedAt?: Date | Timestamp;
+}
 
-// PDF generation records
-export const pdfRecords = pgTable("pdf_records", {
-  id: varchar("id").primaryKey().notNull(),
-  userId: varchar("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
-  originalUrl: text("original_url").notNull(),
-  platform: varchar("platform").notNull(), // chatgpt, claude, gemini
-  fileName: text("file_name").notNull(),
-  fileSize: integer("file_size"), // in bytes
-  isWatermarked: boolean("is_watermarked").default(true),
-  processingStatus: varchar("processing_status").default("pending"), // pending, processing, completed, failed
-  downloadUrl: text("download_url"),
-  createdAt: timestamp("created_at").defaultNow(),
-  expiresAt: timestamp("expires_at"), // for temporary download links
+// PDF Record document type (stored in 'pdfRecords' collection)
+export interface PdfRecord {
+  id: string;
+  userId: string;
+  originalUrl: string;
+  platform: string; // chatgpt, claude, gemini
+  fileName: string;
+  fileSize?: number | null; // in bytes
+  isWatermarked?: boolean;
+  processingStatus?: string; // pending, processing, completed, failed
+  downloadUrl?: string | null;
+  createdAt?: Date | Timestamp;
+  expiresAt?: Date | Timestamp | null; // for temporary download links
+}
+
+// Subscription History document type (stored in 'subscriptionHistory' collection)
+export interface SubscriptionHistory {
+  id: string;
+  userId: string;
+  stripeSubscriptionId?: string | null;
+  tier: string;
+  status: string;
+  amount?: string | null; // stored as string to avoid precision issues
+  currency?: string;
+  periodStart?: Date | Timestamp | null;
+  periodEnd?: Date | Timestamp | null;
+  createdAt?: Date | Timestamp;
+}
+
+// Zod validation schemas
+export const upsertUserSchema = z.object({
+  id: z.string(),
+  email: z.string().email().optional().nullable(),
+  firstName: z.string().optional().nullable(),
+  lastName: z.string().optional().nullable(),
+  profileImageUrl: z.string().url().optional().nullable(),
 });
 
-// Subscription history
-export const subscriptionHistory = pgTable("subscription_history", {
-  id: varchar("id").primaryKey().notNull(),
-  userId: varchar("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
-  stripeSubscriptionId: varchar("stripe_subscription_id"),
-  tier: varchar("tier").notNull(),
-  status: varchar("status").notNull(),
-  amount: decimal("amount", { precision: 10, scale: 2 }),
-  currency: varchar("currency").default("usd"),
-  periodStart: timestamp("period_start"),
-  periodEnd: timestamp("period_end"),
-  createdAt: timestamp("created_at").defaultNow(),
+export const insertPdfRecordSchema = z.object({
+  userId: z.string(),
+  originalUrl: z.string().url(),
+  platform: z.string(),
+  fileName: z.string(),
+  fileSize: z.number().optional().nullable(),
+  isWatermarked: z.boolean().optional(),
+  processingStatus: z.string().optional(),
+  downloadUrl: z.string().url().optional().nullable(),
+  expiresAt: z.date().optional().nullable(),
 });
 
-export const upsertUserSchema = createInsertSchema(users).pick({
-  id: true,
-  email: true,
-  firstName: true,
-  lastName: true,
-  profileImageUrl: true,
+export const insertSubscriptionHistorySchema = z.object({
+  userId: z.string(),
+  stripeSubscriptionId: z.string().optional().nullable(),
+  tier: z.string(),
+  status: z.string(),
+  amount: z.string().optional().nullable(),
+  currency: z.string().optional(),
+  periodStart: z.date().optional().nullable(),
+  periodEnd: z.date().optional().nullable(),
 });
 
-export const insertPdfRecordSchema = createInsertSchema(pdfRecords).omit({
-  id: true,
-  createdAt: true,
-});
-
-export const insertSubscriptionHistorySchema = createInsertSchema(subscriptionHistory).omit({
-  id: true,
-  createdAt: true,
-});
-
+// Inferred types for easier usage
 export type UpsertUser = z.infer<typeof upsertUserSchema>;
-export type User = typeof users.$inferSelect;
 export type InsertPdfRecord = z.infer<typeof insertPdfRecordSchema>;
-export type PdfRecord = typeof pdfRecords.$inferSelect;
 export type InsertSubscriptionHistory = z.infer<typeof insertSubscriptionHistorySchema>;
-export type SubscriptionHistory = typeof subscriptionHistory.$inferSelect;
+
+// Collection names - centralized for consistency
+export const COLLECTIONS = {
+  USERS: 'users',
+  PDF_RECORDS: 'pdfRecords', 
+  SUBSCRIPTION_HISTORY: 'subscriptionHistory',
+} as const;

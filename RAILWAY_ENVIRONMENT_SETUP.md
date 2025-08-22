@@ -2,10 +2,16 @@
 # Copy these to Railway Dashboard → Variables
 
 # =================================
-# REQUIRED - Database Configuration  
+# REQUIRED - Firebase Configuration
 # =================================
-# Add PostgreSQL plugin in Railway dashboard, it will auto-populate:
-# DATABASE_URL (automatically provided by Railway PostgreSQL plugin)
+# Get from Firebase Console: https://console.firebase.google.com/
+FIREBASE_PROJECT_ID=your-production-project-id
+
+# Firebase Admin SDK (for server-side authentication)
+# Download service account JSON from Firebase Console > Project Settings > Service Accounts
+# Copy the private_key and client_email values:
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
 # REQUIRED - Stripe Configuration
@@ -19,18 +25,6 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
 STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
 STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
-
-# =================================
-# REQUIRED - Firebase Configuration
-# =================================
-# Get from Firebase Console: https://console.firebase.google.com/
-FIREBASE_PROJECT_ID=your-production-project-id
-
-# Firebase Admin SDK (for server-side authentication)
-# Download service account JSON from Firebase Console > Project Settings > Service Accounts
-# Copy the private_key and client_email values:
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
 # REQUIRED - Application Configuration

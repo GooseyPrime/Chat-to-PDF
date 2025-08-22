@@ -22,8 +22,6 @@ const buildConfig = {
     'express',
     'firebase-admin',
     'stripe',
-    'drizzle-orm',
-    '@neondatabase/serverless',
     'ws',
     'bufferutil'
   ],

@@ -14,7 +14,7 @@ Convert your chat conversations from ChatGPT, Claude, and Gemini into beautifull
 
 - **Frontend**: React + TypeScript + Vite + Tailwind CSS
 - **Backend**: Node.js + Express + TypeScript
-- **Database**: PostgreSQL (Neon) with Drizzle ORM
+- **Database**: Firebase Firestore
 - **Authentication**: Firebase Auth
 - **Payments**: Stripe
 - **PDF Generation**: Puppeteer
@@ -44,8 +44,10 @@ For a quick automated setup, run:
 
    Required variables:
    ```
-   # Database
-   DATABASE_URL=your_neon_postgres_url
+   # Firebase
+   FIREBASE_PROJECT_ID=your-firebase-project-id
+   FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+   FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
    # Stripe
    STRIPE_SECRET_KEY=sk_test_...
@@ -79,8 +81,7 @@ Railway is the recommended platform for deploying this application. This guide p
 - **Git for Windows** ([git-scm.com](https://git-scm.com/download/win))
 - **Node.js 20+** ([nodejs.org](https://nodejs.org/))
 - **Railway account** ([railway.app](https://railway.app))
-- **PostgreSQL database** (Neon recommended: [neon.tech](https://neon.tech))
-- **Firebase project** with authentication enabled ([console.firebase.google.com](https://console.firebase.google.com))
+- **Firebase project** with Firestore and authentication enabled ([console.firebase.google.com](https://console.firebase.google.com))
 - **Stripe account** with webhook configuration ([dashboard.stripe.com](https://dashboard.stripe.com))
 
 ### 2. Download and Setup (Windows PowerShell)
@@ -135,11 +136,13 @@ Before deploying, you need to set up your environment variables in the Railway d
 
 **💡 Quick Reference:** See `WINDOWS_DEPLOYMENT_GUIDE.md` for a condensed version of these instructions.
 
-#### Database Configuration
+**Firebase Configuration:**
 ```
-DATABASE_URL=postgresql://username:password@host:port/database?sslmode=require
+FIREBASE_PROJECT_ID=your-firebase-project-id
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 ```
-**How to get:** Create a PostgreSQL database (recommended: [Neon.tech](https://neon.tech)) or use Railway's PostgreSQL plugin.
+**How to get:** Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com), enable Firestore and Authentication, then download service account credentials from Project Settings > Service Accounts.
 
 #### Stripe Configuration (Production Keys)
 ```
@@ -209,12 +212,11 @@ STORAGE_PATH=/app/storage
    # - Enter project name: "chat-to-pdf" (or your preferred name)
    ```
 
-3. **Add PostgreSQL database** (optional - you can use external database):
-   ```powershell
-   # Add PostgreSQL plugin to your Railway project
-   railway add postgresql
-   
-   # This automatically sets DATABASE_URL environment variable
+3. **Configure environment variables** (Railway dashboard):
+   - Go to your Railway project dashboard
+   - Navigate to Variables tab
+   - Add Firebase, Stripe, and application configuration variables
+   - See `RAILWAY_ENVIRONMENT_SETUP.md` for complete list
    ```
 
 4. **Set environment variables in Railway dashboard**:
@@ -301,22 +303,7 @@ STORAGE_PATH=/app/storage
    - Try signing in with Google
    - Check browser console for any Firebase errors
 
-#### C. Run Database Migration
 
-**Important:** Run this migration to prevent authentication issues:
-
-```powershell
-# Connect to your Railway project (if not already connected)
-railway link
-
-# Run the database migration
-railway run psql $DATABASE_URL -f migrations/fix-railway-deployment.sql
-```
-
-**What this migration fixes:**
-- ❌ Removes problematic `users_email_unique` constraint
-- ✅ Adds `ON DELETE CASCADE` to foreign key relationships
-- 🚀 Prevents authentication failures and database errors
 
 #### D. Verify Deployment
 
@@ -426,16 +413,7 @@ railway variables
 railway variables set VARIABLE_NAME=value
 ```
 
-**Database Constraint Errors:**
-```powershell
-# Issue: "duplicate key value violates unique constraint users_email_unique"
-# Solution: Run the database migration (step 5C above)
 
-railway run psql $DATABASE_URL -f migrations/fix-railway-deployment.sql
-
-# Issue: "violates foreign key constraint pdf_records_user_id_users_id_fk"  
-# Solution: Migration adds ON DELETE CASCADE (included in migration above)
-```
 
 **Stripe Webhook Issues:**
 ```powershell
@@ -468,7 +446,7 @@ railway domain
 Before going live, verify:
 
 - [ ] ✅ All environment variables set in Railway dashboard
-- [ ] ✅ Database migration completed successfully  
+- [ ] ✅ Firebase Firestore configured and accessible  
 - [ ] ✅ Stripe webhooks configured with Railway URL
 - [ ] ✅ Firebase authorized domains include Railway domain
 - [ ] ✅ Health endpoint returns `{"status": "healthy"}`
@@ -491,8 +469,8 @@ railway open
 # Check environment variables
 railway variables
 
-# Connect to database
-railway connect postgresql
+# Access Firestore through Firebase Console
+# Visit: https://console.firebase.google.com → Your Project → Firestore Database
 
 # Run a command in Railway environment
 railway run "node --version"
@@ -589,4 +567,4 @@ The application uses:
 - Health checks at `/api/health`
 - Stripe webhooks at `/api/stripe-webhook`
 - Firebase Auth for user authentication
-- PostgreSQL for data persistence
+- Firebase Firestore for data persistence

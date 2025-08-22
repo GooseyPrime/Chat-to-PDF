@@ -8,7 +8,8 @@ router.get('/health', async (_req, res) => {
     const healthData: any = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV || 'development'
+      environment: process.env.NODE_ENV || 'development',
+      database: 'firestore'
     };
 
     // Add Railway-specific info if available
@@ -21,30 +22,20 @@ router.get('/health', async (_req, res) => {
       };
     }
 
-    // Test database connection if available
+    // Test Firebase Firestore connection
     try {
-      if (process.env.DATABASE_URL) {
-        const { db } = await import('../db');
-        const { sql } = await import('drizzle-orm');
-        
-        // Simple connection test
-        await db.execute(sql`SELECT 1`);
-        healthData.database = 'connected';
-        
-        // Check for migration issues
-        const constraintCheck = await db.execute(sql`
-          SELECT conname FROM pg_constraint WHERE conname = 'users_email_unique'
-        `);
-        
-        if (Array.isArray(constraintCheck) && constraintCheck.length > 0) {
-          healthData.warning = 'users_email_unique constraint exists - may cause authentication failures';
-          healthData.migrationRequired = true;
-          healthData.migrationScript = 'migrations/fix-railway-deployment.sql';
-        }
-      }
+      const { db, ensureFirestore } = await import('../db');
+      await ensureFirestore();
+      healthData.firebase = {
+        projectId: process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID,
+        connected: true
+      };
     } catch (dbError) {
-      healthData.database = 'error';
-      healthData.databaseError = (dbError as Error).message;
+      healthData.firebase = {
+        projectId: process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID,
+        connected: false,
+        error: (dbError as Error).message
+      };
     }
 
     res.status(200).json(healthData);

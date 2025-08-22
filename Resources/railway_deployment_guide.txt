@@ -38,15 +38,7 @@ git push origin main
 4. **Choose your repository**
 5. **Name your project**: `chat-transcript-converter`
 
-### **3. Add PostgreSQL Database**
-
-1. **In your Railway project dashboard**
-2. **Click "New Service"**
-3. **Select "Database"**
-4. **Choose "PostgreSQL"**
-5. **Railway will automatically create `DATABASE_URL`**
-
-### **4. Configure Environment Variables**
+### **3. Configure Environment Variables**
 
 **Go to your service → Variables tab and add:**
 
@@ -120,30 +112,11 @@ Railway will automatically deploy when you push to main branch.
 ### **7. Run Database Migration**
 
 **Option A: Using Railway CLI**
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
-
-# Login and connect
-railway login
-railway link
-
-# Run migration
-railway run psql $DATABASE_URL -f database_migration.sql
-```
-
-**Option B: Direct PostgreSQL connection**
-```bash
-# Get DATABASE_URL from Railway dashboard
-# Run migration locally
-psql "postgresql://username:password@host:port/database" -f database_migration.sql
-```
-
-### **8. Verify Deployment**
+### **7. Verify Deployment**
 
 **Check health endpoint:**
 ```bash
-curl https://your-app.up.railway.app/health
+curl https://your-app.up.railway.app/api/health
 ```
 
 **Expected response:**
@@ -152,7 +125,8 @@ curl https://your-app.up.railway.app/health
   "status": "healthy",
   "timestamp": "2024-01-01T00:00:00.000Z",
   "environment": "production",
-  "railway": {
+  "database": "firestore",
+  "firebase": {
     "environment": "production",
     "deploymentId": "...",
     "serviceId": "...",

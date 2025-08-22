@@ -43,7 +43,6 @@ check_files() {
         "server/index.ts"
         "server/config/environment.ts"
         "shared/schema.ts"
-        "database_migration.sql"
     )
     
     for file in "${files[@]}"; do
@@ -130,22 +129,6 @@ setup_railway_project() {
     fi
 }
 
-# Add PostgreSQL database
-setup_database() {
-    echo -e "${BLUE}🗄️ Setting up PostgreSQL database...${NC}"
-    
-    # Check if database service exists
-    if railway service list | grep -q "postgresql"; then
-        echo -e "${GREEN}✅ PostgreSQL service already exists${NC}"
-    else
-        echo "Would you like to add PostgreSQL database? (y/n)"
-        read -r response
-        if [[ "$response" =~ ^[Yy]$ ]]; then
-            railway add postgresql
-            echo -e "${GREEN}✅ PostgreSQL database added${NC}"
-        fi
-    fi
-}
 
 # Check environment variables
 check_environment_variables() {
@@ -175,29 +158,14 @@ check_environment_variables() {
         echo "Please set these variables in Railway dashboard or using CLI:"
         echo "railway variables set VARIABLE_NAME=value"
         echo ""
-        echo "See railway_secrets_checklist.sh for complete list"
+        echo "See RAILWAY_ENVIRONMENT_SETUP.md for complete list"
         exit 1
     else
         echo -e "${GREEN}✅ All required environment variables set${NC}"
     fi
 }
 
-# Run database migration
-run_migration() {
-    echo -e "${BLUE}📊 Running database migration...${NC}"
-    
-    if [ -f "database_migration.sql" ]; then
-        echo "Would you like to run database migration? (y/n)"
-        read -r response
-        if [[ "$response" =~ ^[Yy]$ ]]; then
-            echo "Running migration..."
-            railway run psql \$DATABASE_URL -f database_migration.sql
-            echo -e "${GREEN}✅ Database migration completed${NC}"
-        fi
-    else
-        echo -e "${YELLOW}⚠️ No migration file found${NC}"
-    fi
-}
+
 
 # Deploy to Railway
 deploy_to_railway() {
@@ -222,7 +190,7 @@ show_post_deployment() {
     echo "1. Check deployment status: railway status"
     echo "2. View logs: railway logs"
     echo "3. Get app URL: railway domain"
-    echo "4. Test health endpoint: curl https://your-app.up.railway.app/health"
+    echo "4. Test health endpoint: curl https://your-app.up.railway.app/api/health"
     echo "5. Set up Stripe webhook with your Railway URL"
     echo "6. Test PDF generation functionality"
     echo ""
@@ -254,9 +222,7 @@ main() {
     
     # Setup and deploy
     setup_railway_project
-    setup_database
     check_environment_variables
-    run_migration
     deploy_to_railway
     
     # Show next steps
