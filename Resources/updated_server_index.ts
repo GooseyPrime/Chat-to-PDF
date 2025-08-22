@@ -17,11 +17,39 @@ console.log(`🔥 Firebase: ${env.FIREBASE_PROJECT_ID}`);
 
 // Security headers middleware
 app.use((req, res, next) => {
-  // Security headers
+  // Basic security headers
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
+  // Content Security Policy
+  const cspDirectives = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.google.com https://www.gstatic.com https://replit.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    "img-src 'self' data: https:",
+    "connect-src 'self' https://api.stripe.com https://*.googleapis.com https://*.firebaseio.com wss://ws-us3.pusher.com",
+    "frame-src https://js.stripe.com https://hooks.stripe.com",
+    "object-src 'none'",
+    "base-uri 'self'"
+  ];
+  res.setHeader('Content-Security-Policy', cspDirectives.join('; '));
+  
+  // Permissions Policy to control web platform features
+  const permissionsPolicy = [
+    'payment=(self "https://js.stripe.com")',
+    'camera=(),geolocation=(),microphone=()',
+    'speaker-selection=(),ambient-light-sensor=(),battery=()',
+    'accelerometer=(),gyroscope=(),magnetometer=()',
+    'publickey-credentials=(self)',
+    'autoplay=(self)',
+    'encrypted-media=(self)',
+    'fullscreen=(self)',
+    'picture-in-picture=()'
+  ];
+  res.setHeader('Permissions-Policy', permissionsPolicy.join(', '));
   
   // CORS configuration
   const allowedOrigins = [
