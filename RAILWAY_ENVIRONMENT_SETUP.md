@@ -18,6 +18,15 @@ GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project","privat
 # FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
+# REQUIRED - Firebase Client Configuration
+# =================================
+# Get these values from Firebase Console > Project Settings > General > Your apps > Web app > Config
+# These are needed for client-side authentication in the browser:
+VITE_FIREBASE_API_KEY=AIza...
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_APP_ID=1:123456789:web:...
+
+# =================================
 # REQUIRED - Stripe Configuration
 # =================================
 # Production Stripe keys (get from https://dashboard.stripe.com/apikeys)

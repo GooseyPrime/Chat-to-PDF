@@ -1,14 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { signInWithGoogle, signOutUser, isFirebaseAvailable } from "@shared/firebase";
+import { signInWithGoogle, signOutUser, checkFirebaseAvailability } from "@shared/firebase";
 import { useAuth } from "@/hooks/useAuth";
 import { Chrome, LogOut, AlertTriangle } from "lucide-react";
 
 export default function GoogleSignIn() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isCheckingConfig, setIsCheckingConfig] = useState(true);
   const { toast } = useToast();
-  const { isAuthenticated, firebaseUser, isFirebaseAvailable: authFirebaseAvailable } = useAuth();
+  const { isAuthenticated, firebaseUser, isFirebaseAvailable } = useAuth();
+
+  // Check Firebase availability on component mount
+  useEffect(() => {
+    const checkConfig = async () => {
+      try {
+        await checkFirebaseAvailability();
+      } catch (error) {
+        console.error('Error checking Firebase availability:', error);
+      } finally {
+        setIsCheckingConfig(false);
+      }
+    };
+    
+    checkConfig();
+  }, []);
 
   const handleSignIn = async () => {
     if (!isFirebaseAvailable) {
@@ -59,6 +75,21 @@ export default function GoogleSignIn() {
       });
     }
   };
+
+  // Show loading state while checking configuration
+  if (isCheckingConfig) {
+    return (
+      <Button
+        disabled={true}
+        variant="outline"
+        className="gap-2"
+        size="sm"
+      >
+        <div className="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full" />
+        Loading...
+      </Button>
+    );
+  }
 
   // Show degraded state when Firebase is not available
   if (!isFirebaseAvailable) {
