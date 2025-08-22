@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, ArrowLeft, Check, Lock } from "lucide-react";
 import { Link } from "wouter";
+import SubscribeButton from "@/components/SubscribeButton";
 
 export default function Subscribe() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -160,20 +161,14 @@ export default function Subscribe() {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  onClick={() => handleSubscribe('basic_weekly')}
+                <SubscribeButton 
+                  planType="basic_weekly"
+                  planName="Basic Weekly"
                   className="w-full"
                   disabled={processingPlan === 'basic_weekly'}
                 >
-                  {processingPlan === 'basic_weekly' ? (
-                    <>
-                      <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
-                      Processing...
-                    </>
-                  ) : (
-                    'Get Started'
-                  )}
-                </Button>
+                  Get Started
+                </SubscribeButton>
               </CardContent>
             </Card>
 
@@ -202,20 +197,14 @@ export default function Subscribe() {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  onClick={() => handleSubscribe('pro_weekly')}
+                <SubscribeButton 
+                  planType="pro_weekly"
+                  planName="Pro Weekly"
                   className="w-full"
                   disabled={processingPlan === 'pro_weekly'}
                 >
-                  {processingPlan === 'pro_weekly' ? (
-                    <>
-                      <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
-                      Processing...
-                    </>
-                  ) : (
-                    'Upgrade Now'
-                  )}
-                </Button>
+                  Upgrade Now
+                </SubscribeButton>
               </CardContent>
             </Card>
 
@@ -247,20 +236,14 @@ export default function Subscribe() {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  onClick={() => handleSubscribe('pro_annual')}
+                <SubscribeButton 
+                  planType="pro_annual"
+                  planName="Pro Annual"
                   className="w-full"
                   disabled={processingPlan === 'pro_annual'}
                 >
-                  {processingPlan === 'pro_annual' ? (
-                    <>
-                      <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
-                      Processing...
-                    </>
-                  ) : (
-                    'Get Best Value'
-                  )}
-                </Button>
+                  Get Best Value
+                </SubscribeButton>
               </CardContent>
             </Card>
           </div>
