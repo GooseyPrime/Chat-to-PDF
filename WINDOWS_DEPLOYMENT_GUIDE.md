@@ -8,6 +8,12 @@ This guide provides step-by-step instructions for deploying Chat-to-PDF to Railw
 
 Copy these to Railway Dashboard → Variables:
 
+**Note:** For SESSION_SECRET, generate a secure 32-character string using:
+```powershell
+# Windows PowerShell method
+[System.Web.Security.Membership]::GeneratePassword(32, 0)
+```
+
 ```
 DATABASE_URL=postgresql://username:password@host:port/database?sslmode=require
 STRIPE_SECRET_KEY=sk_live_...
