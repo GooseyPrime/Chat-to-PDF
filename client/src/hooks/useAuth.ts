@@ -1,25 +1,44 @@
 import { useState, useEffect } from "react";
 import { User, onAuthStateChanged } from "firebase/auth";
-import { auth, isFirebaseAvailable } from "@shared/firebase";
+import { auth, checkFirebaseAvailability } from "@shared/firebase";
 import { useQuery } from "@tanstack/react-query";
 
 export function useAuth() {
   const [firebaseUser, setFirebaseUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFirebaseAvailable, setIsFirebaseAvailable] = useState(false);
 
   useEffect(() => {
-    if (!isFirebaseAvailable || !auth) {
-      // Firebase is not available, set loading to false
-      setIsLoading(false);
-      return;
-    }
+    let unsubscribe: (() => void) | undefined;
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setFirebaseUser(user);
-      setIsLoading(false);
-    });
+    const initializeAuth = async () => {
+      try {
+        const available = await checkFirebaseAvailability();
+        setIsFirebaseAvailable(available);
+        
+        if (available && auth) {
+          unsubscribe = onAuthStateChanged(auth, (user) => {
+            setFirebaseUser(user);
+            setIsLoading(false);
+          });
+        } else {
+          // Firebase is not available, set loading to false
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error('Firebase initialization error:', error);
+        setIsFirebaseAvailable(false);
+        setIsLoading(false);
+      }
+    };
 
-    return () => unsubscribe();
+    initializeAuth();
+
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
   }, []);
 
   // Get user data from our database
