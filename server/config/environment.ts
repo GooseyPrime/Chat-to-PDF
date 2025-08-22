@@ -19,6 +19,9 @@ const envSchema = z.object({
   FIREBASE_CLIENT_EMAIL: z.string().email().optional(),
   GOOGLE_CREDENTIALS: z.string().optional(),
   
+  // Google Cloud credentials (preferred method)
+  GOOGLE_CREDENTIALS: z.string().optional(),
+  
   // Application Configuration
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z.string().regex(/^\d+$/).transform(Number).optional(),
@@ -66,8 +69,10 @@ export function validateEnvironment(): Environment {
       console.error('  STRIPE_PRO_WEEKLY_PRICE_ID=price_...');
       console.error('  STRIPE_PRO_ANNUAL_PRICE_ID=price_...');
       console.error('  FIREBASE_PROJECT_ID=your-project-id');
+
       console.error('  GOOGLE_CREDENTIALS={"type":"service_account",...} (recommended)');
       console.error('    OR');
+
       console.error('  FIREBASE_PRIVATE_KEY=[Copy private key from Firebase JSON with actual line breaks]');
       console.error('  FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxx@your-project.iam.gserviceaccount.com');
       console.error('  SESSION_SECRET=your-secret-key');
@@ -102,6 +107,8 @@ export const firebaseConfig = {
   projectId: env.FIREBASE_PROJECT_ID,
   privateKey: env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
   clientEmail: env.FIREBASE_CLIENT_EMAIL,
+
+
   googleCredentials: env.GOOGLE_CREDENTIALS,
 };
 

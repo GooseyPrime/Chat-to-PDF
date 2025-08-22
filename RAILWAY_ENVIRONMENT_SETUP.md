@@ -8,10 +8,14 @@
 FIREBASE_PROJECT_ID=your-production-project-id
 
 # Firebase Admin SDK (for server-side authentication)
+# Option 1: Use complete Firebase service account JSON (RECOMMENDED)
 # Download service account JSON from Firebase Console > Project Settings > Service Accounts
-# Copy the private_key and client_email values:
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+# Copy the entire JSON content and paste it as the value:
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com","client_id":"...","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"..."}
+
+# Option 2: Use individual variables (legacy support)
+# FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+# FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
 # REQUIRED - Stripe Configuration

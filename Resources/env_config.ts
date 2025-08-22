@@ -21,6 +21,9 @@ const envSchema = z.object({
   FIREBASE_PRIVATE_KEY: z.string().optional(),
   FIREBASE_CLIENT_EMAIL: z.string().email().optional(),
   
+  // Google Cloud credentials (preferred method)
+  GOOGLE_CREDENTIALS: z.string().optional(),
+  
   // Application Configuration
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z.string().regex(/^\d+$/).transform(Number).optional(),
@@ -101,6 +104,8 @@ export const firebaseConfig = {
   projectId: env.FIREBASE_PROJECT_ID,
   privateKey: env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
   clientEmail: env.FIREBASE_CLIENT_EMAIL,
+  // Google Cloud credentials JSON
+  googleCredentials: env.GOOGLE_CREDENTIALS,
 };
 
 // Database configuration
