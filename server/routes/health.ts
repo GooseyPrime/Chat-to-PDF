@@ -68,4 +68,39 @@ router.get('/health', async (_req, res) => {
   }
 });
 
+// Client configuration endpoint - provides public Firebase config when available
+router.get('/config', (_req, res) => {
+  try {
+    const projectId = process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID;
+    const apiKey = process.env.VITE_FIREBASE_API_KEY;
+    const appId = process.env.VITE_FIREBASE_APP_ID;
+    
+    // Only provide config if we have the essential values
+    if (projectId && apiKey && appId) {
+      res.json({
+        firebase: {
+          apiKey,
+          authDomain: `${projectId}.firebaseapp.com`,
+          projectId,
+          storageBucket: `${projectId}.firebasestorage.app`,
+          appId,
+        },
+        available: true
+      });
+    } else {
+      res.json({
+        firebase: null,
+        available: false,
+        reason: 'Firebase client configuration not available'
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      firebase: null,
+      available: false,
+      error: (error as Error).message
+    });
+  }
+});
+
 export default router;
