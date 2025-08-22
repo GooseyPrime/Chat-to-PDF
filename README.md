@@ -189,9 +189,23 @@ SESSION_SECRET=your-super-secure-session-secret-minimum-32-characters
 STORAGE_PATH=/app/storage
 ```
 **How to get:** Generate a secure session secret using:
+
+**Option 1 - Cross-platform (Recommended):**
+```bash
+# Generate a random 32-character string (works on Linux, macOS, Windows with OpenSSL)
+openssl rand -hex 32
+```
+
+**Option 2 - Windows PowerShell:**
 ```powershell
-# Generate a random 32-character string
+# Generate a random 32-character string (Windows/.NET only)
 [System.Web.Security.Membership]::GeneratePassword(32, 0)
+```
+
+**Option 3 - Node.js (if available):**
+```bash
+# Generate using Node.js crypto module
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
 ### 4. Deploy to Railway (PowerShell)
