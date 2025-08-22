@@ -24,18 +24,21 @@ router.get('/health', async (_req, res) => {
 
     // Test Firebase Firestore connection
     try {
-      const { db, ensureFirestore } = await import('../db');
+      const { ensureFirestore } = await import('../db');
       await ensureFirestore();
       healthData.firebase = {
         projectId: process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID,
         connected: true
       };
     } catch (dbError) {
+      // Don't fail the entire health check if Firebase is unavailable
+      const errorMessage = dbError instanceof Error ? dbError.message : 'Unknown database error';
       healthData.firebase = {
         projectId: process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID,
         connected: false,
-        error: (dbError as Error).message
+        error: errorMessage
       };
+      console.warn('Firebase connection failed during health check:', errorMessage);
     }
 
     res.status(200).json(healthData);
