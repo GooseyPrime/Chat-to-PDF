@@ -75,9 +75,17 @@ router.get('/config', (_req, res) => {
     const apiKey = process.env.VITE_FIREBASE_API_KEY;
     const appId = process.env.VITE_FIREBASE_APP_ID;
     
+    // Log configuration check for debugging
+    console.log('🔧 Config request - Environment check:', {
+      hasProjectId: !!projectId,
+      hasApiKey: !!apiKey,
+      hasAppId: !!appId,
+      projectId: projectId ? `${projectId.substring(0, 10)}...` : 'missing'
+    });
+    
     // Only provide config if we have the essential values
     if (projectId && apiKey && appId) {
-      res.json({
+      const config = {
         firebase: {
           apiKey,
           authDomain: `${projectId}.firebaseapp.com`,
@@ -85,20 +93,42 @@ router.get('/config', (_req, res) => {
           storageBucket: `${projectId}.firebasestorage.app`,
           appId,
         },
-        available: true
-      });
+        available: true,
+        source: 'server-environment'
+      };
+      
+      console.log('✅ Providing Firebase configuration to client');
+      res.json(config);
     } else {
+      // Provide detailed reason for missing configuration
+      const missingVars = [];
+      if (!projectId) missingVars.push('FIREBASE_PROJECT_ID or VITE_FIREBASE_PROJECT_ID');
+      if (!apiKey) missingVars.push('VITE_FIREBASE_API_KEY');
+      if (!appId) missingVars.push('VITE_FIREBASE_APP_ID');
+      
+      const reason = `Missing environment variables: ${missingVars.join(', ')}`;
+      
+      console.warn('⚠️ Cannot provide Firebase configuration:', reason);
+      
       res.json({
         firebase: null,
         available: false,
-        reason: 'Firebase client configuration not available'
+        reason,
+        troubleshooting: {
+          missingVariables: missingVars,
+          documentation: 'See RAILWAY_ENVIRONMENT_SETUP.md for setup instructions',
+          railwaySetup: 'Add variables in Railway Dashboard → Variables',
+          localSetup: 'Add variables to .env file for local development'
+        }
       });
     }
   } catch (error) {
+    console.error('❌ Config endpoint error:', error);
     res.status(500).json({
       firebase: null,
       available: false,
-      error: (error as Error).message
+      error: (error as Error).message,
+      reason: 'Internal server error while fetching configuration'
     });
   }
 });
