@@ -8,10 +8,13 @@ const envSchema = z.object({
   STRIPE_WEBHOOK_SECRET: z.string().startsWith('whsec_', 'STRIPE_WEBHOOK_SECRET must start with whsec_'),
   STRIPE_PUBLISHABLE_KEY: z.string().startsWith('pk_', 'STRIPE_PUBLISHABLE_KEY must start with pk_'),
   
-  // Stripe Price IDs
-  STRIPE_BASIC_WEEKLY_PRICE_ID: z.string().startsWith('price_', 'Invalid price ID format'),
-  STRIPE_PRO_WEEKLY_PRICE_ID: z.string().startsWith('price_', 'Invalid price ID format'),
-  STRIPE_PRO_ANNUAL_PRICE_ID: z.string().startsWith('price_', 'Invalid price ID format'),
+  // Stripe Pricing Table ID (preferred method)
+  STRIPE_PRICING_TABLE_ID: z.string().startsWith('prctbl_', 'STRIPE_PRICING_TABLE_ID must start with prctbl_'),
+  
+  // Stripe Price IDs (legacy fallback - optional when using pricing table)
+  STRIPE_BASIC_WEEKLY_PRICE_ID: z.string().startsWith('price_', 'Invalid price ID format').optional(),
+  STRIPE_PRO_WEEKLY_PRICE_ID: z.string().startsWith('price_', 'Invalid price ID format').optional(),
+  STRIPE_PRO_ANNUAL_PRICE_ID: z.string().startsWith('price_', 'Invalid price ID format').optional(),
   
   // Firebase Configuration
   FIREBASE_PROJECT_ID: z.string().min(1, 'FIREBASE_PROJECT_ID is required'),
@@ -64,6 +67,8 @@ export function validateEnvironment(): Environment {
       console.error('  STRIPE_SECRET_KEY=sk_live_...');
       console.error('  STRIPE_WEBHOOK_SECRET=whsec_...');
       console.error('  STRIPE_PUBLISHABLE_KEY=pk_live_...');
+      console.error('  STRIPE_PRICING_TABLE_ID=prctbl_... (preferred)');
+      console.error('    OR (legacy fallback)');
       console.error('  STRIPE_BASIC_WEEKLY_PRICE_ID=price_...');
       console.error('  STRIPE_PRO_WEEKLY_PRICE_ID=price_...');
       console.error('  STRIPE_PRO_ANNUAL_PRICE_ID=price_...');
@@ -94,6 +99,7 @@ export const stripeConfig = {
   secretKey: env.STRIPE_SECRET_KEY,
   webhookSecret: env.STRIPE_WEBHOOK_SECRET,
   publishableKey: env.STRIPE_PUBLISHABLE_KEY,
+  pricingTableId: env.STRIPE_PRICING_TABLE_ID,
   priceIds: {
     basicWeekly: env.STRIPE_BASIC_WEEKLY_PRICE_ID,
     proWeekly: env.STRIPE_PRO_WEEKLY_PRICE_ID,

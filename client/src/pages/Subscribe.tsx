@@ -1,114 +1,30 @@
-import { useState } from 'react';
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { useEffect, useState } from 'react';
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, ArrowLeft, Check, Lock } from "lucide-react";
+import { FileText, ArrowLeft, Lock } from "lucide-react";
 import { Link } from "wouter";
 import SubscribeButton from "@/components/SubscribeButton";
 
 export default function Subscribe() {
-  const { isAuthenticated, isLoading } = useAuth();
-  const { toast } = useToast();
-  const [processingPlan, setProcessingPlan] = useState<string | null>(null);
+  const { isAuthenticated, firebaseUser, isLoading } = useAuth();
+  const [pricingTableLoaded, setPricingTableLoaded] = useState(false);
 
-  const handleSubscribe = async (planType: string) => {
-    if (!isAuthenticated) {
-      toast({
-        title: "Authentication Required",
-        description: "Please log in to subscribe to a plan.",
-        variant: "destructive",
-      });
-      // Firebase authentication will be handled automatically by the app routing
-      window.location.href = "/";
-      return;
-    }
+  // Load Stripe pricing table script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://js.stripe.com/v3/pricing-table.js';
+    script.async = true;
+    script.onload = () => setPricingTableLoaded(true);
+    document.head.appendChild(script);
 
-    setProcessingPlan(planType);
-
-    try {
-      const res = await apiRequest("POST", "/api/create-subscription", { planType });
-      const data = await res.json();
-      console.log("Checkout response:", data);
-      
-      if (!data.sessionUrl) {
-        throw new Error("No checkout URL received from server");
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://js.stripe.com/v3/pricing-table.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
       }
-      
-      // Add a small delay to ensure state is properly updated before redirect
-      setTimeout(() => {
-        // Use location.assign instead of location.href for better browser compatibility
-        window.location.assign(data.sessionUrl);
-      }, 100);
-      
-    } catch (error) {
-      console.error("Subscription creation error:", error);
-      toast({
-        title: "Error",
-        description: "Failed to start checkout. Please try again.",
-        variant: "destructive",
-      });
-      setProcessingPlan(null);
-    }
-  };
-
-  const getPlanLabel = (plan: string) => {
-    switch (plan) {
-      case 'basic_weekly':
-        return 'Basic Weekly';
-      case 'pro_weekly':
-        return 'Pro Weekly';
-      case 'pro_annual':
-        return 'Pro Annual';
-      default:
-        return 'Subscribe';
-    }
-  };
-
-  const getPlanPrice = (plan: string) => {
-    switch (plan) {
-      case 'basic_weekly':
-        return '$4.99';
-      case 'pro_weekly':
-        return '$9.99';
-      case 'pro_annual':
-        return '$59.99';
-      default:
-        return '';
-    }
-  };
-
-  const getPlanFeatures = (plan: string) => {
-    switch (plan) {
-      case 'basic_weekly':
-        return [
-          '3 PDFs per day',
-          'ChatGPT conversations only',
-          'Basic PDF formatting',
-          'Watermarked downloads'
-        ];
-      case 'pro_weekly':
-        return [
-          'Unlimited PDFs',
-          'All platforms (ChatGPT, Claude, Gemini)',
-          'Professional PDF formatting',
-          'Clean downloads (no watermarks)',
-          'Priority support'
-        ];
-      case 'pro_annual':
-        return [
-          'Unlimited PDFs',
-          'All platforms (ChatGPT, Claude, Gemini)',
-          'Professional PDF formatting',
-          'Clean downloads (no watermarks)',
-          'Priority support',
-          'Best value - Save $60/year!'
-        ];
-      default:
-        return [];
-    }
-  };
+    };
+  }, []);
 
   if (isLoading) {
     return (
@@ -121,7 +37,7 @@ export default function Subscribe() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <Link href="/">
@@ -135,117 +51,46 @@ export default function Subscribe() {
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Choose Your Plan</h1>
             </div>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Select the plan that best fits your needs. All plans include secure one-time payments with no recurring charges.
+              Select the plan that best fits your needs. All plans include secure checkout powered by Stripe.
             </p>
           </div>
 
-          {/* Pricing Cards */}
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {/* Basic Weekly */}
-            <Card className="relative border-2 hover:border-primary/50 transition-colors">
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Basic Weekly
-                </CardTitle>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-primary">{getPlanPrice('basic_weekly')}</span>
-                  <span className="text-gray-600 dark:text-gray-400">/week</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  {getPlanFeatures('basic_weekly').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <SubscribeButton 
-                  planType="basic_weekly"
-                  planName="Basic Weekly"
-                  className="w-full"
-                  disabled={processingPlan === 'basic_weekly'}
-                >
-                  Get Started
-                </SubscribeButton>
-              </CardContent>
-            </Card>
 
-            {/* Pro Weekly */}
-            <Card className="relative border-2 border-primary shadow-lg scale-105">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
-                  Most Popular
-                </span>
-              </div>
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Pro Weekly
-                </CardTitle>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-primary">{getPlanPrice('pro_weekly')}</span>
-                  <span className="text-gray-600 dark:text-gray-400">/week</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  {getPlanFeatures('pro_weekly').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <SubscribeButton 
-                  planType="pro_weekly"
-                  planName="Pro Weekly"
-                  className="w-full"
-                  disabled={processingPlan === 'pro_weekly'}
-                >
-                  Upgrade Now
-                </SubscribeButton>
-              </CardContent>
-            </Card>
+          {/* Authentication Notice */}
+          {!isAuthenticated && (
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-8">
+              <p className="text-blue-800 dark:text-blue-200 text-center">
+                Please log in to subscribe to a plan. You'll be redirected to authenticate before checkout.
+              </p>
+            </div>
+          )}
 
-            {/* Pro Annual */}
-            <Card className="relative border-2 hover:border-primary/50 transition-colors">
-              <div className="absolute -top-4 right-4">
-                <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Best Value
-                </span>
+
+          {/* Stripe Pricing Table */}
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+            {!pricingTableLoaded && (
+              <div className="flex items-center justify-center py-12">
+                <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mr-3" />
+                <span className="text-gray-600 dark:text-gray-400">Loading pricing options...</span>
+              </div>\
+            )}
+            
+            <stripe-pricing-table 
+              pricing-table-id="prctbl_1RtfEmJF6bibA8neXrRMo3a"
+              publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_live_0TqCIG6cqKBt1QeIrGVHglz"}
+              client-reference-id={firebaseUser?.uid || "anonymous"}
+              customer-email={firebaseUser?.email || ""}
+            />
+            
+            {/* Note about authentication */}
+            {!isAuthenticated && pricingTableLoaded && (
+              <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+                <p className="text-yellow-800 dark:text-yellow-200 text-sm text-center">
+                  <strong>Note:</strong> You'll be prompted to log in during checkout to complete your subscription.
+                </p>
               </div>
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Pro Annual
-                </CardTitle>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-primary">{getPlanPrice('pro_annual')}</span>
-                  <span className="text-gray-600 dark:text-gray-400">/year</span>
-                </div>
-                <div className="text-sm text-green-600 dark:text-green-400 font-medium">
-                  Save $240 compared to weekly!
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  {getPlanFeatures('pro_annual').map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <SubscribeButton 
-                  planType="pro_annual"
-                  planName="Pro Annual"
-                  className="w-full"
-                  disabled={processingPlan === 'pro_annual'}
-                >
-                  Get Best Value
-                </SubscribeButton>
-              </CardContent>
-            </Card>
+            )}
+
           </div>
 
           {/* Security Notice */}

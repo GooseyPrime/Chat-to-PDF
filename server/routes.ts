@@ -55,16 +55,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
       switch (event.type) {
         case 'checkout.session.completed':
           const session = event.data.object as Stripe.Checkout.Session;
-          const userId = session.metadata?.userId;
-          const planType = session.metadata?.planType;
+          
+          // Support both legacy metadata approach and pricing table approach
+          let userId = session.metadata?.userId || session.client_reference_id;
+          let planType = session.metadata?.planType;
           
           console.log('💳 Checkout session completed:', session.id);
           console.log('📋 Session metadata:', session.metadata);
-          console.log('👤 User ID from metadata:', userId);
+          console.log('🔗 Client reference ID:', session.client_reference_id);
+          console.log('👤 User ID:', userId);
           console.log('📦 Plan type from metadata:', planType);
           
-          if (!userId || !planType) {
-            console.error('❌ Missing metadata in checkout session:', session.id, session.metadata);
+          // For pricing table, derive plan type from line items if not in metadata
+          if (!planType && session.line_items) {
+            try {
+              const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
+              if (lineItems.data[0]?.price?.id) {
+                const priceId = lineItems.data[0].price.id;
+                console.log('💰 Price ID from line items:', priceId);
+                
+                // Map price IDs to plan types (you'll need to configure these based on your actual price IDs)
+                const priceToTypeMap: Record<string, string> = {
+                  'price_1Rg6fnJF6bibA8nesbJ1RvxA': 'basic_weekly',
+                  'price_1Rtf6CJF6bibA8nef9w5LhLE': 'pro_weekly', 
+                  'price_1Rtf9YJF6bibA8nemK14siZ5': 'pro_annual',
+                };
+                
+                planType = priceToTypeMap[priceId];
+                console.log('📦 Derived plan type:', planType);
+              }
+            } catch (lineItemError) {
+              console.error('❌ Failed to fetch line items:', lineItemError);
+            }
+          }
+          
+          if (!userId) {
+            console.error('❌ Missing user ID in checkout session:', session.id);
+            console.error('   - No metadata.userId found');
+            console.error('   - No client_reference_id found');
+            console.error('   - Session data:', { metadata: session.metadata, client_reference_id: session.client_reference_id });
+            break;
+          }
+          
+          if (!planType) {
+            console.error('❌ Missing plan type in checkout session:', session.id);
+            console.error('   - No metadata.planType found');
+            console.error('   - Could not derive from line items');
+            console.error('   - Session data:', { metadata: session.metadata });
             break;
           }
           
