@@ -33,7 +33,25 @@ function initializeFirebase(): void {
     }
 
     // For production with service account
-    if (process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_CLIENT_EMAIL) {
+    // Option 1: Use GOOGLE_CREDENTIALS (full service account JSON)
+    if (process.env.GOOGLE_CREDENTIALS) {
+      try {
+        const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+        admin.initializeApp({
+          credential: admin.credential.cert(credentials),
+          projectId: credentials.project_id,
+        });
+        console.log('✅ Firebase Admin initialized with GOOGLE_CREDENTIALS');
+      } catch (error) {
+        throw new Error(
+          'GOOGLE_CREDENTIALS is not valid JSON. ' +
+          'Ensure it contains the complete Firebase service account JSON from the downloaded key file. ' +
+          'See README for detailed setup instructions.'
+        );
+      }
+    }
+    // Option 2: Use individual Firebase environment variables
+    else if (process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_CLIENT_EMAIL) {
       const privateKey = process.env.FIREBASE_PRIVATE_KEY;
       
       // Validate private key format before attempting to use it
@@ -59,6 +77,7 @@ function initializeFirebase(): void {
         }),
         projectId,
       });
+      console.log('✅ Firebase Admin initialized with individual variables');
     } else {
       // For development - use Application Default Credentials or project ID only
       admin.initializeApp({
