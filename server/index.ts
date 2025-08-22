@@ -37,6 +37,68 @@ checkMigrationStatus();
 
 const app = express();
 
+// Security headers middleware
+app.use((req, res, next) => {
+  // Basic security headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
+  // Content Security Policy
+  const cspDirectives = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.google.com https://www.gstatic.com https://replit.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    "img-src 'self' data: https:",
+    "connect-src 'self' https://api.stripe.com https://*.googleapis.com https://*.firebaseio.com wss://ws-us3.pusher.com",
+    "frame-src https://js.stripe.com https://hooks.stripe.com",
+    "object-src 'none'",
+    "base-uri 'self'"
+  ];
+  res.setHeader('Content-Security-Policy', cspDirectives.join('; '));
+  
+  // Permissions Policy to control web platform features
+  const permissionsPolicy = [
+    'payment=(self "https://js.stripe.com")',
+    'camera=(),geolocation=(),microphone=()',
+    'accelerometer=(),gyroscope=(),magnetometer=()',
+    'autoplay=(self)',
+    'encrypted-media=(self)',
+    'fullscreen=(self)',
+    'picture-in-picture=()'
+  ];
+  res.setHeader('Permissions-Policy', permissionsPolicy.join(', '));
+  
+  // CORS configuration  
+  const allowedOrigins = [
+    appConfig.clientUrl,
+    'http://localhost:3000',
+    'http://localhost:5000', 
+    'https://localhost:3000',
+    'https://localhost:5000'
+  ];
+  
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+  
+  next();
+});
+
 // Add JSON parsing middleware but exclude webhook routes that need raw body
 app.use((req, res, next) => {
   if (req.path === '/api/stripe-webhook') {
