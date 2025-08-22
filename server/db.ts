@@ -32,38 +32,27 @@ function initializeFirebase(): void {
       throw new Error('FIREBASE_PROJECT_ID is required');
     }
 
-    // Method 1: Use GOOGLE_CREDENTIALS (preferred method)
+
+    // For production with service account
+    // Option 1: Use GOOGLE_CREDENTIALS (full service account JSON)
     if (process.env.GOOGLE_CREDENTIALS) {
       try {
         const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
-        
-        // Validate the parsed credentials contain required fields
-        if (!credentials.private_key || !credentials.client_email || !credentials.project_id) {
-          throw new Error('GOOGLE_CREDENTIALS JSON is missing required fields (private_key, client_email, project_id)');
-        }
-
         admin.initializeApp({
-          credential: admin.credential.cert({
-            projectId: credentials.project_id,
-            clientEmail: credentials.client_email,
-            privateKey: credentials.private_key,
-          }),
-          projectId,
+          credential: admin.credential.cert(credentials),
+          projectId: credentials.project_id,
         });
-        
         console.log('✅ Firebase Admin initialized with GOOGLE_CREDENTIALS');
-      } catch (parseError) {
-        if (parseError instanceof SyntaxError) {
-          throw new Error(
-            'GOOGLE_CREDENTIALS is not valid JSON. ' +
-            'Ensure you paste the complete Firebase service account JSON content. ' +
-            'The JSON should contain fields like private_key, client_email, project_id.'
-          );
-        }
-        throw parseError;
+      } catch (error) {
+        throw new Error(
+          'GOOGLE_CREDENTIALS is not valid JSON. ' +
+          'Ensure it contains the complete Firebase service account JSON from the downloaded key file. ' +
+          'See README for detailed setup instructions.'
+        );
       }
     }
-    // Method 2: Use individual environment variables (legacy support)
+    // Option 2: Use individual Firebase environment variables
+
     else if (process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_CLIENT_EMAIL) {
       const privateKey = process.env.FIREBASE_PRIVATE_KEY;
       
@@ -91,8 +80,9 @@ function initializeFirebase(): void {
         }),
         projectId,
       });
-      
-      console.log('✅ Firebase Admin initialized with individual environment variables');
+
+      console.log('✅ Firebase Admin initialized with individual variables');
+
     } else {
       // Method 3: For development - use Application Default Credentials or project ID only
       admin.initializeApp({

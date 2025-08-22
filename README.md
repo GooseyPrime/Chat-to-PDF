@@ -47,12 +47,13 @@ For a quick automated setup, run:
    # Firebase
    FIREBASE_PROJECT_ID=your-firebase-project-id
    
-   # Option 1 (RECOMMENDED): Complete Firebase service account JSON
-   GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com","client_id":"...","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"..."}
+   # Option 1: GOOGLE_CREDENTIALS (Recommended)
+   GOOGLE_CREDENTIALS={"type":"service_account","project_id":"...","private_key":"...","client_email":"..."}
    
-   # Option 2 (Legacy): Individual variables
-   # FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-   # FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+   # Option 2: Individual Firebase variables (Alternative)
+   FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+   FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+
 
    # Stripe
    STRIPE_SECRET_KEY=sk_test_...
@@ -145,18 +146,30 @@ Before deploying, you need to set up your environment variables in the Railway d
 ```
 FIREBASE_PROJECT_ID=your-firebase-project-id
 
-# Option 1 (RECOMMENDED): Complete Firebase service account JSON
-GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com","client_id":"...","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"..."}
 
-# Option 2 (Legacy): Individual variables
-# FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
-# MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
-# [Your full private key content here - multiple lines]
-# ...
-# -----END PRIVATE KEY-----
-# FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+# Option 1: GOOGLE_CREDENTIALS (Recommended - Single Variable)
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project-id","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com","client_id":"...","auth_uri":"...","token_uri":"...","auth_provider_x509_cert_url":"...","client_x509_cert_url":"..."}
+
+# Option 2: Individual Variables (Alternative)
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+[Your full private key content here - multiple lines]
+...
+-----END PRIVATE KEY-----
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+
 ```
 **How to get:** Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com), enable Firestore and Authentication, then download service account credentials from Project Settings > Service Accounts. **For GOOGLE_CREDENTIALS, copy the entire JSON file content. For individual variables, extract private_key and client_email from the JSON.**
+
+**Recommended: Using GOOGLE_CREDENTIALS (Option 1)**
+1. Download the service account JSON file from Firebase Console
+2. Copy the entire JSON content as one line
+3. Set as GOOGLE_CREDENTIALS environment variable in Railway
+
+**Alternative: Individual Variables (Option 2)**
+1. Open the downloaded JSON file
+2. Copy individual values to separate environment variables
+3. Set FIREBASE_PRIVATE_KEY, FIREBASE_CLIENT_EMAIL separately
 
 #### Stripe Configuration (Production Keys)
 ```
@@ -185,6 +198,14 @@ VITE_FIREBASE_APP_ID=1:123456789:web:abcdef123456
 4. Copy the config values
 
 #### Firebase Admin SDK (Server-side)
+
+**Option 1: GOOGLE_CREDENTIALS (Recommended)**
+```
+FIREBASE_PROJECT_ID=your-project-id
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project-id",...}
+```
+
+**Option 2: Individual Variables (Alternative)**
 ```
 FIREBASE_PROJECT_ID=your-project-id
 
@@ -202,17 +223,17 @@ GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project","privat
 
 **⚠️ IMPORTANT: Railway Configuration**
 
-**✅ RECOMMENDED Method - Using GOOGLE_CREDENTIALS:**
-1. Go to [Firebase Console](https://console.firebase.google.com) → Your Project
-2. Project Settings → Service Accounts → Generate new private key
-3. Download the JSON file
-4. In Railway Dashboard → Variables, create `GOOGLE_CREDENTIALS` variable
-5. Copy the **entire JSON file content** and paste it as the value
-6. Railway handles JSON formatting automatically
 
-**✅ Legacy Method - Using Individual Variables:**
+**✅ RECOMMENDED - Using GOOGLE_CREDENTIALS:**
+1. Go to [Firebase Console](https://console.firebase.google.com)
+2. Project Settings → Service Accounts
+3. Generate new private key (downloads JSON file)
+4. In Railway Dashboard → Variables, add `GOOGLE_CREDENTIALS`
+5. Copy and paste the **entire JSON content** as the value (keep it as one line)
 
-When setting `FIREBASE_PRIVATE_KEY` in Railway Dashboard (if not using GOOGLE_CREDENTIALS):
+**Alternative - Using Individual Variables:**
+When setting `FIREBASE_PRIVATE_KEY` in Railway Dashboard:
+
 
 **✅ CORRECT - Copy the key exactly as-is from the JSON file:**
 ```
@@ -316,8 +337,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
    - `VITE_FIREBASE_MESSAGING_SENDER_ID`
    - `VITE_FIREBASE_APP_ID`
    - `FIREBASE_PROJECT_ID`
-   - `FIREBASE_PRIVATE_KEY`
-   - `FIREBASE_CLIENT_EMAIL`
+   - `GOOGLE_CREDENTIALS` (recommended) **OR** `FIREBASE_PRIVATE_KEY` + `FIREBASE_CLIENT_EMAIL` (alternative)
    - `NODE_ENV` (set to `production`)
    - `SESSION_SECRET`
    - `STORAGE_PATH` (set to `/app/storage`)
@@ -475,12 +495,14 @@ MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
 # Error: Firebase Admin initialization failed
 # Check these in Railway Dashboard → Variables:
 
-# If using GOOGLE_CREDENTIALS (recommended):
-# 1. Verify GOOGLE_CREDENTIALS contains valid JSON
-# 2. Ensure JSON has required fields: private_key, client_email, project_id
-# 3. Verify FIREBASE_PROJECT_ID matches the project_id in GOOGLE_CREDENTIALS
 
-# If using individual variables (legacy):
+# Option 1: If using GOOGLE_CREDENTIALS (recommended):
+# 1. Verify FIREBASE_PROJECT_ID matches your Firebase project
+# 2. Ensure GOOGLE_CREDENTIALS is valid JSON from Firebase service account
+# 3. Check that JSON contains: project_id, private_key, client_email
+
+# Option 2: If using individual variables:
+
 # 1. Verify FIREBASE_PROJECT_ID matches your Firebase project
 # 2. Ensure FIREBASE_CLIENT_EMAIL has correct format:
 #    firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
@@ -492,11 +514,16 @@ railway logs --tail
 
 **Testing Firebase Configuration:**
 ```powershell
-# Test your Firebase credentials locally:
-# Option 1: Using GOOGLE_CREDENTIALS (recommended)
-export GOOGLE_CREDENTIALS='{"type":"service_account","project_id":"...","private_key":"...","client_email":"..."}'
 
-# Option 2: Using service account file
+# Option 1: Test with GOOGLE_CREDENTIALS (if using this method):
+# 1. Download the service account JSON from Firebase Console
+# 2. Set GOOGLE_CREDENTIALS environment variable to the JSON content:
+$env:GOOGLE_CREDENTIALS='{"type":"service_account","project_id":"..."}'
+# 3. Test connection with Firebase CLI:
+firebase firestore:get --project your-project-id /test
+
+# Option 2: Test with GOOGLE_APPLICATION_CREDENTIALS (alternative):
+
 # 1. Download the service account JSON from Firebase Console
 # 2. Set environment variable to the JSON file path:
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"

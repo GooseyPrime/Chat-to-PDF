@@ -20,6 +20,11 @@ STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
 
 # 4. Firebase Authentication
 FIREBASE_PROJECT_ID=your-production-project-id
+
+# Option 1: GOOGLE_CREDENTIALS (Recommended)
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-production-project-id","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com",...}
+
+# Option 2: Individual Variables (Alternative)
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_MULTI_LINE_KEY_HERE\n-----END PRIVATE KEY-----\n"
 FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
