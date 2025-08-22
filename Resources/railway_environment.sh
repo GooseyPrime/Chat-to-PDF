@@ -33,7 +33,12 @@ FIREBASE_PROJECT_ID=your-production-project-id
 # Firebase Admin SDK (for server-side authentication)
 # Download service account JSON from Firebase Console > Project Settings > Service Accounts
 # Copy the private_key and client_email values:
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+# IMPORTANT: Copy the private key exactly as shown in JSON, with actual line breaks (not \n)
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+[Your full private key content here - multiple lines]
+...
+-----END PRIVATE KEY-----
 FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================

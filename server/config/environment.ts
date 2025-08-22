@@ -65,7 +65,7 @@ export function validateEnvironment(): Environment {
       console.error('  STRIPE_PRO_WEEKLY_PRICE_ID=price_...');
       console.error('  STRIPE_PRO_ANNUAL_PRICE_ID=price_...');
       console.error('  FIREBASE_PROJECT_ID=your-project-id');
-      console.error('  FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"');
+      console.error('  FIREBASE_PRIVATE_KEY=[Copy private key from Firebase JSON with actual line breaks]');
       console.error('  FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxx@your-project.iam.gserviceaccount.com');
       console.error('  SESSION_SECRET=your-secret-key');
       console.error('  NODE_ENV=production');

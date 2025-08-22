@@ -93,7 +93,9 @@ NEW_RELIC_LICENSE_KEY=your-newrelic-license-key
 #    - Go to https://console.firebase.google.com/
 #    - Create production project
 #    - Enable Authentication → Email/Password
-#    - Generate service account key
+#    - Generate service account key (downloads JSON)
+#    - IMPORTANT: Copy private_key from JSON exactly with line breaks
+#    - Don't use quotes or \n escape sequences in Railway
 #    - Copy project config for frontend
 
 # 3. SESSION SECRET:
