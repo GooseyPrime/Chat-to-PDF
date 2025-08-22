@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { User, onAuthStateChanged } from "firebase/auth";
-import { auth } from "@shared/firebase";
+import { auth, isFirebaseAvailable } from "@shared/firebase";
 import { useQuery } from "@tanstack/react-query";
 
 export function useAuth() {
@@ -8,6 +8,12 @@ export function useAuth() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!isFirebaseAvailable || !auth) {
+      // Firebase is not available, set loading to false
+      setIsLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setFirebaseUser(user);
       setIsLoading(false);
@@ -20,13 +26,14 @@ export function useAuth() {
   const { data: dbUser } = useQuery({
     queryKey: ["/api/auth/user"],
     retry: false,
-    enabled: !!firebaseUser,
+    enabled: !!firebaseUser && isFirebaseAvailable,
   });
 
   return {
     user: dbUser,
     firebaseUser,
     isLoading,
-    isAuthenticated: !!firebaseUser,
+    isAuthenticated: !!firebaseUser && isFirebaseAvailable,
+    isFirebaseAvailable,
   };
 }
