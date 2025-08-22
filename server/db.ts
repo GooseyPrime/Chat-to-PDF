@@ -119,8 +119,8 @@ export const ensureFirestore = async (): Promise<boolean> => {
   try {
     initializeFirebase();
     const actualDb = getDb();
-    // Test the connection by attempting to get a document that may not exist
-    await actualDb.collection('_connection_test').limit(1).get();
+    // Test the connection by listing collections (lightweight operation that doesn't require specific collections)
+    await actualDb.listCollections();
     return true;
   } catch (error) {
     console.error('Firestore connection failed:', error);
