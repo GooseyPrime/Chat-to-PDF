@@ -2,15 +2,23 @@ import admin from 'firebase-admin';
 import type { RequestHandler } from "express";
 import { storage } from "./storage";
 
-// Initialize Firebase Admin (no service account needed for local development)
-if (!admin.apps.length) {
-  admin.initializeApp({
-    projectId: process.env.VITE_FIREBASE_PROJECT_ID,
-  });
-}
+// Use lazy initialization - don't initialize here on import
+// Firebase will be initialized when first needed
 
 export const verifyFirebaseToken: RequestHandler = async (req, res, next) => {
   try {
+    // Initialize Firebase if not already done
+    if (!admin.apps.length) {
+      const projectId = process.env.VITE_FIREBASE_PROJECT_ID || process.env.FIREBASE_PROJECT_ID;
+      if (!projectId) {
+        throw new Error('Firebase project ID not configured');
+      }
+      
+      admin.initializeApp({
+        projectId,
+      });
+    }
+
     const authHeader = req.headers.authorization;
     
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
