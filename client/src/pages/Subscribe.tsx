@@ -72,7 +72,7 @@ export default function Subscribe() {
               <div className="flex items-center justify-center py-12">
                 <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mr-3" />
                 <span className="text-gray-600 dark:text-gray-400">Loading pricing options...</span>
-              </div>\
+              </div>
             )}
             
             <stripe-pricing-table 
