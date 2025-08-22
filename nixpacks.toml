@@ -1,12 +1,17 @@
 [variables]
 PUPPETEER_SKIP_DOWNLOAD = "true"
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
 NODE_ENV = "production"
 
 [phases.setup]
 nixPkgs = ["nodejs_20", "npm"]
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = [
+  "export PUPPETEER_SKIP_DOWNLOAD=true",
+  "export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true", 
+  "npm ci"
+]
 
 [phases.build]
 cmds = ["npm run build"]

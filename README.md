@@ -219,6 +219,23 @@ node migrations/app-migration.js
 
 ### 8. Troubleshooting Common Issues
 
+**Firewall/Chrome Download Issues:**
+```bash
+# Issue: "https://storage.googleapis.com/chrome-for-testing-public/.../chrome-headless-shell-linux64.zip" blocked
+# Error during: node install.mjs (http block)
+# Solution: The application is pre-configured to skip Chrome downloads
+
+# Verification that configuration is correct:
+# 1. Check .npmrc contains: puppeteer_skip_download=true
+# 2. Check nixpacks.toml has PUPPETEER_SKIP_DOWNLOAD="true"
+# 3. Check Dockerfile.railway has ENV PUPPETEER_SKIP_DOWNLOAD=true
+
+# If the issue persists, manually set environment variable before deployment:
+export PUPPETEER_SKIP_DOWNLOAD=true
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+npm install
+```
+
 **Build Failures:**
 ```bash
 # Issue: xcopy command not found

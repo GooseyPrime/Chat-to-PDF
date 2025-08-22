@@ -4,6 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "preinstall": "export PUPPETEER_SKIP_DOWNLOAD=true",
     "dev": "NODE_ENV=development tsx server/index.ts",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && cp dist/public/index.html dist/index.html",
     "start": "NODE_ENV=production node dist/index.js",
