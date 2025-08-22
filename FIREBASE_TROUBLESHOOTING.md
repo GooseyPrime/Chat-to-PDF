@@ -1,52 +1,105 @@
 # Firebase Connection Troubleshooting Guide
 
-This guide helps resolve common Firebase connection errors encountered during deployment.
+This guide helps resolve Firebase connection errors. The application automatically detects issues and provides specific guidance.
 
-## Common Error: `Error: 5 NOT_FOUND`
+## 🔴 CRITICAL: Error 5 NOT_FOUND (Most Common Issue)
 
-**Symptoms:**
+**What this means:**
+Your Firebase project exists and credentials are correct, but **Firestore database is not enabled**.
+
+**Symptoms in logs:**
 ```
 ✅ Firebase Admin initialized with GOOGLE_CREDENTIALS
-Firestore connection failed: Error: 5 NOT_FOUND:
+📋 Project: chat-transcript-converter
+📧 Service Account: firebase-adminsdk-fbsvc@chat-transcript-converter.iam.gserviceaccount.com
+❌ Firestore connection test failed: { code: 5, message: '5 NOT_FOUND: ' }
 ```
 
-**Root Causes & Solutions:**
+**🎯 IMMEDIATE FIX REQUIRED:**
 
-### 1. Firestore Database Not Enabled
-**Most Common Cause** - The Firebase project exists but Firestore database is not enabled.
+1. **Go to Firebase Console:** https://console.firebase.google.com/project/chat-transcript-converter/firestore
+2. **Look for "Add database" or "Create database" button** (this confirms Firestore is not enabled)
+3. **Click "Create database"**
+4. **Choose mode:**
+   - "Start in production mode" (recommended for live apps)
+   - "Start in test mode" (for development)
+5. **Select region** (choose closest to your Railway deployment)
+6. **Wait for creation to complete**
+7. **Redeploy your Railway application**
 
-**Solution:**
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Select your project
-3. Navigate to Firestore Database section
-4. Click "Create database"
-5. Choose either "Start in production mode" or "Start in test mode"
-6. Select a region (preferably close to your Railway deployment region)
+**Direct link for this project:** https://console.firebase.google.com/project/chat-transcript-converter/firestore
 
-### 2. Wrong Project ID
-The project ID in your credentials doesn't match the actual Firebase project.
+---
 
-**Solution:**
-1. Verify `FIREBASE_PROJECT_ID` matches your actual Firebase project ID
-2. If using `GOOGLE_CREDENTIALS`, ensure the `project_id` field in the JSON matches
-3. Check for typos in project names
+## Configuration Validation
 
-### 3. Project Doesn't Exist
-The Firebase project was deleted or never created.
+### ✅ Recommended Setup (Currently Used)
+```bash
+FIREBASE_PROJECT_ID=chat-transcript-converter
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"chat-transcript-converter",...}
+```
 
-**Solution:**
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Verify the project exists and you have access
-3. Create a new project if needed
+### Alternative Setup
+```bash
+FIREBASE_PROJECT_ID=chat-transcript-converter
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@chat-transcript-converter.iam.gserviceaccount.com
+```
 
-## Common Error: `Error: 7 PERMISSION_DENIED`
+---
+
+## Other Potential Errors
+
+### Error 7 PERMISSION_DENIED
 
 **Symptoms:**
 ```
 Firestore connection failed: Error: 7 PERMISSION_DENIED:
 ```
 
-**Root Causes & Solutions:**
+**Solution:**
+1. Firebase Console → Project Settings → Service Accounts
+2. Ensure service account has "Firebase Admin SDK" role
+3. Or add "Cloud Datastore User" role in IAM & Admin
+
+### Invalid Credentials
+
+**Symptoms:**
+```
+Firebase configuration validation failed: GOOGLE_CREDENTIALS is not valid JSON
+```
+
+**Solution:**
+1. Re-download service account JSON from Firebase Console
+2. Verify JSON is not truncated or corrupted
+3. Ensure proper escaping in Railway environment variables
+
+---
+
+## Debugging Steps
+
+### 1. Check Application Health
+Visit your app's `/api/health` endpoint for detailed Firebase status.
+
+### 2. Verify Firebase Console Access
+1. Go to https://console.firebase.google.com/
+2. Confirm you can access the "chat-transcript-converter" project
+3. Navigate to Firestore Database section
+
+### 3. Railway Environment Check
+1. Railway Dashboard → Project → Variables
+2. Confirm `FIREBASE_PROJECT_ID` and `GOOGLE_CREDENTIALS` are set
+3. Check Railway logs for detailed error messages
+
+---
+
+## Project-Specific Information
+
+**Your Project ID:** `chat-transcript-converter`
+**Service Account:** `firebase-adminsdk-fbsvc@chat-transcript-converter.iam.gserviceaccount.com`
+**Firestore Console:** https://console.firebase.google.com/project/chat-transcript-converter/firestore
+
+The application provides real-time diagnostics and will guide you to the exact solution based on the specific error encountered.
 
 ### 1. Service Account Lacks Permissions
 **Solution:**

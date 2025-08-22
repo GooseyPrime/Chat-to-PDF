@@ -7,19 +7,22 @@ let firebaseInitError: Error | null = null;
 // Configuration validation result cache
 let configValidationResult: { isValid: boolean; error?: string } | null = null;
 
+// Configuration validation result cache
+let configValidationResultFixed: { isValid: boolean; error?: string; projectId?: string } | null = null;
+
 // Validate Firebase configuration before attempting to connect
 function validateFirebaseConfig(): { isValid: boolean; error?: string; projectId?: string } {
-  if (configValidationResult) {
-    return configValidationResult;
+  if (configValidationResultFixed) {
+    return configValidationResultFixed;
   }
 
   const projectId = process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID;
   if (!projectId) {
-    configValidationResult = {
+    configValidationResultFixed = {
       isValid: false,
       error: 'FIREBASE_PROJECT_ID is required. Please set this environment variable to your Firebase project ID.'
     };
-    return configValidationResult;
+    return configValidationResultFixed;
   }
 
   // Check if we have valid authentication credentials
@@ -27,11 +30,11 @@ function validateFirebaseConfig(): { isValid: boolean; error?: string; projectId
   const hasIndividualCredentials = !!(process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_CLIENT_EMAIL);
   
   if (!hasGoogleCredentials && !hasIndividualCredentials) {
-    configValidationResult = {
+    configValidationResultFixed = {
       isValid: false,
       error: 'Firebase authentication credentials are missing. Please set either GOOGLE_CREDENTIALS (recommended) or both FIREBASE_PRIVATE_KEY and FIREBASE_CLIENT_EMAIL.'
     };
-    return configValidationResult;
+    return configValidationResultFixed;
   }
 
   // Validate GOOGLE_CREDENTIALS if provided
@@ -39,22 +42,22 @@ function validateFirebaseConfig(): { isValid: boolean; error?: string; projectId
     try {
       const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS!);
       if (!credentials.project_id || !credentials.private_key || !credentials.client_email) {
-        configValidationResult = {
+        configValidationResultFixed = {
           isValid: false,
           error: 'GOOGLE_CREDENTIALS JSON is missing required fields: project_id, private_key, or client_email.'
         };
-        return configValidationResult;
+        return configValidationResultFixed;
       }
       
       if (credentials.project_id !== projectId) {
         console.warn(`⚠️ Warning: FIREBASE_PROJECT_ID (${projectId}) does not match project_id in GOOGLE_CREDENTIALS (${credentials.project_id}). Using project_id from GOOGLE_CREDENTIALS.`);
       }
     } catch (error) {
-      configValidationResult = {
+      configValidationResultFixed = {
         isValid: false,
         error: 'GOOGLE_CREDENTIALS is not valid JSON. Please ensure it contains the complete Firebase service account JSON.'
       };
-      return configValidationResult;
+      return configValidationResultFixed;
     }
   }
 
@@ -62,16 +65,16 @@ function validateFirebaseConfig(): { isValid: boolean; error?: string; projectId
   if (hasIndividualCredentials && !hasGoogleCredentials) {
     const privateKey = process.env.FIREBASE_PRIVATE_KEY!;
     if (!validatePrivateKey(privateKey)) {
-      configValidationResult = {
+      configValidationResultFixed = {
         isValid: false,
         error: 'FIREBASE_PRIVATE_KEY is not in valid PEM format. Ensure it includes -----BEGIN PRIVATE KEY----- and -----END PRIVATE KEY----- markers.'
       };
-      return configValidationResult;
+      return configValidationResultFixed;
     }
   }
 
-  configValidationResult = { isValid: true, projectId };
-  return configValidationResult;
+  configValidationResultFixed = { isValid: true, projectId };
+  return configValidationResultFixed;
 }
 
 // Enhanced Firebase connection test with detailed diagnostics
@@ -103,24 +106,32 @@ async function testFirestoreConnection(retries = 3): Promise<{ success: boolean;
       // Provide specific guidance based on error type
       if (errorCode === 5 || errorMessage.includes('NOT_FOUND')) {
         const guidance = `
-🔧 Firestore Database Not Found (Error 5):
-   This usually means:
-   1. Firestore database is not enabled in Firebase Console
-   2. The Firebase project doesn't exist
-   3. Wrong project ID in credentials
-
-   To fix:
-   1. Go to https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID || 'your-project'}/firestore
-   2. Click "Create database" if Firestore is not enabled
-   3. Choose "Start in production mode" or "test mode"
-   4. Verify the project ID matches your credentials`;
+🔧 FIRESTORE DATABASE NOT ENABLED (Error 5):
+   
+   ⚠️  CRITICAL: Your Firebase project exists, but Firestore database is NOT enabled.
+   
+   🎯 IMMEDIATE ACTION REQUIRED:
+   1. Go to: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID || 'your-project'}/firestore
+   2. Click the blue "Create database" button
+   3. Choose "Start in production mode" (recommended) or "test mode"
+   4. Select a region close to your deployment
+   5. Wait for database creation to complete
+   6. Redeploy your application
+   
+   ✅ This is the ONLY way to fix Error 5 - you must enable Firestore in Firebase Console.
+   
+   📋 Your configuration appears correct:
+   - Project ID: ${process.env.FIREBASE_PROJECT_ID || 'unknown'}
+   - Credentials: ${process.env.GOOGLE_CREDENTIALS ? 'GOOGLE_CREDENTIALS set' : 'Individual credentials'}
+   
+   🔗 Direct link: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID || 'your-project'}/firestore`;
         
         console.error(guidance);
         
         if (attempt === retries) {
           return { 
             success: false, 
-            error: `Firestore database not found. Please enable Firestore in Firebase Console for project: ${process.env.FIREBASE_PROJECT_ID || 'unknown'}. ${guidance}`
+            error: `Firestore database not enabled. Must create database in Firebase Console: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID || 'unknown'}/firestore`
           };
         }
       } else if (errorCode === 7 || errorMessage.includes('PERMISSION_DENIED')) {
@@ -307,15 +318,49 @@ export const ensureFirestore = async (): Promise<boolean> => {
     
     // Log troubleshooting steps
     console.error(`
-🔧 Troubleshooting Steps:
-1. Verify Firestore is enabled: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID || 'your-project'}/firestore
-2. Check service account permissions in Firebase Console → Project Settings → Service Accounts
-3. Ensure GOOGLE_CREDENTIALS contains the complete JSON from Firebase service account key
-4. Verify project ID matches between credentials and FIREBASE_PROJECT_ID
-5. Check Railway logs for specific error details
+🔧 FIRESTORE CONNECTION FAILED - Troubleshooting Guide:
 
-For more help, see the README.md Firebase Configuration section.`);
+${errorMessage.includes('NOT_FOUND') || errorMessage.includes('5') ? 
+  `❌ ERROR: Firestore database is NOT ENABLED
+  
+  🎯 SOLUTION: You must enable Firestore database in Firebase Console
+  
+  📍 DIRECT ACTION:
+  1. Visit: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID || 'your-project'}/firestore
+  2. Click "Create database" 
+  3. Choose production mode or test mode
+  4. Complete the setup wizard
+  5. Redeploy your application
+  
+  ⚠️  This is the ONLY fix for Error 5 - credentials are correct, but database doesn't exist.` 
+  :
+  errorMessage.includes('PERMISSION_DENIED') || errorMessage.includes('7') ?
+  `❌ ERROR: Permission denied accessing Firestore
+  
+  🎯 SOLUTION: Fix service account permissions
+  
+  📍 DIRECT ACTION:
+  1. Firebase Console → Project Settings → Service Accounts
+  2. Verify service account has "Firebase Admin SDK" role
+  3. Or add "Cloud Datastore User" role in IAM & Admin`
+  :
+  `❌ ERROR: General Firebase connection issue
+  
+  🎯 SOLUTION: Verify configuration
+  
+  📍 STEPS:
+  1. Check FIREBASE_PROJECT_ID matches your project
+  2. Verify GOOGLE_CREDENTIALS is valid JSON
+  3. Ensure project exists in Firebase Console`
+}
+
+📊 Configuration Status:
+- Project ID: ${process.env.FIREBASE_PROJECT_ID || 'NOT SET'}
+- Auth Method: ${process.env.GOOGLE_CREDENTIALS ? 'GOOGLE_CREDENTIALS' : process.env.FIREBASE_PRIVATE_KEY ? 'Individual credentials' : 'None'}
+- Health Check: Visit /api/health for detailed status
+
+📚 Documentation: See FIREBASE_TROUBLESHOOTING.md for complete guide`);
     
-    throw new Error(`Failed to connect to Firestore database: ${errorMessage}`);
+    throw new Error(`Failed to connect to Firestore: ${errorMessage}`);
   }
 };
