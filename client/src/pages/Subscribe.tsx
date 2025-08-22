@@ -1,17 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { FileText, ArrowLeft, Lock } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Subscribe() {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, firebaseUser, isLoading } = useAuth();
+  const [pricingTableLoaded, setPricingTableLoaded] = useState(false);
 
   // Load Stripe pricing table script
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://js.stripe.com/v3/pricing-table.js';
     script.async = true;
+    script.onload = () => setPricingTableLoaded(true);
     document.head.appendChild(script);
 
     return () => {
@@ -63,11 +65,28 @@ export default function Subscribe() {
 
           {/* Stripe Pricing Table */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+            {!pricingTableLoaded && (
+              <div className="flex items-center justify-center py-12">
+                <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mr-3" />
+                <span className="text-gray-600 dark:text-gray-400">Loading pricing options...</span>
+              </div>
+            )}
+            
             <stripe-pricing-table 
               pricing-table-id="prctbl_1RtfEmJF6bibA8neXrRMo3a"
               publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_live_0TqCIG6cqKBt1QeIrGVHglz"}
-              customer-session-client-secret={isAuthenticated ? "authenticated" : undefined}
+              client-reference-id={firebaseUser?.uid || "anonymous"}
+              customer-email={firebaseUser?.email || ""}
             />
+            
+            {/* Note about authentication */}
+            {!isAuthenticated && pricingTableLoaded && (
+              <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+                <p className="text-yellow-800 dark:text-yellow-200 text-sm text-center">
+                  <strong>Note:</strong> You'll be prompted to log in during checkout to complete your subscription.
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Security Notice */}

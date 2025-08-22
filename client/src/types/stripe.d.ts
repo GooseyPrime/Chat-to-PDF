@@ -4,9 +4,9 @@ declare namespace JSX {
     'stripe-pricing-table': {
       'pricing-table-id': string;
       'publishable-key': string;
-      'customer-session-client-secret'?: string;
-      'customer-email'?: string;
       'client-reference-id'?: string;
+      'customer-email'?: string;
+      'customer-session-client-secret'?: string;
     };
   }
 }
