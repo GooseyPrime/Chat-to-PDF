@@ -1,10 +1,15 @@
 # .env.example - Copy to .env and fill in your values
 
 # =================================
-# Database Configuration
+# Firebase Configuration
 # =================================
-DATABASE_URL=postgresql://username:password@localhost:5432/chattranscriptconverter
-# Production example: postgresql://user:pass@host:5432/dbname?sslmode=require
+# Get these from Firebase Console: https://console.firebase.google.com/
+FIREBASE_PROJECT_ID=your-project-id
+
+# Optional: Firebase Admin SDK (for server-side auth)
+# Download service account key from Firebase Console > Project Settings > Service Accounts
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
 # Stripe Configuration
@@ -19,17 +24,6 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
 STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
 STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
-
-# =================================
-# Firebase Configuration
-# =================================
-# Get these from Firebase Console: https://console.firebase.google.com/
-FIREBASE_PROJECT_ID=your-project-id
-
-# Optional: Firebase Admin SDK (for server-side auth)
-# Download service account key from Firebase Console > Project Settings > Service Accounts
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
 # Application Configuration
@@ -62,9 +56,8 @@ VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
 # For production deployment, also set:
 # - NODE_ENV=production
 # - Proper SSL certificates
-# - Production database URL
-# - Production Stripe keys (sk_live_... and pk_live_...)
 # - Production Firebase project
+# - Production Stripe keys (sk_live_... and pk_live_...)
 
 # =================================
 # Optional: Monitoring & Analytics

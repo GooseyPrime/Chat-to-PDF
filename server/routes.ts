@@ -7,9 +7,6 @@ import { isAuthenticated } from "./firebaseAuth";
 import { generatePdf } from "./services/pdfGenerator";
 import { insertPdfRecordSchema } from "@shared/schema";
 import { nanoid } from "nanoid";
-import { db } from "./db";
-import { users } from "@shared/schema";
-import { eq, sql } from "drizzle-orm";
 import { stripeConfig } from "./config/environment";
 
 const stripe = new Stripe(stripeConfig.secretKey);
@@ -195,54 +192,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Migration status endpoint for debugging
-  app.get('/api/migration-status', async (req, res) => {
+  // Health endpoint for Firestore connectivity
+  app.get('/api/health', async (req, res) => {
     try {
-      // Check for problematic constraints
-      const constraintCheck = await db.execute(sql`
-        SELECT conname FROM pg_constraint WHERE conname = 'users_email_unique'
-      `);
+      // Check Firestore connectivity
+      await storage.expireAllExpiredSubscriptions(); // This will test Firestore connection
       
-      // Check foreign key constraints
-      const fkCheck = await db.execute(sql`
-        SELECT constraint_name, delete_rule 
-        FROM information_schema.referential_constraints 
-        WHERE constraint_name IN ('pdf_records_user_id_users_id_fk', 'subscription_history_user_id_users_id_fk')
-      `);
-      
-      // Check email index
-      const indexCheck = await db.execute(sql`
-        SELECT indexname FROM pg_indexes WHERE indexname = 'users_email_idx'
-      `);
-      
-      const constraintRows = Array.isArray(constraintCheck) ? constraintCheck : [];
-      const fkRows = Array.isArray(fkCheck) ? fkCheck : [];
-      const indexRows = Array.isArray(indexCheck) ? indexCheck : [];
-      
-      const migrationStatus = {
+      const healthStatus = {
+        status: 'healthy',
         timestamp: new Date().toISOString(),
-        checks: {
-          users_email_unique_removed: constraintRows.length === 0,
-          foreign_keys_have_cascade: fkRows.filter((fk: any) => fk.delete_rule === 'CASCADE').length === fkRows.length,
-          email_index_exists: indexRows.length > 0
-        },
-        details: {
-          problematic_constraints: constraintRows.map((c: any) => c.conname),
-          foreign_key_constraints: fkRows.map((fk: any) => ({ name: fk.constraint_name, delete_rule: fk.delete_rule })),
-          email_index: indexRows.map((i: any) => i.indexname)
-        },
-        migration_required: constraintRows.length > 0,
-        migration_scripts: [
-          'migrations/fix-railway-deployment.sql',
-          'migrations/app-migration.js (alternative)'
-        ]
+        environment: process.env.NODE_ENV || 'development',
+        database: 'firestore',
+        firebase: {
+          projectId: process.env.FIREBASE_PROJECT_ID || process.env.VITE_FIREBASE_PROJECT_ID,
+          connected: true
+        }
       };
       
-      res.json(migrationStatus);
+      // Add railway info if available
+      if (process.env.RAILWAY_ENVIRONMENT) {
+        healthStatus.railway = {
+          environment: process.env.RAILWAY_ENVIRONMENT,
+          deploymentId: process.env.RAILWAY_DEPLOYMENT_ID,
+          serviceId: process.env.RAILWAY_SERVICE_ID,
+          projectId: process.env.RAILWAY_PROJECT_ID,
+        };
+      }
+      
+      res.json(healthStatus);
     } catch (error: any) {
-      console.error('Migration status check failed:', error);
+      console.error('Health check failed:', error);
       res.status(500).json({ 
-        error: 'Failed to check migration status',
+        status: 'unhealthy',
+        timestamp: new Date().toISOString(),
+        error: 'Database connection failed',
         message: error?.message || 'Unknown error'
       });
     }
