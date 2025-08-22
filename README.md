@@ -71,256 +71,496 @@ For a quick automated setup, run:
 
 ## Railway Deployment
 
-Railway is the recommended platform for deploying this application. Follow these steps for a robust, fail-proof deployment:
+Railway is the recommended platform for deploying this application. This guide provides step-by-step instructions for Windows PowerShell users.
 
 ### 1. Prerequisites
 
-- A Railway account ([railway.app](https://railway.app))
-- Your environment variables ready
-- A PostgreSQL database (Neon recommended)
-- Firebase project set up with authentication enabled
-- Stripe account with webhook configuration
+- **Windows PC** with PowerShell 5.1+ (built into Windows 10/11)
+- **Git for Windows** ([git-scm.com](https://git-scm.com/download/win))
+- **Node.js 20+** ([nodejs.org](https://nodejs.org/))
+- **Railway account** ([railway.app](https://railway.app))
+- **PostgreSQL database** (Neon recommended: [neon.tech](https://neon.tech))
+- **Firebase project** with authentication enabled ([console.firebase.google.com](https://console.firebase.google.com))
+- **Stripe account** with webhook configuration ([dashboard.stripe.com](https://dashboard.stripe.com))
 
-### 2. Pre-Deployment Verification
+### 2. Download and Setup (Windows PowerShell)
 
-Before deploying, run the verification script to catch issues early:
+1. **Open PowerShell as Administrator**:
+   - Press `Win + X` and select "Windows PowerShell (Admin)"
 
-```bash
-./scripts/verify-deployment.sh
+2. **Download the repository**:
+   ```powershell
+   # Navigate to C:\ drive
+   cd C:\
+
+   # Clone the repository
+   git clone https://github.com/GooseyPrime/Chat-to-PDF.git chat-to-pdf
+
+   # Navigate to the project directory
+   cd C:\chat-to-pdf
+   ```
+
+3. **Install Railway CLI**:
+   ```powershell
+   # Install Railway CLI using npm
+   npm install -g @railway/cli
+
+   # Verify installation
+   railway --version
+   ```
+
+4. **Install project dependencies**:
+   ```powershell
+   # Set environment variable to skip Puppeteer Chrome download
+   $env:PUPPETEER_SKIP_DOWNLOAD = "true"
+
+   # Install dependencies
+   npm install
+
+   # Verify the build works locally
+   npm run build
+   ```
+
+5. **Run pre-deployment verification** (Optional but recommended):
+   ```powershell
+   # Run PowerShell verification script
+   .\scripts\verify-deployment.ps1
+   ```
+   
+   This will check that all tools are installed and the build works correctly.
+
+### 3. Configure Environment Variables
+
+Before deploying, you need to set up your environment variables in the Railway dashboard. Here are the **required** variables:
+
+**💡 Quick Reference:** See `WINDOWS_DEPLOYMENT_GUIDE.md` for a condensed version of these instructions.
+
+#### Database Configuration
+```
+DATABASE_URL=postgresql://username:password@host:port/database?sslmode=require
+```
+**How to get:** Create a PostgreSQL database (recommended: [Neon.tech](https://neon.tech)) or use Railway's PostgreSQL plugin.
+
+#### Stripe Configuration (Production Keys)
+```
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_PUBLISHABLE_KEY=pk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+**How to get:** 
+1. Go to [Stripe Dashboard](https://dashboard.stripe.com/apikeys)
+2. Copy your **live** keys (not test keys)
+3. Create a webhook endpoint (see step 6 below) to get the webhook secret
+
+#### Firebase Configuration
+```
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abcdef123456
+```
+**How to get:**
+1. Go to [Firebase Console](https://console.firebase.google.com)
+2. Open your project → Project Settings → General
+3. Scroll down to "Your apps" → Select your web app
+4. Copy the config values
+
+#### Firebase Admin SDK (Server-side)
+```
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+```
+**How to get:**
+1. Go to [Firebase Console](https://console.firebase.google.com)
+2. Project Settings → Service Accounts
+3. Generate new private key (downloads JSON file)
+4. Copy `project_id`, `private_key`, and `client_email` from the JSON
+
+#### Application Configuration
+```
+NODE_ENV=production
+SESSION_SECRET=your-super-secure-session-secret-minimum-32-characters
+STORAGE_PATH=/app/storage
+```
+**How to get:** Generate a secure session secret using:
+```powershell
+# Generate a random 32-character string
+[System.Web.Security.Membership]::GeneratePassword(32, 0)
 ```
 
-This script will:
-- ✅ Verify all required environment variables
-- ✅ Test the build process
-- ✅ Check for build artifacts
-- ✅ Validate database schema (if accessible)
-- ✅ Ensure migration files are present
+### 4. Deploy to Railway (PowerShell)
 
-### 3. Deploy to Railway
-
-1. **Connect your repository**:
-   - Go to [Railway Dashboard](https://railway.app/dashboard)
-   - Click "New Project" 
-   - Select "Deploy from GitHub repo"
-   - Choose your Chat-to-PDF repository
-
-2. **Configure environment variables**:
-   In your Railway project settings, add these variables:
-
-   ```bash
-   # Database (Required)
-   DATABASE_URL=postgresql://username:password@host/database
-
-   # Stripe Configuration (Required)
-   STRIPE_SECRET_KEY=sk_live_...  # Use live keys for production
-   STRIPE_WEBHOOK_SECRET=whsec_...
-
-   # Firebase Configuration (Required)
-   VITE_FIREBASE_PROJECT_ID=your-project-id
-   VITE_FIREBASE_API_KEY=your-api-key  
-   VITE_FIREBASE_APP_ID=your-app-id
-
-   # Optional: Set Node environment
-   NODE_ENV=production
+1. **Login to Railway**:
+   ```powershell
+   # Login to Railway (opens browser)
+   railway login
    ```
 
-   **⚠️ Important Notes:**
-   - Use live Stripe keys for production deployments
-   - Ensure Firebase project has your Railway domain in authorized domains
-   - DATABASE_URL must be accessible from Railway
+2. **Create a new Railway project**:
+   ```powershell
+   # Create and connect a new project
+   railway init
 
-3. **Deploy**:
-   - Railway will automatically detect the `Dockerfile` and `railway.json`
-   - The application will build and deploy automatically
-   - Monitor the build logs in the Railway dashboard
-
-### 4. Post-Deployment Database Migration
-
-**Critical Step:** After your first deployment, you must run the database migration to fix constraint issues:
-
-#### Option 1: SQL Migration (Recommended)
-
-1. **Access Railway Shell**:
-   ```bash
-   # In Railway dashboard, go to your project
-   # Click on "Shell" or "Console"
+   # Follow prompts:
+   # - Choose "Create new project"
+   # - Enter project name: "chat-to-pdf" (or your preferred name)
    ```
 
-2. **Run the migration**:
-   ```bash
-   psql $DATABASE_URL < migrations/fix-railway-deployment.sql
-   ```
-
-#### Option 2: App-side Migration (Alternative)
-
-If SQL access is not available, you can run the app-side migration:
-
-```bash
-# In Railway shell or after deployment
-node migrations/app-migration.js
-```
-
-3. **Verify migration success**:
-   ```bash
-   # Check health endpoint
-   curl https://your-app.railway.app/api/health
+3. **Add PostgreSQL database** (optional - you can use external database):
+   ```powershell
+   # Add PostgreSQL plugin to your Railway project
+   railway add postgresql
    
-   # Should return: {"status": "healthy", "timestamp": "...", "database": "connected"}
-   # If migration needed, will also include: {"warning": "...", "migrationRequired": true}
-   
-   # Check detailed migration status
-   curl https://your-app.railway.app/api/migration-status
+   # This automatically sets DATABASE_URL environment variable
    ```
 
-   **What this migration fixes:**
-   - ❌ Removes `users_email_unique` constraint (allows multiple Firebase UIDs with same email)
-   - ✅ Adds `ON DELETE CASCADE` to foreign key relationships
-   - 🚀 Prevents deployment failures and database constraint violations
+4. **Set environment variables in Railway dashboard**:
+   ```powershell
+   # Open Railway dashboard
+   railway open
+   ```
+   
+   **In the Railway dashboard:**
+   - Go to your project → **Variables** tab
+   - Click **"+ Add Variable"** for each required variable
+   - Copy and paste the values from step 3 above
+   
+   **Required variables to add:**
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_PUBLISHABLE_KEY` 
+   - `STRIPE_WEBHOOK_SECRET`
+   - `VITE_FIREBASE_PROJECT_ID`
+   - `VITE_FIREBASE_API_KEY`
+   - `VITE_FIREBASE_AUTH_DOMAIN`
+   - `VITE_FIREBASE_STORAGE_BUCKET`
+   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
+   - `VITE_FIREBASE_APP_ID`
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_PRIVATE_KEY`
+   - `FIREBASE_CLIENT_EMAIL`
+   - `NODE_ENV` (set to `production`)
+   - `SESSION_SECRET`
+   - `STORAGE_PATH` (set to `/app/storage`)
 
-### 5. Stripe Webhook Configuration
+5. **Deploy the application**:
+   ```powershell
+   # Deploy to Railway
+   railway up
+
+   # Monitor deployment
+   railway logs
+   ```
+
+   Railway will:
+   - ✅ Detect the `railway.json` configuration
+   - ✅ Build using the Node.js buildpack
+   - ✅ Install dependencies (skipping Puppeteer Chrome download)
+   - ✅ Run `npm run build` to build both client and server
+   - ✅ Start the application with `npm run start:railway`
+
+6. **Get your application URL**:
+   ```powershell
+   # Get the Railway-provided URL
+   railway domain
+   ```
+   
+   Your app will be available at: `https://your-app-name.up.railway.app`
+
+### 5. Post-Deployment Configuration
+
+#### A. Configure Stripe Webhook
 
 1. **Set up webhook endpoint**:
-   - In your Stripe Dashboard, go to Webhooks
-   - Add endpoint: `https://your-railway-app.railway.app/api/stripe-webhook`
-   - **Important:** Ensure URL ends with `/api/stripe-webhook` (no trailing slash)
+   - Go to [Stripe Dashboard](https://dashboard.stripe.com) → Webhooks
+   - Click **"Add endpoint"**
+   - Enter URL: `https://your-app-name.up.railway.app/api/stripe-webhook`
+   - **Important:** Use the exact URL from `railway domain` command
 
 2. **Enable required events**:
-   ```
-   ✅ checkout.session.completed
-   ✅ payment_intent.payment_failed  
-   ✅ invoice.payment_succeeded
-   ✅ customer.subscription.deleted
-   ```
+   Select these events:
+   - ✅ `checkout.session.completed`
+   - ✅ `payment_intent.payment_failed`
+   - ✅ `invoice.payment_succeeded`
+   - ✅ `customer.subscription.deleted`
 
-3. **Copy webhook secret**:
-   - Copy the webhook signing secret from Stripe
-   - Add it as `STRIPE_WEBHOOK_SECRET` in Railway environment variables
+3. **Update webhook secret**:
+   - Copy the **webhook signing secret** from Stripe
+   - In Railway dashboard → Variables → Update `STRIPE_WEBHOOK_SECRET`
 
-### 6. Firebase Authentication Setup
+#### B. Configure Firebase Authentication
 
 1. **Add Railway domain to Firebase**:
-   - Go to Firebase Console → Authentication → Settings
-   - Add your Railway domain to "Authorized domains"
-   - Example: `your-app.railway.app`
+   - Go to [Firebase Console](https://console.firebase.google.com) → Authentication → Settings → Authorized domains
+   - Add your Railway domain: `your-app-name.up.railway.app`
 
-2. **Verify configuration**:
-   - Test login flow on deployed application
-   - Check browser console for Firebase errors
+2. **Test authentication**:
+   - Visit your deployed app
+   - Try signing in with Google
+   - Check browser console for any Firebase errors
 
-### 7. Environment Variables Reference
+#### C. Run Database Migration
 
-| Variable | Description | Required | Example |
-|----------|-------------|----------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | ✅ | `postgresql://user:pass@host/db` |
-| `STRIPE_SECRET_KEY` | Stripe secret key | ✅ | `sk_live_...` |
-| `STRIPE_WEBHOOK_SECRET` | Stripe webhook endpoint secret | ✅ | `whsec_...` |
-| `VITE_FIREBASE_PROJECT_ID` | Firebase project ID | ✅ | `my-project-123` |
-| `VITE_FIREBASE_API_KEY` | Firebase API key | ✅ | `AIza...` |
-| `VITE_FIREBASE_APP_ID` | Firebase app ID | ✅ | `1:123:web:...` |
-| `NODE_ENV` | Environment mode | ⚠️ | `production` |
+**Important:** Run this migration to prevent authentication issues:
 
-### 8. Troubleshooting Common Issues
+```powershell
+# Connect to your Railway project (if not already connected)
+railway link
 
+# Run the database migration
+railway run psql $DATABASE_URL -f migrations/fix-railway-deployment.sql
+```
+
+**What this migration fixes:**
+- ❌ Removes problematic `users_email_unique` constraint
+- ✅ Adds `ON DELETE CASCADE` to foreign key relationships
+- 🚀 Prevents authentication failures and database errors
+
+#### D. Verify Deployment
+
+1. **Check health endpoint**:
+   ```powershell
+   # Test the health endpoint
+   Invoke-RestMethod -Uri "https://your-app-name.up.railway.app/api/health"
+   ```
+   
+   **Expected response:**
+   ```json
+   {
+     "status": "healthy",
+     "timestamp": "2024-01-01T00:00:00.000Z",
+     "database": "connected",
+     "environment": "production"
+   }
+   ```
+
+2. **Test core functionality**:
+   - Visit your deployed application
+   - Sign up/login with Google authentication
+   - Upload a chat transcript and generate a PDF
+   - Verify PDF download works
+
+### 6. Troubleshooting Common Issues
+
+#### PowerShell/Windows Specific Issues
+
+**PowerShell Execution Policy:**
+```powershell
+# If you get execution policy errors
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+**Git not found:**
+```powershell
+# Install Git for Windows
+# Download from: https://git-scm.com/download/win
+# Add to PATH: C:\Program Files\Git\cmd
+```
+
+**Node.js/npm not found:**
+```powershell
+# Install Node.js 20+ from: https://nodejs.org/
+# Verify installation:
+node --version
+npm --version
+```
+
+#### Railway CLI Issues
+
+**Railway command not found:**
+```powershell
+# Reinstall Railway CLI globally
+npm uninstall -g @railway/cli
+npm install -g @railway/cli
+
+# Check PATH includes npm global directory
+npm config get prefix
+```
+
+**Railway login issues:**
+```powershell
+# Clear Railway credentials and re-login
+railway logout
+railway login
+```
+
+#### Build and Deployment Issues
 **Firewall/Chrome Download Issues:**
-```bash
-# Issue: "https://storage.googleapis.com/chrome-for-testing-public/.../chrome-headless-shell-linux64.zip" blocked
-# Error during: node install.mjs (http block)
+```powershell
+# Issue: Chrome download blocked during npm install
 # Solution: The application is pre-configured to skip Chrome downloads
 
-# Verification that configuration is correct:
-# 1. Check .npmrc contains: puppeteer_skip_download=true
-# 2. Check nixpacks.toml has PUPPETEER_SKIP_DOWNLOAD="true"
-# 3. Check Dockerfile.railway has ENV PUPPETEER_SKIP_DOWNLOAD=true
+# Verify configuration:
+# 1. Check .npmrc contains: puppeteer_skip_download=true  
+# 2. Check package.json has: "preinstall": "export PUPPETEER_SKIP_DOWNLOAD=true"
 
-# If the issue persists, manually set environment variable before deployment:
-export PUPPETEER_SKIP_DOWNLOAD=true
-export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+# If issues persist, set environment variable manually:
+$env:PUPPETEER_SKIP_DOWNLOAD = "true"
+$env:PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
 npm install
 ```
 
 **Build Failures:**
-```bash
-# Issue: xcopy command not found
-# Solution: Already fixed in package.json, use 'cp' instead
+```powershell
+# Issue: Build fails during deployment
+# Solution: The application uses cross-platform compatible build commands
 
+# Local build test:
+npm run build
+
+# Check build output:
+dir dist\  # Should show index.js and public\ folder
+```
+
+**Environment Variable Issues:**
+```powershell
 # Issue: Missing environment variables
-# Solution: Verify all required vars are set in Railway
+# Solution: Double-check all required variables in Railway dashboard
+
+# List current Railway variables:
+railway variables
+
+# Set a variable via CLI:
+railway variables set VARIABLE_NAME=value
 ```
 
 **Database Constraint Errors:**
-```bash
+```powershell
 # Issue: "duplicate key value violates unique constraint users_email_unique"
-# Solution: Run the migration script (step 4 above)
+# Solution: Run the database migration (step 5C above)
 
-# Issue: "violates foreign key constraint pdf_records_user_id_users_id_fk"
-# Solution: Migration adds ON DELETE CASCADE (step 4 above)
+railway run psql $DATABASE_URL -f migrations/fix-railway-deployment.sql
+
+# Issue: "violates foreign key constraint pdf_records_user_id_users_id_fk"  
+# Solution: Migration adds ON DELETE CASCADE (included in migration above)
 ```
 
 **Stripe Webhook Issues:**
-```bash
+```powershell
 # Issue: Webhook signature verification fails
 # Solution: Ensure STRIPE_WEBHOOK_SECRET matches Stripe dashboard
 
+# Check current value:
+railway variables | Select-String "STRIPE_WEBHOOK_SECRET"
+
 # Issue: 404 on webhook URL
-# Solution: Verify URL is https://your-app.railway.app/api/stripe-webhook
+# Solution: Verify URL format: https://your-app-name.up.railway.app/api/stripe-webhook
 ```
 
 **Firebase Authentication Issues:**
-```bash
+```powershell
 # Issue: "auth/unauthorized-domain"
 # Solution: Add Railway domain to Firebase authorized domains
 
+# Get your Railway domain:
+railway domain
+
+# Add this domain to Firebase Console → Authentication → Settings → Authorized domains
+
 # Issue: Firebase config errors
-# Solution: Verify all VITE_FIREBASE_* variables are correct
+# Solution: Verify all VITE_FIREBASE_* variables are correct in Railway dashboard
 ```
 
-### 9. Health Monitoring
+### 7. Production Checklist
+
+Before going live, verify:
+
+- [ ] ✅ All environment variables set in Railway dashboard
+- [ ] ✅ Database migration completed successfully  
+- [ ] ✅ Stripe webhooks configured with Railway URL
+- [ ] ✅ Firebase authorized domains include Railway domain
+- [ ] ✅ Health endpoint returns `{"status": "healthy"}`
+- [ ] ✅ Test user registration and login flow
+- [ ] ✅ Test PDF generation functionality
+- [ ] ✅ Stripe payments work correctly
+
+### 8. Useful PowerShell Commands
+
+```powershell
+# Check application status
+railway status
+
+# View real-time logs  
+railway logs --follow
+
+# Open Railway dashboard
+railway open
+
+# Check environment variables
+railway variables
+
+# Connect to database
+railway connect postgresql
+
+# Run a command in Railway environment
+railway run "node --version"
+
+# Get application domain
+railway domain
+```
+
+### 9. Alternative: GitHub Integration
+
+For automatic deployments on code changes:
+
+1. **Fork the repository** (if you haven't already):
+   - Go to [https://github.com/GooseyPrime/Chat-to-PDF](https://github.com/GooseyPrime/Chat-to-PDF)
+   - Click "Fork" in the top right corner
+   - Clone your fork instead: `git clone https://github.com/YOUR-USERNAME/Chat-to-PDF.git`
+
+2. **Connect GitHub repository to Railway**:
+   - Go to Railway Dashboard → New Project
+   - Select "Deploy from GitHub repo"
+   - Choose your forked Chat-to-PDF repository
+
+3. **Configure the same environment variables** as described in step 3
+
+4. **Enable automatic deployments**:
+   - Every push to `main` branch will trigger a new deployment
+   - Monitor deployments in Railway dashboard
+
+This setup provides automatic deployments while maintaining the same configuration.
+
+### 10. Health Monitoring
 
 **Health Check Endpoint:**
-```bash
-GET https://your-app.railway.app/api/health
+```powershell
+# Test health endpoint
+Invoke-RestMethod -Uri "https://your-app-name.up.railway.app/api/health"
 
 # Expected Response:
 {
   "status": "healthy",
   "timestamp": "2024-01-01T00:00:00.000Z",
-  "database": "connected",
+  "database": "connected", 
   "environment": "production"
 }
 ```
 
 **Monitoring Setup:**
 - Set up uptime monitoring for the health endpoint
-- Monitor Railway logs for errors
-- Check Stripe webhook delivery status
+- Monitor Railway logs for errors: `railway logs --follow`
+- Check Stripe webhook delivery status in Stripe dashboard
 - Monitor database connection and performance
 
-### 10. Custom Domain (Optional)
+### 11. Custom Domain (Optional)
 
 1. **Configure custom domain in Railway**:
-   - Go to Project Settings → Domains
-   - Add your custom domain
+   - Go to Railway Dashboard → Your Project → Settings → Domains
+   - Click "Add Domain" and enter your custom domain
 
-2. **Update configurations**:
-   - Add domain to Firebase authorized domains
+2. **Configure DNS**:
+   - Add a CNAME record pointing to your Railway domain
+   - Example: `your-domain.com` → `your-app-name.up.railway.app`
+
+3. **Update configurations**:
+   - Add custom domain to Firebase authorized domains
    - Update Stripe webhook URL to use custom domain
-   - Update any hardcoded URLs in your application
+   - Test all functionality with the new domain
 
-### 11. Deployment Checklist
-
-Before going live, ensure:
-
-- [ ] ✅ Pre-deployment verification script passes
-- [ ] ✅ All environment variables set in Railway
-- [ ] ✅ Database migration completed successfully
-- [ ] ✅ Stripe webhooks configured and tested
-- [ ] ✅ Firebase authentication working
-- [ ] ✅ Health endpoint returns healthy status
-- [ ] ✅ Test user registration and subscription flow
-- [ ] ✅ Test PDF generation functionality
-- [ ] ✅ Monitor deployment logs for errors
-
-This comprehensive setup ensures a robust, production-ready deployment that handles the common failure scenarios encountered with Railway deployments.
+This comprehensive guide should allow you to successfully deploy Chat-to-PDF to Railway using Windows PowerShell. The application is optimized for Railway deployment with proper build configurations, environment handling, and error prevention measures.
 
 ## Development Notes
 
