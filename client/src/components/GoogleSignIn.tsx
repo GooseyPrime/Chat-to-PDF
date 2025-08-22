@@ -1,16 +1,25 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { signInWithGoogle, signOutUser } from "@shared/firebase";
+import { signInWithGoogle, signOutUser, isFirebaseAvailable } from "@shared/firebase";
 import { useAuth } from "@/hooks/useAuth";
-import { Chrome, LogOut } from "lucide-react";
+import { Chrome, LogOut, AlertTriangle } from "lucide-react";
 
 export default function GoogleSignIn() {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const { isAuthenticated, firebaseUser } = useAuth();
+  const { isAuthenticated, firebaseUser, isFirebaseAvailable: authFirebaseAvailable } = useAuth();
 
   const handleSignIn = async () => {
+    if (!isFirebaseAvailable) {
+      toast({
+        title: "Authentication Unavailable",
+        description: "Firebase authentication is not configured. Please contact support.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
     try {
       await signInWithGoogle();
@@ -31,6 +40,10 @@ export default function GoogleSignIn() {
   };
 
   const handleSignOut = async () => {
+    if (!isFirebaseAvailable) {
+      return;
+    }
+
     try {
       await signOutUser();
       toast({
@@ -46,6 +59,22 @@ export default function GoogleSignIn() {
       });
     }
   };
+
+  // Show degraded state when Firebase is not available
+  if (!isFirebaseAvailable) {
+    return (
+      <Button
+        onClick={handleSignIn}
+        disabled={true}
+        variant="outline"
+        className="gap-2"
+        size="sm"
+      >
+        <AlertTriangle className="h-4 w-4" />
+        Auth Unavailable
+      </Button>
+    );
+  }
 
   if (isAuthenticated && firebaseUser) {
     return (
