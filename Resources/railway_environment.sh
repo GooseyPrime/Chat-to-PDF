@@ -31,15 +31,18 @@ STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
 FIREBASE_PROJECT_ID=your-production-project-id
 
 # Firebase Admin SDK (for server-side authentication)
+# Option 1: Use complete Firebase service account JSON (RECOMMENDED)
 # Download service account JSON from Firebase Console > Project Settings > Service Accounts
-# Copy the private_key and client_email values:
-# IMPORTANT: Copy the private key exactly as shown in JSON, with actual line breaks (not \n)
-FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
-[Your full private key content here - multiple lines]
-...
------END PRIVATE KEY-----
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+# Copy the entire JSON content and paste it as the value (Railway handles multi-line JSON correctly):
+GOOGLE_CREDENTIALS={"type":"service_account","project_id":"your-project","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com","client_id":"...","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"..."}
+
+# Option 2: Use individual variables (legacy support - not recommended for new deployments)
+# FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+# MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+# [Your full private key content here - multiple lines]
+# ...
+# -----END PRIVATE KEY-----
+# FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 
 # =================================
 # REQUIRED - Application Configuration

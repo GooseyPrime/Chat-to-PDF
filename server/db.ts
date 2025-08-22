@@ -32,8 +32,39 @@ function initializeFirebase(): void {
       throw new Error('FIREBASE_PROJECT_ID is required');
     }
 
-    // For production with service account
-    if (process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_CLIENT_EMAIL) {
+    // Method 1: Use GOOGLE_CREDENTIALS (preferred method)
+    if (process.env.GOOGLE_CREDENTIALS) {
+      try {
+        const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+        
+        // Validate the parsed credentials contain required fields
+        if (!credentials.private_key || !credentials.client_email || !credentials.project_id) {
+          throw new Error('GOOGLE_CREDENTIALS JSON is missing required fields (private_key, client_email, project_id)');
+        }
+
+        admin.initializeApp({
+          credential: admin.credential.cert({
+            projectId: credentials.project_id,
+            clientEmail: credentials.client_email,
+            privateKey: credentials.private_key,
+          }),
+          projectId,
+        });
+        
+        console.log('✅ Firebase Admin initialized with GOOGLE_CREDENTIALS');
+      } catch (parseError) {
+        if (parseError instanceof SyntaxError) {
+          throw new Error(
+            'GOOGLE_CREDENTIALS is not valid JSON. ' +
+            'Ensure you paste the complete Firebase service account JSON content. ' +
+            'The JSON should contain fields like private_key, client_email, project_id.'
+          );
+        }
+        throw parseError;
+      }
+    }
+    // Method 2: Use individual environment variables (legacy support)
+    else if (process.env.FIREBASE_PRIVATE_KEY && process.env.FIREBASE_CLIENT_EMAIL) {
       const privateKey = process.env.FIREBASE_PRIVATE_KEY;
       
       // Validate private key format before attempting to use it
@@ -47,6 +78,7 @@ function initializeFirebase(): void {
           'FIREBASE_PRIVATE_KEY is not in valid PEM format. ' +
           'Ensure it includes -----BEGIN PRIVATE KEY----- and -----END PRIVATE KEY----- markers. ' +
           'For Railway deployment, paste the key exactly as shown in the Firebase JSON file with actual line breaks (not \\n escape sequences). ' +
+          'Consider using GOOGLE_CREDENTIALS environment variable instead for easier configuration. ' +
           'See README for detailed formatting instructions.'
         );
       }
@@ -59,15 +91,18 @@ function initializeFirebase(): void {
         }),
         projectId,
       });
+      
+      console.log('✅ Firebase Admin initialized with individual environment variables');
     } else {
-      // For development - use Application Default Credentials or project ID only
+      // Method 3: For development - use Application Default Credentials or project ID only
       admin.initializeApp({
         projectId,
       });
+      
+      console.log('✅ Firebase Admin initialized with default credentials (development mode)');
     }
     
     firebaseInitialized = true;
-    console.log('✅ Firebase Admin initialized successfully');
   } catch (error) {
     firebaseInitError = error instanceof Error ? error : new Error('Firebase initialization failed');
     console.error('❌ Firebase Admin initialization failed:', firebaseInitError.message);
