@@ -114,6 +114,19 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Test Firebase connection during startup (non-blocking)
+  try {
+    log('🔍 Testing Firebase connection during startup...');
+    const { ensureFirestore } = await import("./db");
+    await ensureFirestore();
+    log('✅ Firebase connection test successful');
+  } catch (error) {
+    // Log the error but don't crash the server - let it start and show errors in health endpoint
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    log(`⚠️ Firebase connection test failed during startup: ${errorMessage}`);
+    log('🚀 Server will start anyway. Check /api/health for Firebase status.');
+  }
+
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
