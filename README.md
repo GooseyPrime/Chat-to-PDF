@@ -139,10 +139,14 @@ Before deploying, you need to set up your environment variables in the Railway d
 **Firebase Configuration:**
 ```
 FIREBASE_PROJECT_ID=your-firebase-project-id
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+[Your full private key content here - multiple lines]
+...
+-----END PRIVATE KEY-----
 FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 ```
-**How to get:** Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com), enable Firestore and Authentication, then download service account credentials from Project Settings > Service Accounts.
+**How to get:** Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com), enable Firestore and Authentication, then download service account credentials from Project Settings > Service Accounts. **See detailed Firebase setup instructions below.**
 
 #### Stripe Configuration (Production Keys)
 ```
@@ -173,14 +177,46 @@ VITE_FIREBASE_APP_ID=1:123456789:web:abcdef123456
 #### Firebase Admin SDK (Server-side)
 ```
 FIREBASE_PROJECT_ID=your-project-id
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+[Your full private key content here - multiple lines]
+...
+-----END PRIVATE KEY-----
 FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
 ```
-**How to get:**
+
+**⚠️ IMPORTANT: Railway Private Key Format**
+
+When setting `FIREBASE_PRIVATE_KEY` in Railway Dashboard:
+
+**✅ CORRECT - Copy the key exactly as-is from the JSON file:**
+```
+-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+[Multiple lines of the key content]
+...
+-----END PRIVATE KEY-----
+```
+
+**❌ WRONG - Don't use quotes or escape sequences:**
+```
+# Don't do this:
+"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+```
+
+**How to set up:**
 1. Go to [Firebase Console](https://console.firebase.google.com)
 2. Project Settings → Service Accounts
 3. Generate new private key (downloads JSON file)
-4. Copy `project_id`, `private_key`, and `client_email` from the JSON
+4. Open the JSON file and copy the `private_key` value
+5. In Railway Dashboard → Variables, paste the key exactly as shown in the JSON (including line breaks)
+6. Copy `project_id` as `FIREBASE_PROJECT_ID`
+7. Copy `client_email` as `FIREBASE_CLIENT_EMAIL`
+
+**🔧 Troubleshooting Private Key Issues:**
+- **Error: "not in valid PEM format"**: Ensure you copied the complete key including `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines
+- **Railway environment variable issues**: Use the multi-line input in Railway Dashboard, don't escape newlines manually
+- **Still having issues?**: Try copying the private key to a temporary text file first to verify the format before pasting into Railway
 
 #### Application Configuration
 ```
@@ -385,6 +421,51 @@ npm config get prefix
 # Clear Railway credentials and re-login
 railway logout
 railway login
+```
+
+#### Firebase Configuration Issues
+
+**Firebase Private Key Format Errors:**
+```powershell
+# Error: "FIREBASE_PRIVATE_KEY is not in valid PEM format"
+# Solution: Ensure proper format in Railway environment variables
+
+# ✅ CORRECT format for Railway:
+# 1. Go to Railway Dashboard → Your Project → Variables
+# 2. Add FIREBASE_PRIVATE_KEY variable
+# 3. Paste the key exactly as shown in Firebase JSON:
+
+-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+[Multiple lines of key content - keep the line breaks]
+...
+-----END PRIVATE KEY-----
+
+# ❌ WRONG - Don't use escape sequences:
+"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+```
+
+**Firebase Connection Issues:**
+```powershell
+# Error: Firebase Admin initialization failed
+# Check these in Railway Dashboard → Variables:
+
+# 1. Verify FIREBASE_PROJECT_ID matches your Firebase project
+# 2. Ensure FIREBASE_CLIENT_EMAIL has correct format:
+#    firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+# 3. Confirm private key starts with -----BEGIN PRIVATE KEY-----
+# 4. Check Railway logs for specific error details:
+railway logs --tail
+```
+
+**Testing Firebase Configuration:**
+```powershell
+# Test your Firebase credentials locally:
+# 1. Download the service account JSON from Firebase Console
+# 2. Set environment variable to the JSON file path:
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
+# 3. Test connection with Firebase CLI:
+firebase firestore:get --project your-project-id /test
 ```
 
 #### Build and Deployment Issues

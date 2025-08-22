@@ -38,7 +38,17 @@ function initializeFirebase(): void {
       
       // Validate private key format before attempting to use it
       if (!validatePrivateKey(privateKey)) {
-        throw new Error('FIREBASE_PRIVATE_KEY is not in valid PEM format. Ensure it includes BEGIN/END PRIVATE KEY markers and proper newlines.');
+        console.error('FIREBASE_PRIVATE_KEY validation failed:');
+        console.error('- Key length:', privateKey.length);
+        console.error('- Has BEGIN marker:', privateKey.includes('-----BEGIN PRIVATE KEY-----'));
+        console.error('- Has END marker:', privateKey.includes('-----END PRIVATE KEY-----'));
+        console.error('- First 50 chars:', privateKey.substring(0, 50));
+        throw new Error(
+          'FIREBASE_PRIVATE_KEY is not in valid PEM format. ' +
+          'Ensure it includes -----BEGIN PRIVATE KEY----- and -----END PRIVATE KEY----- markers. ' +
+          'For Railway deployment, paste the key exactly as shown in the Firebase JSON file with actual line breaks (not \\n escape sequences). ' +
+          'See README for detailed formatting instructions.'
+        );
       }
 
       admin.initializeApp({
