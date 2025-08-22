@@ -13,10 +13,13 @@ STRIPE_SECRET_KEY=sk_live_51...
 STRIPE_PUBLISHABLE_KEY=pk_live_51...
 STRIPE_WEBHOOK_SECRET=whsec_...
 
-# 3. Stripe Product Price IDs (Create these in Stripe Dashboard first)
-STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
-STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
-STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
+# 3. Stripe Pricing Table (RECOMMENDED - replaces individual price IDs)
+STRIPE_PRICING_TABLE_ID=prctbl_1RtfEmJF6bibA8neXrRMo3a
+
+# 3b. Stripe Product Price IDs (LEGACY - only if not using pricing table)
+# STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
+# STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
+# STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
 
 # 4. Firebase Authentication
 FIREBASE_PROJECT_ID=your-production-project-id

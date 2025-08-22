@@ -34,10 +34,14 @@ STRIPE_SECRET_KEY=sk_live_...
 STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 
-# Stripe Price IDs (create in Stripe Dashboard)
-STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
-STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
-STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
+# Stripe Pricing Table ID (RECOMMENDED - replaces individual price IDs)
+# Create this in Stripe Dashboard > Products > Pricing tables
+STRIPE_PRICING_TABLE_ID=prctbl_1RtfEmJF6bibA8neXrRMo3a
+
+# Stripe Price IDs (LEGACY - only needed if not using pricing table)
+# STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
+# STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
+# STRIPE_PRO_ANNUAL_PRICE_ID=price_1Rtf9YJF6bibA8nemK14siZ5
 
 # =================================
 # REQUIRED - Application Configuration
