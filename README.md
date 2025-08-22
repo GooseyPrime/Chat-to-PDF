@@ -505,14 +505,19 @@ railway domain
 
 For automatic deployments on code changes:
 
-1. **Connect GitHub repository**:
+1. **Fork the repository** (if you haven't already):
+   - Go to [https://github.com/GooseyPrime/Chat-to-PDF](https://github.com/GooseyPrime/Chat-to-PDF)
+   - Click "Fork" in the top right corner
+   - Clone your fork instead: `git clone https://github.com/YOUR-USERNAME/Chat-to-PDF.git`
+
+2. **Connect GitHub repository to Railway**:
    - Go to Railway Dashboard → New Project
    - Select "Deploy from GitHub repo"
    - Choose your forked Chat-to-PDF repository
 
-2. **Configure the same environment variables** as described in step 3
+3. **Configure the same environment variables** as described in step 3
 
-3. **Enable automatic deployments**:
+4. **Enable automatic deployments**:
    - Every push to `main` branch will trigger a new deployment
    - Monitor deployments in Railway dashboard
 
