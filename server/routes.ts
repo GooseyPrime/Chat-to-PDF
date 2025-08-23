@@ -74,15 +74,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
                 const priceId = lineItems.data[0].price.id;
                 console.log('💰 Price ID from line items:', priceId);
                 
-                // Map price IDs to plan types (you'll need to configure these based on your actual price IDs)
-                const priceToTypeMap: Record<string, string> = {
-                  'price_1Rg6fnJF6bibA8nesbJ1RvxA': 'basic_weekly',
-                  'price_1Rtf6CJF6bibA8nef9w5LhLE': 'pro_weekly', 
-                  'price_1Rtf9YJF6bibA8nemK14siZ5': 'pro_annual',
-                };
+                // Map price IDs to plan types using environment configuration
+                const priceToTypeMap: Record<string, string> = {};
+                
+                // Build mapping from environment variables
+                if (stripeConfig.priceIds.basicWeekly) {
+                  priceToTypeMap[stripeConfig.priceIds.basicWeekly] = 'basic_weekly';
+                }
+                if (stripeConfig.priceIds.proWeekly) {
+                  priceToTypeMap[stripeConfig.priceIds.proWeekly] = 'pro_weekly';
+                }
+                if (stripeConfig.priceIds.proAnnual) {
+                  priceToTypeMap[stripeConfig.priceIds.proAnnual] = 'pro_annual';
+                }
                 
                 planType = priceToTypeMap[priceId];
                 console.log('📦 Derived plan type:', planType);
+                console.log('💰 Available price mappings:', priceToTypeMap);
               }
             } catch (lineItemError) {
               console.error('❌ Failed to fetch line items:', lineItemError);
@@ -325,6 +333,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const userId = req.user.uid;
       const { planType } = req.body;
+      
+      if (!planType || typeof planType !== 'string') {
+        return res.status(400).json({ message: "Valid planType is required" });
+      }
+      
       const user = await storage.getUser(userId);
       
       if (!user) {
@@ -350,13 +363,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const planConfig = priceMapping[planType as keyof typeof priceMapping];
       if (!planConfig || !planConfig.priceId) {
         console.error(`Missing price ID for plan type: ${planType}`);
+        console.error('Available price IDs:', {
+          basicWeekly: stripeConfig.priceIds.basicWeekly,
+          proWeekly: stripeConfig.priceIds.proWeekly,
+          proAnnual: stripeConfig.priceIds.proAnnual,
+        });
         return res.status(400).json({ 
-          message: `Price ID not configured for ${planType}. Please contact support.` 
+          message: `Price ID not configured for ${planType}. Please ensure STRIPE_${planType.toUpperCase()}_PRICE_ID is set in environment variables.` 
         });
       }
 
       console.log(`Creating checkout session for plan: ${planType}, price ID: ${planConfig.priceId}`);
 
+      // IMPORTANT: Ensure the price IDs configured in environment variables are RECURRING prices
+      // created with mode='subscription' in Stripe. One-time prices will cause the error:
+      // "You specified `payment` mode but passed a recurring price"
+      
       // Create Stripe Checkout session for subscription with promo codes
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
