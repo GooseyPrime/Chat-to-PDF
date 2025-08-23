@@ -727,3 +727,29 @@ The application uses:
 - Stripe webhooks at `/api/stripe-webhook`
 - Firebase Auth for user authentication
 - Firebase Firestore for data persistence
+
+### Browser Extension Console Errors (Development)
+
+When developing locally, you may see console errors like:
+```
+Failed to load resource: net::ERR_FAILED chrome-extension://invalid/
+Failed to load resource: net::ERR_FAILED moz-extension://invalid/
+```
+
+**This is normal behavior** and doesn't affect application functionality. These errors occur when browser extensions try to inject scripts into web pages with Content Security Policy (CSP) headers.
+
+**To eliminate these console messages:**
+
+1. **Disable browser extensions during development** (recommended):
+   - Chrome: Go to `chrome://extensions/` and toggle off extensions
+   - Firefox: Go to `about:addons` and disable extensions
+   - Edge: Go to `edge://extensions/` and toggle off extensions
+
+2. **Use an incognito/private window** (extensions disabled by default):
+   - Chrome: `Ctrl+Shift+N` (Windows) or `Cmd+Shift+N` (Mac)
+   - Firefox: `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac)
+   - Edge: `Ctrl+Shift+N` (Windows) or `Cmd+Shift+N` (Mac)
+
+3. **Create a development browser profile** with extensions disabled
+
+The errors don't indicate any problems with the Chat-to-PDF application and can be safely ignored if you prefer to keep your extensions enabled.
