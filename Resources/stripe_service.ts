@@ -111,7 +111,7 @@ class StripeService {
             quantity: 1,
           },
         ],
-        mode: 'payment',
+        mode: 'subscription',
         allow_promotion_codes: true,
         customer_creation: 'always',
         billing_address_collection: 'required',
