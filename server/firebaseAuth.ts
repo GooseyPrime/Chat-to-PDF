@@ -44,18 +44,28 @@ export const verifyFirebaseToken: RequestHandler = async (req, res, next) => {
 
     // Always use Firebase UID as the primary key - NEVER check by email
     // Each Firebase UID should have its own separate user data
-    const dbUser = await storage.upsertUser({
-      id: decodedToken.uid, // Always use Firebase UID as database ID
-      email: decodedToken.email || null,
-      firstName: decodedToken.name?.split(' ')[0] || null,
-      lastName: decodedToken.name?.split(' ').slice(1).join(' ') || null,
-      profileImageUrl: decodedToken.picture || null,
-    });
-    
-    // Always use the Firebase UID for database operations
-    (req as any).user.uid = decodedToken.uid;
+    try {
+      const dbUser = await storage.upsertUser({
+        id: decodedToken.uid, // Always use Firebase UID as database ID
+        email: decodedToken.email || null,
+        firstName: decodedToken.name?.split(' ')[0] || null,
+        lastName: decodedToken.name?.split(' ').slice(1).join(' ') || null,
+        profileImageUrl: decodedToken.picture || null,
+      });
+      
+      // Always use the Firebase UID for database operations
+      (req as any).user.uid = decodedToken.uid;
 
-    next();
+      next();
+    } catch (upsertError) {
+      console.error('User upsert error:', upsertError);
+      console.error('Token details:', {
+        uid: decodedToken.uid,
+        email: decodedToken.email,
+        name: decodedToken.name
+      });
+      return res.status(500).json({ message: "Database error during authentication" });
+    }
   } catch (error) {
     console.error('Firebase token verification error:', error);
     return res.status(401).json({ message: "Unauthorized" });
