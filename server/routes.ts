@@ -21,9 +21,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   }, 60 * 60 * 1000); // 1 hour
   
-  // Stripe webhook - MUST be registered first before any middleware
-  // This handles the raw body needed for signature verification
-  app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  // Stripe webhook handler function - shared between routes
+  const handleStripeWebhook = async (req: any, res: any) => {
     const sig = req.headers['stripe-signature'] as string;
     const webhookSecret = stripeConfig.webhookSecret;
     
@@ -269,7 +268,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Still return 200 to prevent Stripe from retrying
       res.status(200).json({ received: true, error: 'Processing failed' });
     }
-  });
+  };
+
+  // Stripe webhook routes - support both with and without trailing slash
+  // This handles the raw body needed for signature verification
+  app.post('/api/stripe-webhook', express.raw({ type: 'application/json' }), handleStripeWebhook);
+  app.post('/api/stripe-webhook/', express.raw({ type: 'application/json' }), handleStripeWebhook);
 
   // Health endpoint for Firestore connectivity
   app.get('/api/health', async (req, res) => {

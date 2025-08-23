@@ -76,7 +76,7 @@ export default function Subscribe() {
             )}
             
             <stripe-pricing-table 
-              pricing-table-id="prctbl_1RtfEmJF6bibA8neXrRMo3a"
+              pricing-table-id={import.meta.env.VITE_STRIPE_PRICING_TABLE_ID || "prctbl_1RtfEmJF6bibA8neXrRMo3a"}
               publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_live_0TqCIG6cqKBt1QeIrGVHglz"}
               client-reference-id={firebaseUser?.uid || "anonymous"}
               customer-email={firebaseUser?.email || ""}

@@ -29,17 +29,20 @@ npm run check
 
 #### "You specified payment mode but passed a recurring price"
 
-**Problem:** Price IDs in environment variables are one-time prices instead of recurring subscription prices.
+**Problem:** Price IDs in environment variables are one-time prices instead of recurring subscription prices, OR the checkout session is using wrong payment mode.
 
 **Solution:**
-1. In Stripe Dashboard → Products → Create new products with **Recurring** pricing
-2. Copy the `price_xxx` IDs from the recurring prices (not one-time)
-3. Update environment variables:
+1. **Check Payment Mode**: Ensure checkout sessions use `mode: 'subscription'` for recurring payments
+2. In Stripe Dashboard → Products → Create new products with **Recurring** pricing
+3. Copy the `price_xxx` IDs from the recurring prices (not one-time)
+4. Update environment variables:
    ```
    STRIPE_BASIC_WEEKLY_PRICE_ID=price_xxx  # Must be recurring weekly
    STRIPE_PRO_WEEKLY_PRICE_ID=price_xxx    # Must be recurring weekly  
    STRIPE_PRO_ANNUAL_PRICE_ID=price_xxx    # Must be recurring yearly
    ```
+
+**Note:** This error often occurs when using `mode: 'payment'` with subscription price IDs. The system now uses `mode: 'subscription'` for proper recurring billing.
 
 #### Missing Price Configuration
 ```
@@ -54,7 +57,35 @@ STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_PRICING_TABLE_ID=prctbl_... (recommended)
 ```
 
+#### Incorrect Webhook URL
+
+**Problem:** Webhook configured with wrong path in Stripe Dashboard.
+
+**Solution:** Set webhook URL in Stripe Dashboard to either:
+```
+https://your-domain.com/api/stripe-webhook
+```
+OR:
+```
+https://your-domain.com/api/stripe-webhook/
+```
+
+Both formats are supported. The webhook endpoint handles both with and without trailing slashes.
+
 ### 3. Firebase/Database Errors
+
+#### Firestore Index Missing Errors
+```
+Error: 9 FAILED_PRECONDITION: The query requires an index
+```
+
+**Problem:** Required Firestore indexes haven't been created in Firebase Console.
+
+**Solution:** Create the required indexes in Firebase Console:
+1. **SubscriptionHistory Index**: [Direct Link](https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI)
+2. **PDFRecords Index**: [Direct Link](https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI)
+
+See `FIRESTORE_INDEXES.md` for detailed instructions.
 
 #### "Firebase token verification error: duplicate key value"
 

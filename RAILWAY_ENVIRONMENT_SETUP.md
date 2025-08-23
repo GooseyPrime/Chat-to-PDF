@@ -38,6 +38,10 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 # Create this in Stripe Dashboard > Products > Pricing tables
 STRIPE_PRICING_TABLE_ID=prctbl_1RtfEmJF6bibA8neXrRMo3a
 
+# Client-side Stripe configuration for pricing table
+VITE_STRIPE_PUBLISHABLE_KEY=pk_live_...
+VITE_STRIPE_PRICING_TABLE_ID=prctbl_1RtfEmJF6bibA8neXrRMo3a
+
 # Stripe Price IDs (LEGACY - only needed if not using pricing table)
 # STRIPE_BASIC_WEEKLY_PRICE_ID=price_1Rg6fnJF6bibA8nesbJ1RvxA
 # STRIPE_PRO_WEEKLY_PRICE_ID=price_1Rtf6CJF6bibA8nef9w5LhLE
