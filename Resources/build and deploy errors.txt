@@ -1,0 +1,2764 @@
+PS C:\chat-to-pdf> railway up
+  Indexed                                                                                                                 Compressed [====================] 100%                                                                                  Uploaded                                                                                                                Build Logs: https://railway.com/project/5d5e1c54-f578-4b9b-8dd3-64c6a069761c/service/927db73a-456c-46ff-a934-ee2f0571f48e?id=edce70df-0b5d-4e7f-8e6a-fb21a63dfbfc&
+
+[Region: us-east4]
+=========================
+Using Detected Dockerfile
+=========================
+
+context: 4fv2-EGpd
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load metadata for docker.io/library/node:20-slim
+[internal] load metadata for docker.io/library/node:20-slim
+[internal] load .dockerignore
+[internal] load .dockerignore
+[internal] load .dockerignore
+[internal] load .dockerignore
+[builder 6/6] RUN npm run build
+[builder 5/6] COPY . .
+[builder 4/6] RUN npm install --no-audit --no-fund
+[builder 3/6] COPY package*.json ./
+[stage-1 5/6] RUN npm ci --omit=dev --no-audit --no-fund
+[stage-1 4/6] COPY package*.json ./
+[internal] load build context
+[stage-1 3/6] RUN apt-get update && apt-get install -y     wget     gnupg     ca-certificates     procps     libxss1     && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'     && apt-get update     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1       --no-install-recommends     && rm -rf /var/lib/apt/lists/*
+[builder 2/6] WORKDIR /app
+[builder 1/6] FROM docker.io/library/node:20-slim@sha256:6db5e436948af8f0244488a1f658c2c8e55a3ae51ca2e1686ed042be8f25f70a
+[stage-1 6/6] COPY --from=builder /app/dist ./dist
+[builder 1/6] FROM docker.io/library/node:20-slim@sha256:6db5e436948af8f0244488a1f658c2c8e55a3ae51ca2e1686ed042be8f25f70a
+[internal] load build context
+[builder 1/6] FROM docker.io/library/node:20-slim@sha256:6db5e436948af8f0244488a1f658c2c8e55a3ae51ca2e1686ed042be8f25f70a
+[builder 2/6] WORKDIR /app
+[internal] load build context
+[stage-1 3/6] RUN apt-get update && apt-get install -y     wget     gnupg     ca-certificates     procps     libxss1     && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'     && apt-get update     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1       --no-install-recommends     && rm -rf /var/lib/apt/lists/*
+[internal] load build context
+[builder 3/6] COPY package*.json ./
+[builder 3/6] COPY package*.json ./
+[builder 4/6] RUN npm install --no-audit --no-fund
+Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+
+Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+
+Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+
+Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8793 kB]
+
+Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+
+Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [277 kB]
+
+Fetched 9331 kB in 1s (8072 kB/s)
+Reading package lists...
+
+
+Reading package lists...
+
+
+Building dependency tree...
+
+Reading state information...
+
+
+The following additional packages will be installed:
+
+  dirmngr gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client gpg-wks-server
+
+  gpgconf gpgsm libassuan0 libbsd0 libgpm2 libksba8 libldap-2.5-0
+
+  libldap-common libncursesw6 libnpth0 libproc2-0 libpsl5 libreadline8
+
+  libsasl2-2 libsasl2-modules libsasl2-modules-db libsqlite3-0 libssl3
+
+  libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 openssl
+
+  pinentry-curses psmisc publicsuffix readline-common x11-common
+
+Suggested packages:
+  dbus-user-session libpam-systemd pinentry-gnome3 tor parcimonie xloadimage
+  scdaemon gpm libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+  libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql pinentry-doc
+  readline-doc
+
+The following NEW packages will be installed:
+
+  ca-certificates dirmngr gnupg gnupg-l10n gnupg-utils gpg gpg-agent
+
+  gpg-wks-client gpg-wks-server gpgconf gpgsm libassuan0 libbsd0 libgpm2
+
+  libksba8 libldap-2.5-0 libldap-common libncursesw6 libnpth0 libproc2-0
+
+  libpsl5 libreadline8 libsasl2-2 libsasl2-modules libsasl2-modules-db
+
+  libsqlite3-0 libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6
+
+  libxss1 openssl pinentry-curses procps psmisc publicsuffix readline-common
+  wget x11-common
+
+0 upgraded, 42 newly installed, 0 to remove and 0 not upgraded.
+Need to get 16.9 MB of archives.
+After this operation, 40.5 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+
+Get:2 http://deb.debian.org/debian bookworm/main amd64 libproc2-0 amd64 2:4.0.2-3 [62.8 kB]
+
+Get:3 http://deb.debian.org/debian bookworm/main amd64 procps amd64 2:4.0.2-3 [709 kB]
+
+Get:4 http://deb.debian.org/debian bookworm/main amd64 readline-common all 8.2-1.3 [69.0 kB]
+
+Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 libssl3 amd64 3.0.17-1~deb12u2 [2027 kB]
+
+Get:6 http://deb.debian.org/debian bookworm-updates/main amd64 openssl amd64 3.0.17-1~deb12u2 [1430 kB]
+
+Get:7 http://deb.debian.org/debian bookworm-updates/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+
+Get:8 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+
+Get:9 http://deb.debian.org/debian bookworm/main amd64 wget amd64 1.21.3-1+deb12u1 [937 kB]
+
+Get:10 http://deb.debian.org/debian bookworm/main amd64 libassuan0 amd64 2.5.5-5 [48.5 kB]
+
+Get:11 http://deb.debian.org/debian bookworm/main amd64 libreadline8 amd64 8.2-1.3 [166 kB]
+
+Get:12 http://deb.debian.org/debian bookworm/main amd64 gpgconf amd64 2.2.40-1.1 [564 kB]
+
+Get:13 http://deb.debian.org/debian bookworm/main amd64 libksba8 amd64 1.6.3-2 [128 kB]
+
+Get:14 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+
+Get:15 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+
+Get:16 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+
+Get:17 http://deb.debian.org/debian bookworm/main amd64 libnpth0 amd64 1.6-3 [19.0 kB]
+
+Get:18 http://deb.debian.org/debian bookworm/main amd64 dirmngr amd64 2.2.40-1.1 [792 kB]
+
+Get:19 http://deb.debian.org/debian bookworm/main amd64 gnupg-l10n all 2.2.40-1.1 [1093 kB]
+
+Get:20 http://deb.debian.org/debian bookworm/main amd64 gnupg-utils amd64 2.2.40-1.1 [927 kB]
+
+Get:21 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u1 [839 kB]
+
+Get:22 http://deb.debian.org/debian bookworm/main amd64 gpg amd64 2.2.40-1.1 [949 kB]
+
+Get:23 http://deb.debian.org/debian bookworm/main amd64 pinentry-curses amd64 1.2.1-1 [77.4 kB]
+
+Get:24 http://deb.debian.org/debian bookworm/main amd64 gpg-agent amd64 2.2.40-1.1 [695 kB]
+
+Get:25 http://deb.debian.org/debian bookworm/main amd64 gpg-wks-client amd64 2.2.40-1.1 [541 kB]
+
+Get:26 http://deb.debian.org/debian bookworm/main amd64 gpg-wks-server amd64 2.2.40-1.1 [531 kB]
+
+Get:27 http://deb.debian.org/debian bookworm/main amd64 gpgsm amd64 2.2.40-1.1 [671 kB]
+
+Get:28 http://deb.debian.org/debian bookworm/main amd64 gnupg all 2.2.40-1.1 [846 kB]
+
+Get:29 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+
+Get:30 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+
+Get:31 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+
+Get:32 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+
+Get:33 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+
+Get:34 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+
+Get:35 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+
+Get:36 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+
+Get:37 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+
+Get:38 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+
+Get:39 http://deb.debian.org/debian bookworm/main amd64 x11-common all 1:7.7+23 [252 kB]
+
+Get:40 http://deb.debian.org/debian bookworm/main amd64 libxss1 amd64 1:1.2.3-1 [17.8 kB]
+
+Get:41 http://deb.debian.org/debian bookworm/main amd64 psmisc amd64 23.6-1 [259 kB]
+
+Get:42 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+
+debconf: delaying package configuration, since apt-utils is not installed
+
+Fetched 16.9 MB in 0s (137 MB/s)
+
+Selecting previously unselected package libncursesw6:amd64.
+(Reading database ...
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 6089 files and directories currently installed.)
+
+Preparing to unpack .../00-libncursesw6_6.4-4_amd64.deb ...
+
+Unpacking libncursesw6:amd64 (6.4-4) ...
+
+Selecting previously unselected package libproc2-0:amd64.
+
+Preparing to unpack .../01-libproc2-0_2%3a4.0.2-3_amd64.deb ...
+
+Unpacking libproc2-0:amd64 (2:4.0.2-3) ...
+
+Selecting previously unselected package procps.
+
+Preparing to unpack .../02-procps_2%3a4.0.2-3_amd64.deb ...
+
+Unpacking procps (2:4.0.2-3) ...
+
+Selecting previously unselected package readline-common.
+
+Preparing to unpack .../03-readline-common_8.2-1.3_all.deb ...
+
+Unpacking readline-common (8.2-1.3) ...
+
+Selecting previously unselected package libssl3:amd64.
+
+Preparing to unpack .../04-libssl3_3.0.17-1~deb12u2_amd64.deb ...
+
+Unpacking libssl3:amd64 (3.0.17-1~deb12u2) ...
+
+Selecting previously unselected package openssl.
+
+Preparing to unpack .../05-openssl_3.0.17-1~deb12u2_amd64.deb ...
+
+Unpacking openssl (3.0.17-1~deb12u2) ...
+
+Selecting previously unselected package ca-certificates.
+
+Preparing to unpack .../06-ca-certificates_20230311+deb12u1_all.deb ...
+
+Unpacking ca-certificates (20230311+deb12u1) ...
+
+Selecting previously unselected package libpsl5:amd64.
+
+Preparing to unpack .../07-libpsl5_0.21.2-1_amd64.deb ...
+
+Unpacking libpsl5:amd64 (0.21.2-1) ...
+
+Selecting previously unselected package wget.
+
+Preparing to unpack .../08-wget_1.21.3-1+deb12u1_amd64.deb ...
+
+Unpacking wget (1.21.3-1+deb12u1) ...
+
+Selecting previously unselected package libassuan0:amd64.
+
+Preparing to unpack .../09-libassuan0_2.5.5-5_amd64.deb ...
+
+Unpacking libassuan0:amd64 (2.5.5-5) ...
+
+Selecting previously unselected package libreadline8:amd64.
+
+Preparing to unpack .../10-libreadline8_8.2-1.3_amd64.deb ...
+
+Unpacking libreadline8:amd64 (8.2-1.3) ...
+
+Selecting previously unselected package gpgconf.
+
+Preparing to unpack .../11-gpgconf_2.2.40-1.1_amd64.deb ...
+
+Unpacking gpgconf (2.2.40-1.1) ...
+
+Selecting previously unselected package libksba8:amd64.
+
+Preparing to unpack .../12-libksba8_1.6.3-2_amd64.deb ...
+
+Unpacking libksba8:amd64 (1.6.3-2) ...
+
+Selecting previously unselected package libsasl2-modules-db:amd64.
+
+Preparing to unpack .../13-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+
+Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+
+Selecting previously unselected package libsasl2-2:amd64.
+
+Preparing to unpack .../14-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+
+Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+
+Selecting previously unselected package libldap-2.5-0:amd64.
+
+Preparing to unpack .../15-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+
+Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+
+Selecting previously unselected package libnpth0:amd64.
+
+Preparing to unpack .../16-libnpth0_1.6-3_amd64.deb ...
+
+Unpacking libnpth0:amd64 (1.6-3) ...
+
+Selecting previously unselected package dirmngr.
+
+Preparing to unpack .../17-dirmngr_2.2.40-1.1_amd64.deb ...
+
+Unpacking dirmngr (2.2.40-1.1) ...
+
+Selecting previously unselected package gnupg-l10n.
+
+Preparing to unpack .../18-gnupg-l10n_2.2.40-1.1_all.deb ...
+
+Unpacking gnupg-l10n (2.2.40-1.1) ...
+
+Selecting previously unselected package gnupg-utils.
+
+Preparing to unpack .../19-gnupg-utils_2.2.40-1.1_amd64.deb ...
+
+Unpacking gnupg-utils (2.2.40-1.1) ...
+
+Selecting previously unselected package libsqlite3-0:amd64.
+
+Preparing to unpack .../20-libsqlite3-0_3.40.1-2+deb12u1_amd64.deb ...
+
+Unpacking libsqlite3-0:amd64 (3.40.1-2+deb12u1) ...
+
+Selecting previously unselected package gpg.
+
+Preparing to unpack .../21-gpg_2.2.40-1.1_amd64.deb ...
+
+Unpacking gpg (2.2.40-1.1) ...
+
+Selecting previously unselected package pinentry-curses.
+
+Preparing to unpack .../22-pinentry-curses_1.2.1-1_amd64.deb ...
+
+Unpacking pinentry-curses (1.2.1-1) ...
+
+Selecting previously unselected package gpg-agent.
+
+Preparing to unpack .../23-gpg-agent_2.2.40-1.1_amd64.deb ...
+
+Unpacking gpg-agent (2.2.40-1.1) ...
+
+Selecting previously unselected package gpg-wks-client.
+
+Preparing to unpack .../24-gpg-wks-client_2.2.40-1.1_amd64.deb ...
+
+Unpacking gpg-wks-client (2.2.40-1.1) ...
+
+Selecting previously unselected package gpg-wks-server.
+
+Preparing to unpack .../25-gpg-wks-server_2.2.40-1.1_amd64.deb ...
+
+Unpacking gpg-wks-server (2.2.40-1.1) ...
+
+Selecting previously unselected package gpgsm.
+
+Preparing to unpack .../26-gpgsm_2.2.40-1.1_amd64.deb ...
+
+Unpacking gpgsm (2.2.40-1.1) ...
+
+Selecting previously unselected package gnupg.
+
+Preparing to unpack .../27-gnupg_2.2.40-1.1_all.deb ...
+
+Unpacking gnupg (2.2.40-1.1) ...
+
+Selecting previously unselected package libbsd0:amd64.
+
+Preparing to unpack .../28-libbsd0_0.11.7-2_amd64.deb ...
+
+Unpacking libbsd0:amd64 (0.11.7-2) ...
+
+Selecting previously unselected package libgpm2:amd64.
+
+Preparing to unpack .../29-libgpm2_1.20.7-10+b1_amd64.deb ...
+
+Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+
+Selecting previously unselected package libldap-common.
+
+Preparing to unpack .../30-libldap-common_2.5.13+dfsg-5_all.deb ...
+
+Unpacking libldap-common (2.5.13+dfsg-5) ...
+
+Selecting previously unselected package libsasl2-modules:amd64.
+
+Preparing to unpack .../31-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+
+Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+
+Selecting previously unselected package libxau6:amd64.
+
+Preparing to unpack .../32-libxau6_1%3a1.0.9-1_amd64.deb ...
+
+Unpacking libxau6:amd64 (1:1.0.9-1) ...
+
+Selecting previously unselected package libxdmcp6:amd64.
+
+Preparing to unpack .../33-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+
+Selecting previously unselected package libxcb1:amd64.
+
+Preparing to unpack .../34-libxcb1_1.15-1_amd64.deb ...
+
+Unpacking libxcb1:amd64 (1.15-1) ...
+
+Selecting previously unselected package libx11-data.
+
+Preparing to unpack .../35-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+
+Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+
+Selecting previously unselected package libx11-6:amd64.
+
+Preparing to unpack .../36-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+
+Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+
+Selecting previously unselected package libxext6:amd64.
+
+Preparing to unpack .../37-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+
+Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+
+Selecting previously unselected package x11-common.
+
+Preparing to unpack .../38-x11-common_1%3a7.7+23_all.deb ...
+
+Unpacking x11-common (1:7.7+23) ...
+
+Selecting previously unselected package libxss1:amd64.
+
+Preparing to unpack .../39-libxss1_1%3a1.2.3-1_amd64.deb ...
+
+Unpacking libxss1:amd64 (1:1.2.3-1) ...
+
+Selecting previously unselected package psmisc.
+
+Preparing to unpack .../40-psmisc_23.6-1_amd64.deb ...
+
+Unpacking psmisc (23.6-1) ...
+
+Selecting previously unselected package publicsuffix.
+
+Preparing to unpack .../41-publicsuffix_20230209.2326-1_all.deb ...
+
+Unpacking publicsuffix (20230209.2326-1) ...
+
+Setting up libksba8:amd64 (1.6.3-2) ...
+
+Setting up libxau6:amd64 (1:1.0.9-1) ...
+
+Setting up libpsl5:amd64 (0.21.2-1) ...
+
+Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+
+Setting up wget (1.21.3-1+deb12u1) ...
+
+Setting up psmisc (23.6-1) ...
+
+Setting up libsqlite3-0:amd64 (3.40.1-2+deb12u1) ...
+
+Setting up libssl3:amd64 (3.0.17-1~deb12u2) ...
+
+Setting up x11-common (1:7.7+23) ...
+
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+
+invoke-rc.d: could not determine current runlevel
+
+invoke-rc.d: policy-rc.d denied execution of restart.
+
+Setting up libnpth0:amd64 (1.6-3) ...
+
+Setting up libassuan0:amd64 (2.5.5-5) ...
+
+Setting up libldap-common (2.5.13+dfsg-5) ...
+
+Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+
+Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+
+Setting up gnupg-l10n (2.2.40-1.1) ...
+
+Setting up libproc2-0:amd64 (2:4.0.2-3) ...
+
+Setting up libncursesw6:amd64 (6.4-4) ...
+
+Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+
+Setting up procps (2:4.0.2-3) ...
+
+Setting up openssl (3.0.17-1~deb12u2) ...
+
+Setting up libbsd0:amd64 (0.11.7-2) ...
+
+Setting up readline-common (8.2-1.3) ...
+
+Setting up publicsuffix (20230209.2326-1) ...
+
+Setting up pinentry-curses (1.2.1-1) ...
+
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+
+Setting up libxcb1:amd64 (1.15-1) ...
+
+Setting up libreadline8:amd64 (8.2-1.3) ...
+
+Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+
+Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+
+Setting up ca-certificates (20230311+deb12u1) ...
+
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+
+Updating certificates in /etc/ssl/certs...
+
+142 added, 0 removed; done.
+
+Setting up gpgconf (2.2.40-1.1) ...
+
+Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+
+Setting up gpg (2.2.40-1.1) ...
+
+Setting up gnupg-utils (2.2.40-1.1) ...
+
+Setting up gpg-agent (2.2.40-1.1) ...
+
+Setting up gpgsm (2.2.40-1.1) ...
+
+Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+
+Setting up dirmngr (2.2.40-1.1) ...
+
+Setting up gpg-wks-server (2.2.40-1.1) ...
+
+Setting up libxss1:amd64 (1:1.2.3-1) ...
+
+Setting up gpg-wks-client (2.2.40-1.1) ...
+
+Setting up gnupg (2.2.40-1.1) ...
+
+Processing triggers for libc-bin (2.36-9+deb12u10) ...
+
+Processing triggers for ca-certificates (20230311+deb12u1) ...
+
+Updating certificates in /etc/ssl/certs...
+
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+
+done.
+
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+
+OK
+
+Hit:1 http://deb.debian.org/debian bookworm InRelease
+Hit:2 http://deb.debian.org/debian bookworm-updates InRelease
+
+Hit:3 http://deb.debian.org/debian-security bookworm-security InRelease
+
+Get:4 http://dl.google.com/linux/chrome/deb stable InRelease [1825 B]
+
+Get:5 http://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1214 B]
+
+Fetched 3039 B in 0s (10.1 kB/s)
+Reading package lists...
+
+
+W: http://dl.google.com/linux/chrome/deb/dists/stable/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+Reading package lists...
+
+
+Building dependency tree...
+
+Reading state information...
+
+
+libxss1 is already the newest version (1:1.2.3-1).
+The following additional packages will be installed:
+  adwaita-icon-theme at-spi2-common dbus dbus-bin dbus-daemon
+  dbus-session-bus-common dbus-system-bus-common dbus-user-session
+
+  dconf-gsettings-backend dconf-service dmsetup fontconfig fontconfig-config
+  fonts-liberation fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+
+  fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf
+
+  gtk-update-icon-cache hicolor-icon-theme libapparmor1 libargon2-1 libasound2
+  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libbrotli1
+
+  libcairo-gobject2 libcairo2 libcolord2 libcryptsetup12 libcups2
+  libcurl3-gnutls libdatrie1 libdbus-1-3 libdconf1 libdeflate0
+
+  libdevmapper1.02.1 libdrm-common libdrm2 libepoxy0 libexpat1 libfdisk1
+  libfontconfig1 libfreetype6 libfribidi0 libgbm1 libgdk-pixbuf-2.0-0
+
+  libgdk-pixbuf2.0-common libglib2.0-0 libgraphite2-3 libgssapi-krb5-2
+  libgtk-3-0 libgtk-3-common libharfbuzz0b libicu72 libip4tc2 libjbig0
+
+  libjpeg62-turbo libjson-c5 libk5crypto3 libkeyutils1 libkmod2 libkrb5-3
+
+  libkrb5support0 liblcms2-2 liblerc4 libnghttp2-14 libnspr4 libnss3
+  libpam-systemd libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
+
+  libpixman-1-0 libpng16-16 librtmp1 libssh2-1 libsystemd-shared libthai-data
+  libthai0 libtiff6 libvulkan1 libwayland-client0 libwayland-cursor0
+  libwayland-egl1 libwayland-server0 libwebp7 libxcb-render0 libxcb-shm0
+  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1
+
+  libxkbcommon0 libxml2 libxrandr2 libxrender1 shared-mime-info systemd
+
+  systemd-sysv xdg-utils xkb-data
+
+Suggested packages:
+  libasound2-plugins alsa-utils colord cups-common low-memory-monitor krb5-doc
+  krb5-user gvfs liblcms2-utils systemd-container systemd-homed
+  systemd-userdbd systemd-boot systemd-resolved libfido2-1 libqrencode4
+  libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0 polkitd | policykit-1
+Recommended packages:
+  librsvg2-common fonts-ipafont-mincho fonts-kacst-one alsa-ucm-conf
+  alsa-topology-conf at-spi2-core libgdk-pixbuf2.0-bin libglib2.0-data
+  xdg-user-dirs libgtk-3-bin krb5-locales mesa-vulkan-drivers | vulkan-icd
+  systemd-timesyncd | time-daemon libnss-systemd libfile-mimeinfo-perl
+  libnet-dbus-perl libx11-protocol-perl x11-utils x11-xserver-utils
+
+The following NEW packages will be installed:
+
+  adwaita-icon-theme at-spi2-common dbus dbus-bin dbus-daemon
+  dbus-session-bus-common dbus-system-bus-common dbus-user-session
+
+  dconf-gsettings-backend dconf-service dmsetup fontconfig fontconfig-config
+  fonts-freefont-ttf fonts-ipafont-gothic fonts-kacst fonts-liberation
+  fonts-thai-tlwg fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari
+  fonts-tlwg-kinnari-ttf fonts-tlwg-laksaman fonts-tlwg-laksaman-ttf
+  fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-mono-ttf
+  fonts-tlwg-norasi fonts-tlwg-norasi-ttf fonts-tlwg-purisa
+  fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-sawasdee-ttf
+  fonts-tlwg-typewriter fonts-tlwg-typewriter-ttf fonts-tlwg-typist
+  fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-typo-ttf fonts-tlwg-umpush
+
+  fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf fonts-wqy-zenhei
+
+  google-chrome-stable gtk-update-icon-cache hicolor-icon-theme libapparmor1
+  libargon2-1 libasound2 libasound2-data libatk-bridge2.0-0 libatk1.0-0
+
+  libatspi2.0-0 libavahi-client3 libavahi-common-data libavahi-common3
+
+  libbrotli1 libcairo-gobject2 libcairo2 libcolord2 libcryptsetup12 libcups2
+  libcurl3-gnutls libdatrie1 libdbus-1-3 libdconf1 libdeflate0
+
+  libdevmapper1.02.1 libdrm-common libdrm2 libepoxy0 libexpat1 libfdisk1
+
+  libfontconfig1 libfreetype6 libfribidi0 libgbm1 libgdk-pixbuf-2.0-0
+
+  libgdk-pixbuf2.0-common libglib2.0-0 libgraphite2-3 libgssapi-krb5-2
+
+  libgtk-3-0 libgtk-3-common libharfbuzz0b libicu72 libip4tc2 libjbig0
+  libjpeg62-turbo libjson-c5 libk5crypto3 libkeyutils1 libkmod2 libkrb5-3
+
+  libkrb5support0 liblcms2-2 liblerc4 libnghttp2-14 libnspr4 libnss3
+  libpam-systemd libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
+
+  libpixman-1-0 libpng16-16 librtmp1 libssh2-1 libsystemd-shared libthai-data
+  libthai0 libtiff6 libvulkan1 libwayland-client0 libwayland-cursor0
+
+  libwayland-egl1 libwayland-server0 libwebp7 libxcb-render0 libxcb-shm0
+  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1
+
+  libxkbcommon0 libxml2 libxrandr2 libxrender1 shared-mime-info systemd
+  systemd-sysv xdg-utils xkb-data
+
+0 upgraded, 137 newly installed, 0 to remove and 0 not upgraded.
+Need to get 182 MB of archives.
+After this operation, 605 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main amd64 libargon2-1 amd64 0~20171227-0.3+deb12u1 [19.4 kB]
+
+Get:2 http://deb.debian.org/debian bookworm/main amd64 dmsetup amd64 2:1.02.185-2 [82.0 kB]
+
+Get:3 http://deb.debian.org/debian bookworm/main amd64 libdevmapper1.02.1 amd64 2:1.02.185-2 [133 kB]
+
+Get:4 http://deb.debian.org/debian bookworm/main amd64 libjson-c5 amd64 0.16-2 [44.1 kB]
+
+Get:5 http://deb.debian.org/debian bookworm/main amd64 libcryptsetup12 amd64 2:2.6.1-4~deb12u2 [223 kB]
+
+Get:6 http://deb.debian.org/debian bookworm/main amd64 libfdisk1 amd64 2.38.1-5+deb12u3 [194 kB]
+
+Get:7 http://deb.debian.org/debian bookworm/main amd64 libkmod2 amd64 30+20221128-1 [57.9 kB]
+
+Get:8 http://deb.debian.org/debian bookworm/main amd64 libapparmor1 amd64 3.0.8-3 [41.2 kB]
+
+Get:9 http://deb.debian.org/debian bookworm/main amd64 libip4tc2 amd64 1.8.9-2 [19.0 kB]
+
+Get:10 http://deb.debian.org/debian-security bookworm-security/main amd64 libsystemd-shared amd64 252.38-1~deb12u1 [1695 kB]
+
+Get:11 http://deb.debian.org/debian-security bookworm-security/main amd64 systemd amd64 252.38-1~deb12u1 [3043 kB]
+
+Get:12 http://deb.debian.org/debian-security bookworm-security/main amd64 systemd-sysv amd64 252.38-1~deb12u1 [42.6 kB]
+
+Get:13 http://deb.debian.org/debian bookworm/main amd64 libdbus-1-3 amd64 1.14.10-1~deb12u1 [201 kB]
+
+Get:14 http://deb.debian.org/debian bookworm/main amd64 dbus-bin amd64 1.14.10-1~deb12u1 [105 kB]
+
+Get:15 http://deb.debian.org/debian bookworm/main amd64 dbus-session-bus-common all 1.14.10-1~deb12u1 [78.2 kB]
+
+Get:16 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u1 [98.9 kB]
+
+Get:17 http://deb.debian.org/debian bookworm/main amd64 dbus-daemon amd64 1.14.10-1~deb12u1 [184 kB]
+
+Get:18 http://deb.debian.org/debian bookworm/main amd64 dbus-system-bus-common all 1.14.10-1~deb12u1 [79.3 kB]
+
+Get:19 http://deb.debian.org/debian bookworm/main amd64 dbus amd64 1.14.10-1~deb12u1 [97.4 kB]
+
+Get:20 http://deb.debian.org/debian bookworm/main amd64 fonts-ipafont-gothic all 00303-23 [3515 kB]
+
+Get:21 http://deb.debian.org/debian bookworm/main amd64 fonts-kacst all 2.01+mry-15 [305 kB]
+
+Get:22 http://deb.debian.org/debian bookworm/main amd64 fonts-liberation all 1:1.07.4-11 [828 kB]
+
+Get:23 http://dl.google.com/linux/chrome/deb stable/main amd64 google-chrome-stable amd64 139.0.7258.138-1 [119 MB]
+
+Get:24 http://deb.debian.org/debian bookworm/main amd64 libasound2-data all 1.2.8-1 [20.5 kB]
+
+Get:25 http://deb.debian.org/debian bookworm/main amd64 libasound2 amd64 1.2.8-1+b1 [362 kB]
+
+Get:26 http://deb.debian.org/debian bookworm/main amd64 libglib2.0-0 amd64 2.74.6-2+deb12u6 [1400 kB]
+
+Get:27 http://deb.debian.org/debian bookworm/main amd64 at-spi2-common all 2.46.0-5 [162 kB]
+
+Get:28 http://deb.debian.org/debian bookworm/main amd64 libatk1.0-0 amd64 2.46.0-5 [49.6 kB]
+
+Get:29 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1 [84.2 kB]
+
+Get:30 http://deb.debian.org/debian bookworm/main amd64 libatspi2.0-0 amd64 2.46.0-5 [75.4 kB]
+
+Get:31 http://deb.debian.org/debian bookworm/main amd64 libatk-bridge2.0-0 amd64 2.46.0-5 [64.6 kB]
+
+Get:32 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+
+Get:33 http://deb.debian.org/debian bookworm/main amd64 libpng16-16 amd64 1.6.39-2 [276 kB]
+
+Get:34 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+
+Get:35 http://deb.debian.org/debian bookworm/main amd64 fonts-freefont-ttf all 20120503-10 [2552 kB]
+
+Get:36 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+
+Get:37 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+
+Get:38 http://deb.debian.org/debian bookworm/main amd64 libpixman-1-0 amd64 0.42.2-1 [546 kB]
+
+Get:39 http://deb.debian.org/debian bookworm/main amd64 libxcb-render0 amd64 1.15-1 [115 kB]
+
+Get:40 http://deb.debian.org/debian bookworm/main amd64 libxcb-shm0 amd64 1.15-1 [105 kB]
+
+Get:41 http://deb.debian.org/debian bookworm/main amd64 libxrender1 amd64 1:0.9.10-1.1 [33.2 kB]
+
+Get:42 http://deb.debian.org/debian bookworm/main amd64 libcairo2 amd64 1.16.0-7 [575 kB]
+
+Get:43 http://deb.debian.org/debian bookworm/main amd64 libavahi-common-data amd64 0.8-10+deb12u1 [107 kB]
+
+Get:44 http://deb.debian.org/debian bookworm/main amd64 libavahi-common3 amd64 0.8-10+deb12u1 [42.1 kB]
+
+Get:45 http://deb.debian.org/debian bookworm/main amd64 libavahi-client3 amd64 0.8-10+deb12u1 [45.8 kB]
+
+Get:46 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u3 [32.8 kB]
+
+Get:47 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u3 [78.9 kB]
+
+Get:48 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+
+Get:49 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u3 [332 kB]
+
+Get:50 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u3 [135 kB]
+
+Get:51 http://deb.debian.org/debian bookworm/main amd64 libcups2 amd64 2.4.2-3+deb12u8 [246 kB]
+
+Get:52 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+
+Get:53 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+
+Get:54 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+
+Get:55 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u12 [386 kB]
+
+Get:56 http://deb.debian.org/debian bookworm/main amd64 libdrm-common all 2.4.114-1 [7112 B]
+
+Get:57 http://deb.debian.org/debian bookworm/main amd64 libdrm2 amd64 2.4.114-1+b1 [37.5 kB]
+
+Get:58 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1 [35.9 kB]
+
+Get:59 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u1 [38.0 kB]
+
+Get:60 http://deb.debian.org/debian bookworm/main amd64 hicolor-icon-theme all 0.17-2 [11.4 kB]
+
+Get:61 http://deb.debian.org/debian-security bookworm-security/main amd64 libgdk-pixbuf2.0-common all 2.42.10+dfsg-1+deb12u2 [306 kB]
+
+Get:62 http://deb.debian.org/debian-security bookworm-security/main amd64 libicu72 amd64 72.1-3+deb12u1 [9376 kB]
+
+Get:63 http://deb.debian.org/debian-security bookworm-security/main amd64 libxml2 amd64 2.9.14+dfsg-1.3~deb12u2 [687 kB]
+
+Get:64 http://deb.debian.org/debian bookworm/main amd64 shared-mime-info amd64 2.2-1 [729 kB]
+
+Get:65 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+
+Get:66 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+
+Get:67 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+
+Get:68 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+
+Get:69 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+
+Get:70 http://deb.debian.org/debian bookworm/main amd64 libtiff6 amd64 4.5.0-6+deb12u2 [316 kB]
+
+Get:71 http://deb.debian.org/debian-security bookworm-security/main amd64 libgdk-pixbuf-2.0-0 amd64 2.42.10+dfsg-1+deb12u2 [138 kB]
+
+Get:72 http://deb.debian.org/debian bookworm/main amd64 gtk-update-icon-cache amd64 3.24.38-2~deb12u3 [44.2 kB]
+
+Get:73 http://deb.debian.org/debian bookworm/main amd64 adwaita-icon-theme all 43-1 [5124 kB]
+
+Get:74 http://deb.debian.org/debian bookworm/main amd64 libcairo-gobject2 amd64 1.16.0-7 [112 kB]
+
+Get:75 http://deb.debian.org/debian bookworm/main amd64 liblcms2-2 amd64 2.14-2 [154 kB]
+
+Get:76 http://deb.debian.org/debian bookworm/main amd64 libcolord2 amd64 1.4.6-2.2 [137 kB]
+
+Get:77 http://deb.debian.org/debian bookworm/main amd64 libepoxy0 amd64 1.5.10-1 [189 kB]
+
+Get:78 http://deb.debian.org/debian bookworm/main amd64 libfribidi0 amd64 1.0.8-2.1 [65.0 kB]
+
+Get:79 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-3 amd64 1.3.14-1 [81.2 kB]
+
+Get:80 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz0b amd64 6.0.0+dfsg-3 [1945 kB]
+
+Get:81 http://deb.debian.org/debian bookworm/main amd64 fontconfig amd64 2.14.1-4 [449 kB]
+
+Get:82 http://deb.debian.org/debian bookworm/main amd64 libthai-data all 0.1.29-1 [176 kB]
+
+Get:83 http://deb.debian.org/debian bookworm/main amd64 libdatrie1 amd64 0.2.13-2+b1 [43.3 kB]
+
+Get:84 http://deb.debian.org/debian bookworm/main amd64 libthai0 amd64 0.1.29-1 [57.5 kB]
+
+Get:85 http://deb.debian.org/debian bookworm/main amd64 libpango-1.0-0 amd64 1.50.12+ds-1 [212 kB]
+
+Get:86 http://deb.debian.org/debian bookworm/main amd64 libpangoft2-1.0-0 amd64 1.50.12+ds-1 [47.4 kB]
+
+Get:87 http://deb.debian.org/debian bookworm/main amd64 libpangocairo-1.0-0 amd64 1.50.12+ds-1 [34.2 kB]
+
+Get:88 http://deb.debian.org/debian bookworm/main amd64 libwayland-client0 amd64 1.21.0-1 [28.3 kB]
+
+Get:89 http://deb.debian.org/debian bookworm/main amd64 libwayland-cursor0 amd64 1.21.0-1 [14.4 kB]
+
+Get:90 http://deb.debian.org/debian bookworm/main amd64 libwayland-egl1 amd64 1.21.0-1 [8640 B]
+
+Get:91 http://deb.debian.org/debian bookworm/main amd64 libxcomposite1 amd64 1:0.4.5-1 [16.6 kB]
+
+Get:92 http://deb.debian.org/debian bookworm/main amd64 libxfixes3 amd64 1:6.0.0-2 [22.7 kB]
+
+Get:93 http://deb.debian.org/debian bookworm/main amd64 libxcursor1 amd64 1:1.2.1-1 [40.9 kB]
+
+Get:94 http://deb.debian.org/debian bookworm/main amd64 libxdamage1 amd64 1:1.1.6-1 [15.1 kB]
+
+Get:95 http://deb.debian.org/debian bookworm/main amd64 libxinerama1 amd64 2:1.1.4-3 [17.8 kB]
+
+Get:96 http://deb.debian.org/debian bookworm/main amd64 xkb-data all 2.35.1-1 [764 kB]
+
+Get:97 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1 [106 kB]
+
+Get:98 http://deb.debian.org/debian bookworm/main amd64 libxrandr2 amd64 2:1.5.2-2+b1 [39.2 kB]
+
+Get:99 http://deb.debian.org/debian-security bookworm-security/main amd64 libpam-systemd amd64 252.38-1~deb12u1 [225 kB]
+
+Get:100 http://deb.debian.org/debian bookworm/main amd64 dbus-user-session amd64 1.14.10-1~deb12u1 [78.1 kB]
+
+Get:101 http://deb.debian.org/debian bookworm/main amd64 libdconf1 amd64 0.40.0-4 [40.9 kB]
+
+Get:102 http://deb.debian.org/debian bookworm/main amd64 dconf-service amd64 0.40.0-4 [31.6 kB]
+
+Get:103 http://deb.debian.org/debian bookworm/main amd64 dconf-gsettings-backend amd64 0.40.0-4 [27.8 kB]
+
+Get:104 http://deb.debian.org/debian bookworm/main amd64 libgtk-3-common all 3.24.38-2~deb12u3 [3895 kB]
+
+Get:105 http://deb.debian.org/debian bookworm/main amd64 libgtk-3-0 amd64 3.24.38-2~deb12u3 [2847 kB]
+
+Get:106 http://deb.debian.org/debian bookworm/main amd64 libnspr4 amd64 2:4.35-1 [113 kB]
+
+Get:107 http://deb.debian.org/debian bookworm/main amd64 libnss3 amd64 2:3.87.1-1+deb12u1 [1331 kB]
+
+Get:108 http://deb.debian.org/debian bookworm/main amd64 libvulkan1 amd64 1.3.239.0-1 [116 kB]
+
+Get:109 http://deb.debian.org/debian bookworm/main amd64 xdg-utils all 1.1.3-4.1 [75.5 kB]
+
+Get:110 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-garuda-ttf all 1:0.7.3-1 [187 kB]
+
+Get:111 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-garuda all 1:0.7.3-1 [54.1 kB]
+
+Get:112 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-kinnari-ttf all 1:0.7.3-1 [317 kB]
+
+Get:113 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-kinnari all 1:0.7.3-1 [54.1 kB]
+
+Get:114 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-laksaman-ttf all 1:0.7.3-1 [223 kB]
+
+Get:115 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-laksaman all 1:0.7.3-1 [54.1 kB]
+
+Get:116 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-loma-ttf all 1:0.7.3-1 [204 kB]
+
+Get:117 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-loma all 1:0.7.3-1 [53.9 kB]
+
+Get:118 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-mono-ttf all 1:0.7.3-1 [210 kB]
+
+Get:119 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-mono all 1:0.7.3-1 [53.8 kB]
+
+Get:120 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-norasi-ttf all 1:0.7.3-1 [352 kB]
+
+Get:121 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-norasi all 1:0.7.3-1 [53.8 kB]
+
+Get:122 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-purisa-ttf all 1:0.7.3-1 [339 kB]
+
+Get:123 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-purisa all 1:0.7.3-1 [53.3 kB]
+
+Get:124 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-sawasdee-ttf all 1:0.7.3-1 [205 kB]
+
+Get:125 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-sawasdee all 1:0.7.3-1 [53.4 kB]
+
+Get:126 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-typewriter-ttf all 1:0.7.3-1 [213 kB]
+
+Get:127 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-typewriter all 1:0.7.3-1 [53.4 kB]
+
+Get:128 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-typist-ttf all 1:0.7.3-1 [211 kB]
+
+Get:129 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-typist all 1:0.7.3-1 [53.8 kB]
+
+Get:130 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-typo-ttf all 1:0.7.3-1 [211 kB]
+
+Get:131 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-typo all 1:0.7.3-1 [53.9 kB]
+
+Get:132 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-umpush-ttf all 1:0.7.3-1 [264 kB]
+
+Get:133 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-umpush all 1:0.7.3-1 [54.1 kB]
+
+Get:134 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-waree-ttf all 1:0.7.3-1 [212 kB]
+
+Get:135 http://deb.debian.org/debian bookworm/main amd64 fonts-tlwg-waree all 1:0.7.3-1 [53.8 kB]
+
+Get:136 http://deb.debian.org/debian bookworm/main amd64 fonts-thai-tlwg all 1:0.7.3-1 [58.8 kB]
+
+Get:137 http://deb.debian.org/debian bookworm/main amd64 fonts-wqy-zenhei all 0.9.45-8 [7479 kB]
+
+debconf: delaying package configuration, since apt-utils is not installed
+
+Fetched 182 MB in 1s (192 MB/s)
+
+Selecting previously unselected package libargon2-1:amd64.
+(Reading database ...
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 7678 files and directories currently installed.)
+
+Preparing to unpack .../00-libargon2-1_0~20171227-0.3+deb12u1_amd64.deb ...
+
+Unpacking libargon2-1:amd64 (0~20171227-0.3+deb12u1) ...
+
+Selecting previously unselected package dmsetup.
+
+Preparing to unpack .../01-dmsetup_2%3a1.02.185-2_amd64.deb ...
+
+Unpacking dmsetup (2:1.02.185-2) ...
+
+Selecting previously unselected package libdevmapper1.02.1:amd64.
+
+Preparing to unpack .../02-libdevmapper1.02.1_2%3a1.02.185-2_amd64.deb ...
+
+Unpacking libdevmapper1.02.1:amd64 (2:1.02.185-2) ...
+
+Selecting previously unselected package libjson-c5:amd64.
+
+Preparing to unpack .../03-libjson-c5_0.16-2_amd64.deb ...
+
+Unpacking libjson-c5:amd64 (0.16-2) ...
+
+Selecting previously unselected package libcryptsetup12:amd64.
+
+Preparing to unpack .../04-libcryptsetup12_2%3a2.6.1-4~deb12u2_amd64.deb ...
+
+Unpacking libcryptsetup12:amd64 (2:2.6.1-4~deb12u2) ...
+
+Selecting previously unselected package libfdisk1:amd64.
+
+Preparing to unpack .../05-libfdisk1_2.38.1-5+deb12u3_amd64.deb ...
+
+Unpacking libfdisk1:amd64 (2.38.1-5+deb12u3) ...
+
+Selecting previously unselected package libkmod2:amd64.
+
+Preparing to unpack .../06-libkmod2_30+20221128-1_amd64.deb ...
+
+Unpacking libkmod2:amd64 (30+20221128-1) ...
+
+Selecting previously unselected package libapparmor1:amd64.
+
+Preparing to unpack .../07-libapparmor1_3.0.8-3_amd64.deb ...
+
+Unpacking libapparmor1:amd64 (3.0.8-3) ...
+
+Selecting previously unselected package libip4tc2:amd64.
+
+Preparing to unpack .../08-libip4tc2_1.8.9-2_amd64.deb ...
+
+Unpacking libip4tc2:amd64 (1.8.9-2) ...
+
+Selecting previously unselected package libsystemd-shared:amd64.
+
+Preparing to unpack .../09-libsystemd-shared_252.38-1~deb12u1_amd64.deb ...
+
+Unpacking libsystemd-shared:amd64 (252.38-1~deb12u1) ...
+
+Selecting previously unselected package systemd.
+
+Preparing to unpack .../10-systemd_252.38-1~deb12u1_amd64.deb ...
+
+Unpacking systemd (252.38-1~deb12u1) ...
+
+Setting up libargon2-1:amd64 (0~20171227-0.3+deb12u1) ...
+
+Setting up libjson-c5:amd64 (0.16-2) ...
+
+Setting up libfdisk1:amd64 (2.38.1-5+deb12u3) ...
+
+Setting up libkmod2:amd64 (30+20221128-1) ...
+
+Setting up libapparmor1:amd64 (3.0.8-3) ...
+
+Setting up libip4tc2:amd64 (1.8.9-2) ...
+
+Setting up libsystemd-shared:amd64 (252.38-1~deb12u1) ...
+
+Setting up libdevmapper1.02.1:amd64 (2:1.02.185-2) ...
+
+Setting up libcryptsetup12:amd64 (2:2.6.1-4~deb12u2) ...
+
+Setting up systemd (252.38-1~deb12u1) ...
+
+Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service → /lib/systemd/system/getty@.service.
+
+Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target → /lib/systemd/system/remote-fs.target.
+
+Created symlink /etc/systemd/system/sysinit.target.wants/systemd-pstore.service → /lib/systemd/system/systemd-pstore.service.
+
+Initializing machine ID from random generator.
+
+Creating group 'systemd-journal' with GID 999.
+Creating group 'systemd-network' with GID 998.
+
+Creating user 'systemd-network' (systemd Network Management) with UID 998 and GID 998.
+
+Setting up dmsetup (2:1.02.185-2) ...
+
+Selecting previously unselected package systemd-sysv.
+(Reading database ...
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 8597 files and directories currently installed.)
+
+Preparing to unpack .../000-systemd-sysv_252.38-1~deb12u1_amd64.deb ...
+
+Unpacking systemd-sysv (252.38-1~deb12u1) ...
+
+Selecting previously unselected package libdbus-1-3:amd64.
+
+Preparing to unpack .../001-libdbus-1-3_1.14.10-1~deb12u1_amd64.deb ...
+
+Unpacking libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package dbus-bin.
+
+Preparing to unpack .../002-dbus-bin_1.14.10-1~deb12u1_amd64.deb ...
+
+Unpacking dbus-bin (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package dbus-session-bus-common.
+
+Preparing to unpack .../003-dbus-session-bus-common_1.14.10-1~deb12u1_all.deb ...
+
+Unpacking dbus-session-bus-common (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package libexpat1:amd64.
+
+Preparing to unpack .../004-libexpat1_2.5.0-1+deb12u1_amd64.deb ...
+
+Unpacking libexpat1:amd64 (2.5.0-1+deb12u1) ...
+
+Selecting previously unselected package dbus-daemon.
+
+Preparing to unpack .../005-dbus-daemon_1.14.10-1~deb12u1_amd64.deb ...
+
+Unpacking dbus-daemon (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package dbus-system-bus-common.
+
+Preparing to unpack .../006-dbus-system-bus-common_1.14.10-1~deb12u1_all.deb ...
+
+Unpacking dbus-system-bus-common (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package dbus.
+
+Preparing to unpack .../007-dbus_1.14.10-1~deb12u1_amd64.deb ...
+
+Unpacking dbus (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package fonts-ipafont-gothic.
+
+Preparing to unpack .../008-fonts-ipafont-gothic_00303-23_all.deb ...
+
+Unpacking fonts-ipafont-gothic (00303-23) ...
+
+Selecting previously unselected package fonts-kacst.
+
+Preparing to unpack .../009-fonts-kacst_2.01+mry-15_all.deb ...
+
+Unpacking fonts-kacst (2.01+mry-15) ...
+
+Selecting previously unselected package fonts-liberation.
+
+Preparing to unpack .../010-fonts-liberation_1%3a1.07.4-11_all.deb ...
+
+Unpacking fonts-liberation (1:1.07.4-11) ...
+
+Selecting previously unselected package libasound2-data.
+
+Preparing to unpack .../011-libasound2-data_1.2.8-1_all.deb ...
+
+Unpacking libasound2-data (1.2.8-1) ...
+
+Selecting previously unselected package libasound2:amd64.
+
+Preparing to unpack .../012-libasound2_1.2.8-1+b1_amd64.deb ...
+
+Unpacking libasound2:amd64 (1.2.8-1+b1) ...
+
+Selecting previously unselected package libglib2.0-0:amd64.
+
+Preparing to unpack .../013-libglib2.0-0_2.74.6-2+deb12u6_amd64.deb ...
+
+Unpacking libglib2.0-0:amd64 (2.74.6-2+deb12u6) ...
+
+Selecting previously unselected package at-spi2-common.
+
+Preparing to unpack .../014-at-spi2-common_2.46.0-5_all.deb ...
+
+Unpacking at-spi2-common (2.46.0-5) ...
+
+Selecting previously unselected package libatk1.0-0:amd64.
+
+Preparing to unpack .../015-libatk1.0-0_2.46.0-5_amd64.deb ...
+
+Unpacking libatk1.0-0:amd64 (2.46.0-5) ...
+
+Selecting previously unselected package libxi6:amd64.
+
+Preparing to unpack .../016-libxi6_2%3a1.8-1+b1_amd64.deb ...
+
+Unpacking libxi6:amd64 (2:1.8-1+b1) ...
+
+Selecting previously unselected package libatspi2.0-0:amd64.
+
+Preparing to unpack .../017-libatspi2.0-0_2.46.0-5_amd64.deb ...
+
+Unpacking libatspi2.0-0:amd64 (2.46.0-5) ...
+
+Selecting previously unselected package libatk-bridge2.0-0:amd64.
+
+Preparing to unpack .../018-libatk-bridge2.0-0_2.46.0-5_amd64.deb ...
+
+Unpacking libatk-bridge2.0-0:amd64 (2.46.0-5) ...
+
+Selecting previously unselected package libbrotli1:amd64.
+
+Preparing to unpack .../019-libbrotli1_1.0.9-2+b6_amd64.deb ...
+
+Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+
+Selecting previously unselected package libpng16-16:amd64.
+
+Preparing to unpack .../020-libpng16-16_1.6.39-2_amd64.deb ...
+
+Unpacking libpng16-16:amd64 (1.6.39-2) ...
+
+Selecting previously unselected package libfreetype6:amd64.
+
+Preparing to unpack .../021-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+
+Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+
+Selecting previously unselected package fonts-freefont-ttf.
+
+Preparing to unpack .../022-fonts-freefont-ttf_20120503-10_all.deb ...
+
+Unpacking fonts-freefont-ttf (20120503-10) ...
+
+Selecting previously unselected package fontconfig-config.
+
+Preparing to unpack .../023-fontconfig-config_2.14.1-4_amd64.deb ...
+
+Unpacking fontconfig-config (2.14.1-4) ...
+
+Selecting previously unselected package libfontconfig1:amd64.
+
+Preparing to unpack .../024-libfontconfig1_2.14.1-4_amd64.deb ...
+
+Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+
+Selecting previously unselected package libpixman-1-0:amd64.
+
+Preparing to unpack .../025-libpixman-1-0_0.42.2-1_amd64.deb ...
+
+Unpacking libpixman-1-0:amd64 (0.42.2-1) ...
+
+Selecting previously unselected package libxcb-render0:amd64.
+
+Preparing to unpack .../026-libxcb-render0_1.15-1_amd64.deb ...
+
+Unpacking libxcb-render0:amd64 (1.15-1) ...
+
+Selecting previously unselected package libxcb-shm0:amd64.
+
+Preparing to unpack .../027-libxcb-shm0_1.15-1_amd64.deb ...
+
+Unpacking libxcb-shm0:amd64 (1.15-1) ...
+
+Selecting previously unselected package libxrender1:amd64.
+
+Preparing to unpack .../028-libxrender1_1%3a0.9.10-1.1_amd64.deb ...
+
+Unpacking libxrender1:amd64 (1:0.9.10-1.1) ...
+
+Selecting previously unselected package libcairo2:amd64.
+
+Preparing to unpack .../029-libcairo2_1.16.0-7_amd64.deb ...
+
+Unpacking libcairo2:amd64 (1.16.0-7) ...
+
+Selecting previously unselected package libavahi-common-data:amd64.
+
+Preparing to unpack .../030-libavahi-common-data_0.8-10+deb12u1_amd64.deb ...
+
+Unpacking libavahi-common-data:amd64 (0.8-10+deb12u1) ...
+
+Selecting previously unselected package libavahi-common3:amd64.
+
+Preparing to unpack .../031-libavahi-common3_0.8-10+deb12u1_amd64.deb ...
+
+Unpacking libavahi-common3:amd64 (0.8-10+deb12u1) ...
+
+Selecting previously unselected package libavahi-client3:amd64.
+
+Preparing to unpack .../032-libavahi-client3_0.8-10+deb12u1_amd64.deb ...
+
+Unpacking libavahi-client3:amd64 (0.8-10+deb12u1) ...
+
+Selecting previously unselected package libkrb5support0:amd64.
+
+Preparing to unpack .../033-libkrb5support0_1.20.1-2+deb12u3_amd64.deb ...
+
+Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u3) ...
+
+Selecting previously unselected package libk5crypto3:amd64.
+
+Preparing to unpack .../034-libk5crypto3_1.20.1-2+deb12u3_amd64.deb ...
+
+Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u3) ...
+
+Selecting previously unselected package libkeyutils1:amd64.
+
+Preparing to unpack .../035-libkeyutils1_1.6.3-2_amd64.deb ...
+
+Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+
+Selecting previously unselected package libkrb5-3:amd64.
+
+Preparing to unpack .../036-libkrb5-3_1.20.1-2+deb12u3_amd64.deb ...
+
+Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u3) ...
+
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+
+Preparing to unpack .../037-libgssapi-krb5-2_1.20.1-2+deb12u3_amd64.deb ...
+
+Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u3) ...
+
+Selecting previously unselected package libcups2:amd64.
+
+Preparing to unpack .../038-libcups2_2.4.2-3+deb12u8_amd64.deb ...
+
+Unpacking libcups2:amd64 (2.4.2-3+deb12u8) ...
+
+Selecting previously unselected package libnghttp2-14:amd64.
+
+Preparing to unpack .../039-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+
+Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+
+Selecting previously unselected package librtmp1:amd64.
+
+Preparing to unpack .../040-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+
+Selecting previously unselected package libssh2-1:amd64.
+
+Preparing to unpack .../041-libssh2-1_1.10.0-3+b1_amd64.deb ...
+
+Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+
+Selecting previously unselected package libcurl3-gnutls:amd64.
+
+Preparing to unpack .../042-libcurl3-gnutls_7.88.1-10+deb12u12_amd64.deb ...
+
+Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u12) ...
+
+Selecting previously unselected package libdrm-common.
+
+Preparing to unpack .../043-libdrm-common_2.4.114-1_all.deb ...
+
+Unpacking libdrm-common (2.4.114-1) ...
+
+Selecting previously unselected package libdrm2:amd64.
+
+Preparing to unpack .../044-libdrm2_2.4.114-1+b1_amd64.deb ...
+
+Unpacking libdrm2:amd64 (2.4.114-1+b1) ...
+
+Selecting previously unselected package libwayland-server0:amd64.
+
+Preparing to unpack .../045-libwayland-server0_1.21.0-1_amd64.deb ...
+
+Unpacking libwayland-server0:amd64 (1.21.0-1) ...
+
+Selecting previously unselected package libgbm1:amd64.
+
+Preparing to unpack .../046-libgbm1_22.3.6-1+deb12u1_amd64.deb ...
+
+Unpacking libgbm1:amd64 (22.3.6-1+deb12u1) ...
+
+Selecting previously unselected package hicolor-icon-theme.
+
+Preparing to unpack .../047-hicolor-icon-theme_0.17-2_all.deb ...
+
+Unpacking hicolor-icon-theme (0.17-2) ...
+
+Selecting previously unselected package libgdk-pixbuf2.0-common.
+
+Preparing to unpack .../048-libgdk-pixbuf2.0-common_2.42.10+dfsg-1+deb12u2_all.deb ...
+
+Unpacking libgdk-pixbuf2.0-common (2.42.10+dfsg-1+deb12u2) ...
+
+Selecting previously unselected package libicu72:amd64.
+
+Preparing to unpack .../049-libicu72_72.1-3+deb12u1_amd64.deb ...
+
+Unpacking libicu72:amd64 (72.1-3+deb12u1) ...
+
+Selecting previously unselected package libxml2:amd64.
+
+Preparing to unpack .../050-libxml2_2.9.14+dfsg-1.3~deb12u2_amd64.deb ...
+
+Unpacking libxml2:amd64 (2.9.14+dfsg-1.3~deb12u2) ...
+
+Selecting previously unselected package shared-mime-info.
+
+Preparing to unpack .../051-shared-mime-info_2.2-1_amd64.deb ...
+
+Unpacking shared-mime-info (2.2-1) ...
+
+Selecting previously unselected package libjpeg62-turbo:amd64.
+
+Preparing to unpack .../052-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+
+Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+
+Selecting previously unselected package libdeflate0:amd64.
+
+Preparing to unpack .../053-libdeflate0_1.14-1_amd64.deb ...
+
+Unpacking libdeflate0:amd64 (1.14-1) ...
+
+Selecting previously unselected package libjbig0:amd64.
+
+Preparing to unpack .../054-libjbig0_2.1-6.1_amd64.deb ...
+
+Unpacking libjbig0:amd64 (2.1-6.1) ...
+
+Selecting previously unselected package liblerc4:amd64.
+
+Preparing to unpack .../055-liblerc4_4.0.0+ds-2_amd64.deb ...
+
+Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+
+Selecting previously unselected package libwebp7:amd64.
+
+Preparing to unpack .../056-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+
+Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+
+Selecting previously unselected package libtiff6:amd64.
+
+Preparing to unpack .../057-libtiff6_4.5.0-6+deb12u2_amd64.deb ...
+
+Unpacking libtiff6:amd64 (4.5.0-6+deb12u2) ...
+
+Selecting previously unselected package libgdk-pixbuf-2.0-0:amd64.
+
+Preparing to unpack .../058-libgdk-pixbuf-2.0-0_2.42.10+dfsg-1+deb12u2_amd64.deb ...
+
+Unpacking libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-1+deb12u2) ...
+
+Selecting previously unselected package gtk-update-icon-cache.
+
+Preparing to unpack .../059-gtk-update-icon-cache_3.24.38-2~deb12u3_amd64.deb ...
+
+Unpacking gtk-update-icon-cache (3.24.38-2~deb12u3) ...
+
+Selecting previously unselected package adwaita-icon-theme.
+
+Preparing to unpack .../060-adwaita-icon-theme_43-1_all.deb ...
+
+Unpacking adwaita-icon-theme (43-1) ...
+
+Selecting previously unselected package libcairo-gobject2:amd64.
+
+Preparing to unpack .../061-libcairo-gobject2_1.16.0-7_amd64.deb ...
+
+Unpacking libcairo-gobject2:amd64 (1.16.0-7) ...
+
+Selecting previously unselected package liblcms2-2:amd64.
+
+Preparing to unpack .../062-liblcms2-2_2.14-2_amd64.deb ...
+
+Unpacking liblcms2-2:amd64 (2.14-2) ...
+
+Selecting previously unselected package libcolord2:amd64.
+
+Preparing to unpack .../063-libcolord2_1.4.6-2.2_amd64.deb ...
+
+Unpacking libcolord2:amd64 (1.4.6-2.2) ...
+
+Selecting previously unselected package libepoxy0:amd64.
+
+Preparing to unpack .../064-libepoxy0_1.5.10-1_amd64.deb ...
+
+Unpacking libepoxy0:amd64 (1.5.10-1) ...
+
+Selecting previously unselected package libfribidi0:amd64.
+
+Preparing to unpack .../065-libfribidi0_1.0.8-2.1_amd64.deb ...
+
+Unpacking libfribidi0:amd64 (1.0.8-2.1) ...
+
+Selecting previously unselected package libgraphite2-3:amd64.
+
+Preparing to unpack .../066-libgraphite2-3_1.3.14-1_amd64.deb ...
+
+Unpacking libgraphite2-3:amd64 (1.3.14-1) ...
+
+Selecting previously unselected package libharfbuzz0b:amd64.
+
+Preparing to unpack .../067-libharfbuzz0b_6.0.0+dfsg-3_amd64.deb ...
+
+Unpacking libharfbuzz0b:amd64 (6.0.0+dfsg-3) ...
+
+Selecting previously unselected package fontconfig.
+
+Preparing to unpack .../068-fontconfig_2.14.1-4_amd64.deb ...
+
+Unpacking fontconfig (2.14.1-4) ...
+
+Selecting previously unselected package libthai-data.
+
+Preparing to unpack .../069-libthai-data_0.1.29-1_all.deb ...
+
+Unpacking libthai-data (0.1.29-1) ...
+
+Selecting previously unselected package libdatrie1:amd64.
+
+Preparing to unpack .../070-libdatrie1_0.2.13-2+b1_amd64.deb ...
+
+Unpacking libdatrie1:amd64 (0.2.13-2+b1) ...
+
+Selecting previously unselected package libthai0:amd64.
+
+Preparing to unpack .../071-libthai0_0.1.29-1_amd64.deb ...
+
+Unpacking libthai0:amd64 (0.1.29-1) ...
+
+Selecting previously unselected package libpango-1.0-0:amd64.
+
+Preparing to unpack .../072-libpango-1.0-0_1.50.12+ds-1_amd64.deb ...
+
+Unpacking libpango-1.0-0:amd64 (1.50.12+ds-1) ...
+
+Selecting previously unselected package libpangoft2-1.0-0:amd64.
+
+Preparing to unpack .../073-libpangoft2-1.0-0_1.50.12+ds-1_amd64.deb ...
+
+Unpacking libpangoft2-1.0-0:amd64 (1.50.12+ds-1) ...
+
+Selecting previously unselected package libpangocairo-1.0-0:amd64.
+
+Preparing to unpack .../074-libpangocairo-1.0-0_1.50.12+ds-1_amd64.deb ...
+
+Unpacking libpangocairo-1.0-0:amd64 (1.50.12+ds-1) ...
+
+Selecting previously unselected package libwayland-client0:amd64.
+
+Preparing to unpack .../075-libwayland-client0_1.21.0-1_amd64.deb ...
+
+Unpacking libwayland-client0:amd64 (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-cursor0:amd64.
+
+Preparing to unpack .../076-libwayland-cursor0_1.21.0-1_amd64.deb ...
+
+Unpacking libwayland-cursor0:amd64 (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-egl1:amd64.
+
+Preparing to unpack .../077-libwayland-egl1_1.21.0-1_amd64.deb ...
+
+Unpacking libwayland-egl1:amd64 (1.21.0-1) ...
+
+Selecting previously unselected package libxcomposite1:amd64.
+
+Preparing to unpack .../078-libxcomposite1_1%3a0.4.5-1_amd64.deb ...
+
+Unpacking libxcomposite1:amd64 (1:0.4.5-1) ...
+
+Selecting previously unselected package libxfixes3:amd64.
+
+Preparing to unpack .../079-libxfixes3_1%3a6.0.0-2_amd64.deb ...
+
+Unpacking libxfixes3:amd64 (1:6.0.0-2) ...
+
+Selecting previously unselected package libxcursor1:amd64.
+
+Preparing to unpack .../080-libxcursor1_1%3a1.2.1-1_amd64.deb ...
+
+Unpacking libxcursor1:amd64 (1:1.2.1-1) ...
+
+Selecting previously unselected package libxdamage1:amd64.
+
+Preparing to unpack .../081-libxdamage1_1%3a1.1.6-1_amd64.deb ...
+
+Unpacking libxdamage1:amd64 (1:1.1.6-1) ...
+
+Selecting previously unselected package libxinerama1:amd64.
+
+Preparing to unpack .../082-libxinerama1_2%3a1.1.4-3_amd64.deb ...
+
+Unpacking libxinerama1:amd64 (2:1.1.4-3) ...
+
+Selecting previously unselected package xkb-data.
+
+Preparing to unpack .../083-xkb-data_2.35.1-1_all.deb ...
+
+Unpacking xkb-data (2.35.1-1) ...
+
+Selecting previously unselected package libxkbcommon0:amd64.
+
+Preparing to unpack .../084-libxkbcommon0_1.5.0-1_amd64.deb ...
+
+Unpacking libxkbcommon0:amd64 (1.5.0-1) ...
+
+Selecting previously unselected package libxrandr2:amd64.
+
+Preparing to unpack .../085-libxrandr2_2%3a1.5.2-2+b1_amd64.deb ...
+
+Unpacking libxrandr2:amd64 (2:1.5.2-2+b1) ...
+
+Selecting previously unselected package libpam-systemd:amd64.
+
+Preparing to unpack .../086-libpam-systemd_252.38-1~deb12u1_amd64.deb ...
+
+Unpacking libpam-systemd:amd64 (252.38-1~deb12u1) ...
+
+Selecting previously unselected package dbus-user-session.
+
+Preparing to unpack .../087-dbus-user-session_1.14.10-1~deb12u1_amd64.deb ...
+
+Unpacking dbus-user-session (1.14.10-1~deb12u1) ...
+
+Selecting previously unselected package libdconf1:amd64.
+
+Preparing to unpack .../088-libdconf1_0.40.0-4_amd64.deb ...
+
+Unpacking libdconf1:amd64 (0.40.0-4) ...
+
+Selecting previously unselected package dconf-service.
+
+Preparing to unpack .../089-dconf-service_0.40.0-4_amd64.deb ...
+
+Unpacking dconf-service (0.40.0-4) ...
+
+Selecting previously unselected package dconf-gsettings-backend:amd64.
+
+Preparing to unpack .../090-dconf-gsettings-backend_0.40.0-4_amd64.deb ...
+
+Unpacking dconf-gsettings-backend:amd64 (0.40.0-4) ...
+
+Selecting previously unselected package libgtk-3-common.
+
+Preparing to unpack .../091-libgtk-3-common_3.24.38-2~deb12u3_all.deb ...
+
+Unpacking libgtk-3-common (3.24.38-2~deb12u3) ...
+
+Selecting previously unselected package libgtk-3-0:amd64.
+
+Preparing to unpack .../092-libgtk-3-0_3.24.38-2~deb12u3_amd64.deb ...
+
+Unpacking libgtk-3-0:amd64 (3.24.38-2~deb12u3) ...
+
+Selecting previously unselected package libnspr4:amd64.
+
+Preparing to unpack .../093-libnspr4_2%3a4.35-1_amd64.deb ...
+
+Unpacking libnspr4:amd64 (2:4.35-1) ...
+
+Selecting previously unselected package libnss3:amd64.
+
+Preparing to unpack .../094-libnss3_2%3a3.87.1-1+deb12u1_amd64.deb ...
+
+Unpacking libnss3:amd64 (2:3.87.1-1+deb12u1) ...
+
+Selecting previously unselected package libvulkan1:amd64.
+
+Preparing to unpack .../095-libvulkan1_1.3.239.0-1_amd64.deb ...
+
+Unpacking libvulkan1:amd64 (1.3.239.0-1) ...
+
+Selecting previously unselected package xdg-utils.
+
+Preparing to unpack .../096-xdg-utils_1.1.3-4.1_all.deb ...
+
+Unpacking xdg-utils (1.1.3-4.1) ...
+
+Selecting previously unselected package google-chrome-stable.
+
+Preparing to unpack .../097-google-chrome-stable_139.0.7258.138-1_amd64.deb ...
+
+Unpacking google-chrome-stable (139.0.7258.138-1) ...
+
+
+> rest-express@1.0.0 preinstall
+> export PUPPETEER_SKIP_DOWNLOAD=true
+
+
+
+added 690 packages in 19s
+
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.5.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.5.2
+npm notice To update run: npm install -g npm@11.5.2
+npm notice
+
+[builder 4/6] RUN npm install --no-audit --no-fund
+[builder 5/6] COPY . .
+[builder 5/6] COPY . .
+[builder 6/6] RUN npm run build
+
+> rest-express@1.0.0 build
+> vite build && node build-server.js
+
+
+vite v7.1.3 building for production...
+
+transforming...
+
+✓ 1683 modules transformed.
+
+rendering chunks...
+
+computing gzip size...
+
+../dist/public/index.html                   0.39 kB │ gzip:   0.27 kB
+../dist/public/assets/index-Dz83zeNi.css   63.02 kB │ gzip:  11.26 kB
+../dist/public/assets/index-B0KgXrcs.js   468.84 kB │ gzip: 131.00 kB
+
+✓ built in 4.37s
+
+🔨 Building server...
+
+
+  dist/index.js  73.0kb
+
+⚡ Done in 13ms
+
+✅ Copied index.html to dist root
+
+✅ Server build completed successfully
+
+[builder 6/6] RUN npm run build
+Selecting previously unselected package fonts-tlwg-garuda-ttf.
+
+Preparing to unpack .../098-fonts-tlwg-garuda-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-garuda-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-garuda.
+
+Preparing to unpack .../099-fonts-tlwg-garuda_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-garuda (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-kinnari-ttf.
+
+Preparing to unpack .../100-fonts-tlwg-kinnari-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-kinnari-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-kinnari.
+
+Preparing to unpack .../101-fonts-tlwg-kinnari_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-kinnari (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-laksaman-ttf.
+
+Preparing to unpack .../102-fonts-tlwg-laksaman-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-laksaman-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-laksaman.
+
+Preparing to unpack .../103-fonts-tlwg-laksaman_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-laksaman (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-loma-ttf.
+
+Preparing to unpack .../104-fonts-tlwg-loma-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-loma-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-loma.
+
+Preparing to unpack .../105-fonts-tlwg-loma_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-loma (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-mono-ttf.
+
+Preparing to unpack .../106-fonts-tlwg-mono-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-mono-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-mono.
+
+Preparing to unpack .../107-fonts-tlwg-mono_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-mono (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-norasi-ttf.
+
+Preparing to unpack .../108-fonts-tlwg-norasi-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-norasi-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-norasi.
+
+Preparing to unpack .../109-fonts-tlwg-norasi_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-norasi (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-purisa-ttf.
+
+Preparing to unpack .../110-fonts-tlwg-purisa-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-purisa-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-purisa.
+
+Preparing to unpack .../111-fonts-tlwg-purisa_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-purisa (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-sawasdee-ttf.
+
+Preparing to unpack .../112-fonts-tlwg-sawasdee-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-sawasdee-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-sawasdee.
+
+Preparing to unpack .../113-fonts-tlwg-sawasdee_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-sawasdee (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-typewriter-ttf.
+
+Preparing to unpack .../114-fonts-tlwg-typewriter-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-typewriter-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-typewriter.
+
+Preparing to unpack .../115-fonts-tlwg-typewriter_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-typewriter (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-typist-ttf.
+
+Preparing to unpack .../116-fonts-tlwg-typist-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-typist-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-typist.
+
+Preparing to unpack .../117-fonts-tlwg-typist_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-typist (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-typo-ttf.
+
+Preparing to unpack .../118-fonts-tlwg-typo-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-typo-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-typo.
+
+Preparing to unpack .../119-fonts-tlwg-typo_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-typo (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-umpush-ttf.
+
+Preparing to unpack .../120-fonts-tlwg-umpush-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-umpush-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-umpush.
+
+Preparing to unpack .../121-fonts-tlwg-umpush_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-umpush (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-waree-ttf.
+
+Preparing to unpack .../122-fonts-tlwg-waree-ttf_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-waree-ttf (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-tlwg-waree.
+
+Preparing to unpack .../123-fonts-tlwg-waree_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-tlwg-waree (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-thai-tlwg.
+
+Preparing to unpack .../124-fonts-thai-tlwg_1%3a0.7.3-1_all.deb ...
+
+Unpacking fonts-thai-tlwg (1:0.7.3-1) ...
+
+Selecting previously unselected package fonts-wqy-zenhei.
+
+Preparing to unpack .../125-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+
+Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+
+Setting up libexpat1:amd64 (2.5.0-1+deb12u1) ...
+
+Setting up fonts-tlwg-garuda-ttf (1:0.7.3-1) ...
+
+Setting up libgraphite2-3:amd64 (1.3.14-1) ...
+
+Setting up liblcms2-2:amd64 (2.14-2) ...
+
+Setting up libpixman-1-0:amd64 (0.42.2-1) ...
+
+Setting up libwayland-server0:amd64 (1.21.0-1) ...
+
+Setting up fonts-tlwg-laksaman-ttf (1:0.7.3-1) ...
+
+Setting up systemd-sysv (252.38-1~deb12u1) ...
+
+Setting up libkeyutils1:amd64 (1.6.3-2) ...
+
+Setting up libxdamage1:amd64 (1:1.1.6-1) ...
+
+Setting up libicu72:amd64 (72.1-3+deb12u1) ...
+
+Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+
+Setting up hicolor-icon-theme (0.17-2) ...
+
+Setting up libxi6:amd64 (2:1.8-1+b1) ...
+
+Setting up libxrender1:amd64 (1:0.9.10-1.1) ...
+
+Setting up libdatrie1:amd64 (0.2.13-2+b1) ...
+
+Setting up fonts-tlwg-loma-ttf (1:0.7.3-1) ...
+
+Setting up libxcb-render0:amd64 (1.15-1) ...
+
+Setting up libglib2.0-0:amd64 (2.74.6-2+deb12u6) ...
+
+Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+
+Setting up libgdk-pixbuf2.0-common (2.42.10+dfsg-1+deb12u2) ...
+
+Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+
+Setting up libdeflate0:amd64 (1.14-1) ...
+
+Setting up fonts-freefont-ttf (20120503-10) ...
+
+Setting up xkb-data (2.35.1-1) ...
+
+Setting up fonts-tlwg-typo-ttf (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-kinnari-ttf (1:0.7.3-1) ...
+
+Setting up libxcb-shm0:amd64 (1.15-1) ...
+
+Setting up libjbig0:amd64 (2.1-6.1) ...
+
+Setting up libcolord2:amd64 (1.4.6-2.2) ...
+
+Setting up libkrb5support0:amd64 (1.20.1-2+deb12u3) ...
+
+Setting up libdconf1:amd64 (0.40.0-4) ...
+
+Setting up libasound2-data (1.2.8-1) ...
+
+Setting up fonts-tlwg-umpush-ttf (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-kinnari (1:0.7.3-1) ...
+
+Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+
+Setting up fonts-kacst (2.01+mry-15) ...
+
+Setting up fonts-tlwg-laksaman (1:0.7.3-1) ...
+
+Setting up libepoxy0:amd64 (1.5.10-1) ...
+
+Setting up libnspr4:amd64 (2:4.35-1) ...
+
+Setting up libxfixes3:amd64 (1:6.0.0-2) ...
+
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+
+Setting up libavahi-common-data:amd64 (0.8-10+deb12u1) ...
+
+Setting up libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...
+
+Setting up libfribidi0:amd64 (1.0.8-2.1) ...
+
+Setting up libxinerama1:amd64 (2:1.1.4-3) ...
+
+Setting up libpng16-16:amd64 (1.6.39-2) ...
+
+Setting up fonts-tlwg-sawasdee-ttf (1:0.7.3-1) ...
+
+Setting up libxrandr2:amd64 (2:1.5.2-2+b1) ...
+
+Setting up fonts-tlwg-typist-ttf (1:0.7.3-1) ...
+
+Setting up libk5crypto3:amd64 (1.20.1-2+deb12u3) ...
+
+Setting up libvulkan1:amd64 (1.3.239.0-1) ...
+
+Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+
+Setting up fonts-tlwg-typewriter-ttf (1:0.7.3-1) ...
+
+Setting up fonts-ipafont-gothic (00303-23) ...
+
+update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+
+Setting up at-spi2-common (2.46.0-5) ...
+
+Setting up libtiff6:amd64 (4.5.0-6+deb12u2) ...
+
+Setting up dbus-session-bus-common (1.14.10-1~deb12u1) ...
+
+Setting up libasound2:amd64 (1.2.8-1+b1) ...
+
+Setting up fonts-liberation (1:1.07.4-11) ...
+
+Setting up fonts-tlwg-garuda (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-norasi-ttf (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-waree-ttf (1:0.7.3-1) ...
+
+Setting up libthai-data (0.1.29-1) ...
+
+Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+
+Setting up fonts-tlwg-loma (1:0.7.3-1) ...
+
+Setting up libatk1.0-0:amd64 (2.46.0-5) ...
+
+Setting up libkrb5-3:amd64 (1.20.1-2+deb12u3) ...
+
+Setting up libwayland-egl1:amd64 (1.21.0-1) ...
+
+Setting up fonts-tlwg-purisa-ttf (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-mono-ttf (1:0.7.3-1) ...
+
+Setting up dbus-system-bus-common (1.14.10-1~deb12u1) ...
+
+Setting up libdrm-common (2.4.114-1) ...
+
+Setting up libxcomposite1:amd64 (1:0.4.5-1) ...
+
+Setting up libxml2:amd64 (2.9.14+dfsg-1.3~deb12u2) ...
+
+Setting up xdg-utils (1.1.3-4.1) ...
+
+update-alternatives: using /usr/bin/xdg-open to provide /usr/bin/open (open) in auto mode
+
+update-alternatives: warning: skip creation of /usr/share/man/man1/open.1.gz because associated file /usr/share/man/man1/xdg-open.1.gz (of link group open) doesn't exist
+
+Setting up dbus-bin (1.14.10-1~deb12u1) ...
+
+Setting up fonts-tlwg-typewriter (1:0.7.3-1) ...
+
+Setting up libxkbcommon0:amd64 (1.5.0-1) ...
+
+Setting up libwayland-client0:amd64 (1.21.0-1) ...
+
+Setting up fonts-tlwg-typo (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-waree (1:0.7.3-1) ...
+
+Setting up fontconfig-config (2.14.1-4) ...
+
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+
+Setting up libxcursor1:amd64 (1:1.2.1-1) ...
+
+Setting up libavahi-common3:amd64 (0.8-10+deb12u1) ...
+
+Setting up fonts-tlwg-sawasdee (1:0.7.3-1) ...
+
+Setting up libnss3:amd64 (2:3.87.1-1+deb12u1) ...
+
+Setting up dbus-daemon (1.14.10-1~deb12u1) ...
+
+Setting up fonts-tlwg-typist (1:0.7.3-1) ...
+
+Setting up fonts-tlwg-umpush (1:0.7.3-1) ...
+
+Setting up libthai0:amd64 (0.1.29-1) ...
+
+Setting up fonts-tlwg-purisa (1:0.7.3-1) ...
+
+Setting up dbus (1.14.10-1~deb12u1) ...
+
+invoke-rc.d: could not determine current runlevel
+
+Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u3) ...
+
+Setting up fonts-tlwg-norasi (1:0.7.3-1) ...
+
+Setting up libdrm2:amd64 (2.4.114-1+b1) ...
+
+Setting up libwayland-cursor0:amd64 (1.21.0-1) ...
+
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+
+Setting up libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-1+deb12u2) ...
+
+Setting up libfontconfig1:amd64 (2.14.1-4) ...
+
+Setting up fontconfig (2.14.1-4) ...
+
+Regenerating fonts cache...
+done.
+
+Setting up libgbm1:amd64 (22.3.6-1+deb12u1) ...
+
+Setting up libpango-1.0-0:amd64 (1.50.12+ds-1) ...
+
+Setting up fonts-wqy-zenhei (0.9.45-8) ...
+
+Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u12) ...
+
+Setting up fonts-thai-tlwg (1:0.7.3-1) ...
+
+Setting up libcairo2:amd64 (1.16.0-7) ...
+
+Setting up dbus-user-session (1.14.10-1~deb12u1) ...
+
+Setting up adwaita-icon-theme (43-1) ...
+
+update-alternatives: using /usr/share/icons/Adwaita/cursor.theme to provide /usr/share/icons/default/index.theme (x-cursor-theme) in auto mode
+
+Setting up libcups2:amd64 (2.4.2-3+deb12u8) ...
+
+Setting up libcairo-gobject2:amd64 (1.16.0-7) ...
+
+Setting up libpangoft2-1.0-0:amd64 (1.50.12+ds-1) ...
+
+Setting up libpangocairo-1.0-0:amd64 (1.50.12+ds-1) ...
+
+Setting up dconf-service (0.40.0-4) ...
+
+Setting up dconf-gsettings-backend:amd64 (0.40.0-4) ...
+
+Setting up libgtk-3-common (3.24.38-2~deb12u3) ...
+
+Setting up libgtk-3-0:amd64 (3.24.38-2~deb12u3) ...
+
+Setting up google-chrome-stable (139.0.7258.138-1) ...
+
+update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/x-www-browser (x-www-browser) in auto mode
+
+update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode
+
+update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode
+
+Processing triggers for libc-bin (2.36-9+deb12u10) ...
+
+[stage-1 3/6] RUN apt-get update && apt-get install -y     wget     gnupg     ca-certificates     procps     libxss1     && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'     && apt-get update     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1       --no-install-recommends     && rm -rf /var/lib/apt/lists/*
+[stage-1 4/6] COPY package*.json ./
+[stage-1 4/6] COPY package*.json ./
+[stage-1 5/6] RUN npm ci --omit=dev --no-audit --no-fund
+npm error code ECONNRESET
+
+npm error network aborted
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly.  See: 'npm help config'
+
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.5.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.5.2
+npm notice To update run: npm install -g npm@11.5.2
+npm notice
+
+npm error A complete log of this run can be found in: /root/.npm/_logs/2025-08-23T05_14_00_125Z-debug-0.log
+
+[stage-1 5/6] RUN npm ci --omit=dev --no-audit --no-fund
+Dockerfile:33
+-------------------
+31 |     ENV PUPPETEER_SKIP_DOWNLOAD=true
+32 |     ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+33 | >>> RUN npm ci --omit=dev --no-audit --no-fund
+34 |     COPY --from=builder /app/dist ./dist
+35 |     CMD ["node", "dist/index.js"]
+-------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c npm ci --omit=dev --no-audit --no-fund" did not complete successfully: exit code: 1
+ECONNRESET encountered, Retrying build image
+
+[Region: us-east4]
+=========================
+Using Detected Dockerfile
+=========================
+
+context: 4fv2-EGpd
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load build definition from Dockerfile
+[internal] load metadata for docker.io/library/node:20-slim
+[internal] load metadata for docker.io/library/node:20-slim
+[internal] load .dockerignore
+[internal] load .dockerignore
+[internal] load .dockerignore
+[internal] load .dockerignore
+[stage-1 6/6] COPY --from=builder /app/dist ./dist
+[builder 6/6] RUN npm run build
+[builder 5/6] COPY . .
+[builder 4/6] RUN npm install --no-audit --no-fund
+[builder 3/6] COPY package*.json ./
+[stage-1 5/6] RUN npm ci --omit=dev --no-audit --no-fund
+[stage-1 4/6] COPY package*.json ./
+[internal] load build context
+[stage-1 3/6] RUN apt-get update && apt-get install -y     wget     gnupg     ca-certificates     procps     libxss1     && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'     && apt-get update     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1       --no-install-recommends     && rm -rf /var/lib/apt/lists/*
+[builder 2/6] WORKDIR /app
+[builder 1/6] FROM docker.io/library/node:20-slim@sha256:6db5e436948af8f0244488a1f658c2c8e55a3ae51ca2e1686ed042be8f25f70a
+[builder 1/6] FROM docker.io/library/node:20-slim@sha256:6db5e436948af8f0244488a1f658c2c8e55a3ae51ca2e1686ed042be8f25f70a
+[internal] load build context
+[builder 1/6] FROM docker.io/library/node:20-slim@sha256:6db5e436948af8f0244488a1f658c2c8e55a3ae51ca2e1686ed042be8f25f70a
+[internal] load build context
+[internal] load build context
+[builder 2/6] WORKDIR /app
+[stage-1 3/6] RUN apt-get update && apt-get install -y     wget     gnupg     ca-certificates     procps     libxss1     && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'     && apt-get update     && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1       --no-install-recommends     && rm -rf /var/lib/apt/lists/*
+[stage-1 4/6] COPY package*.json ./
+[builder 3/6] COPY package*.json ./
+[builder 4/6] RUN npm install --no-audit --no-fund
+[builder 5/6] COPY . .
+[builder 6/6] RUN npm run build
+[stage-1 5/6] RUN npm ci --omit=dev --no-audit --no-fund
+
+> rest-express@1.0.0 preinstall
+> export PUPPETEER_SKIP_DOWNLOAD=true
+
+
+
+added 603 packages in 16s
+
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.5.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.5.2
+npm notice To update run: npm install -g npm@11.5.2
+npm notice
+
+[stage-1 5/6] RUN npm ci --omit=dev --no-audit --no-fund
+[stage-1 6/6] COPY --from=builder /app/dist ./dist
+[stage-1 6/6] COPY --from=builder /app/dist ./dist
+exporting to image
+[auth] sharing credentials for production-us-east4-eqdc4a.railway-registry.com
+[auth] sharing credentials for production-us-east4-eqdc4a.railway-registry.com
+Build time: 47.94 seconds
+Deploy complete
+Starting Container
+
+> rest-express@1.0.0 start
+> NODE_ENV=production node dist/index.js
+
+5:15:51 AM [express] ✅ Environment configuration loaded successfully
+5:15:51 AM [express] 🔍 Testing Firebase connection during startup...
+🔧 Initializing Firebase Admin for project: chat-transcript-converter
+✅ Firebase Admin initialized with GOOGLE_CREDENTIALS
+📋 Project: chat-transcript-converter
+📧 Service Account: firebase-adminsdk-fbsvc@chat-transcript-converter.iam.gserviceaccount.com
+🔍 Testing Firestore connection (attempt 1/3)...
+✅ Firestore connection test successful
+🎉 Firestore is ready and accessible
+5:15:51 AM [express] ✅ Firebase connection test successful
+5:15:51 AM [express] serving on port 8080
+5:15:51 AM [express] 🚂 Railway deployment detected. Public domain: yanked.chat
+🔍 Testing Firestore connection (attempt 1/3)...
+✅ Firestore connection test successful
+🎉 Firestore is ready and accessible
+
+====================
+Starting Healthcheck
+====================
+
+Path: /api/health
+Retry window: 5m0s
+
+[1/1] Healthcheck succeeded!
+🔧 Config request - Environment check: {
+  hasProjectId: true,
+  hasApiKey: true,
+  hasAppId: true,
+  projectId: 'chat-trans...'
+}
+✅ Providing Firebase configuration to client
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+5:16:09 AM [express] GET /api/user-stats 500 in 441ms :: {"message":"Failed to get user stats"}
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+  code: 9,
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+  metadata: Metadata {
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+Caused by: Error
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+  code: 9,
+    options: {}
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+  }
+}
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+User stats error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+Caused by: Error
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+  metadata: Metadata {
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  metadata: Metadata {
+  code: 9,
+    options: {}
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+  }
+}
+}
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+Error getting user PDF records: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User PDFs error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+  metadata: Metadata {
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    options: {}
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+  }
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+}
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+for call at
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+Caused by: Error
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error fetching user: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+  code: 9,
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    options: {}
+Caused by: Error
+  }
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+}
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+5:16:09 AM [express] GET /api/user-pdfs 500 in 522ms :: {"message":"Failed to get PDF records"}
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+5:16:09 AM [express] GET /api/auth/user 500 in 607ms :: {"message":"Failed to fetch user"}
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+for call at
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+Caused by: Error
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+  metadata: Metadata {
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    options: {}
+  }
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+}
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+  code: 9,
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+  metadata: Metadata {
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+for call at
+  }
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+}
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+5:16:10 AM [express] GET /api/user-stats 500 in 148ms :: {"message":"Failed to get user stats"}
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+Error getting user PDF records: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+Caused by: Error
+for call at
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User stats error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User PDFs error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+5:16:10 AM [express] GET /api/user-pdfs 500 in 164ms :: {"message":"Failed to get PDF records"}
