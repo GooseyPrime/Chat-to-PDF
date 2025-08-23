@@ -3,14 +3,16 @@
 ## Immediate Actions Required
 
 ### 1. Update Stripe Webhook URL
-- **Current (incorrect):** `https://yanked.chat/subscribe/api/stripe-webhook/`
-- **Required (correct):** `https://yanked.chat/api/stripe-webhook`
+- **Incorrect:** `https://yanked.chat/subscribe/api/stripe-webhook/`
+- **Correct:** `https://yanked.chat/api/stripe-webhook` OR `https://yanked.chat/api/stripe-webhook/`
 
 **Steps:**
 1. Go to [Stripe Dashboard Webhooks](https://dashboard.stripe.com/webhooks)
 2. Find the webhook endpoint 
-3. Edit the endpoint URL to: `https://yanked.chat/api/stripe-webhook`
+3. Edit the endpoint URL to: `https://yanked.chat/api/stripe-webhook` or `https://yanked.chat/api/stripe-webhook/`
 4. Save changes
+
+**Note:** Both formats (with and without trailing slash) are now supported.
 
 ### 2. Create Required Firestore Indexes
 Click these direct links to create the indexes:

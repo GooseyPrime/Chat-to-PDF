@@ -61,13 +61,16 @@ STRIPE_PRICING_TABLE_ID=prctbl_... (recommended)
 
 **Problem:** Webhook configured with wrong path in Stripe Dashboard.
 
-**Solution:** Set webhook URL in Stripe Dashboard to:
+**Solution:** Set webhook URL in Stripe Dashboard to either:
 ```
 https://your-domain.com/api/stripe-webhook
 ```
-**NOT:** `https://your-domain.com/subscribe/api/stripe-webhook/`
+OR:
+```
+https://your-domain.com/api/stripe-webhook/
+```
 
-The correct webhook endpoint is `/api/stripe-webhook` (no `/subscribe/` prefix).
+Both formats are supported. The webhook endpoint handles both with and without trailing slashes.
 
 ### 3. Firebase/Database Errors
 
