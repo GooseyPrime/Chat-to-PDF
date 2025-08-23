@@ -6,7 +6,20 @@ import { spawn } from 'child_process';
 
 // Function to check if Chrome executable exists
 async function findChrome(): Promise<string> {
+  // Check environment variable first (for Docker/production environments)
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    try {
+      await fs.access(process.env.PUPPETEER_EXECUTABLE_PATH);
+      console.log(`Found Chrome from environment: ${process.env.PUPPETEER_EXECUTABLE_PATH}`);
+      return process.env.PUPPETEER_EXECUTABLE_PATH;
+    } catch {
+      console.warn(`Chrome executable path from environment not accessible: ${process.env.PUPPETEER_EXECUTABLE_PATH}`);
+    }
+  }
+
   const chromePaths = [
+    '/usr/bin/google-chrome-stable', // Docker image path
+    '/usr/bin/google-chrome',
     '/nix/store/zi4f80l169xlmivz8vja8wlphq74qqk0-chromium-125.0.6422.141/bin/chromium-browser',
     '/nix/store/zi4f80l169xlmivz8vja8wlphq74qqk0-chromium-125.0.6422.141/bin/chromium',
     'chromium-browser',
@@ -26,6 +39,7 @@ async function findChrome(): Promise<string> {
   }
   
   // Default fallback
+  console.warn(`No Chrome executable found. Falling back to: ${chromePaths[0]}`);
   return chromePaths[0];
 }
 

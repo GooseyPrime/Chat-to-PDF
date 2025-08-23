@@ -19,11 +19,11 @@ app.use((req, res, next) => {
   // Content Security Policy
   const cspDirectives = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.google.com https://www.gstatic.com",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.google.com https://www.gstatic.com https://apis.google.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://api.stripe.com https://*.googleapis.com https://*.firebaseio.com wss://ws-us3.pusher.com",
+    "connect-src 'self' https://api.stripe.com https://*.googleapis.com https://*.firebaseio.com https://*.googlesyndication.com wss://ws-us3.pusher.com",
     "frame-src https://js.stripe.com https://hooks.stripe.com",
     "object-src 'none'",
     "base-uri 'self'"
