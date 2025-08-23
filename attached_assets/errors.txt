@@ -1,0 +1,1113 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\WINDOWS\system32> cd..
+PS C:\WINDOWS> cd..
+PS C:\> cd..
+PS C:\> git clone https://github.com/GooseyPrime/Chat-to-PDF.git chat-to-pdf
+Cloning into 'chat-to-pdf'...
+remote: Enumerating objects: 720, done.
+remote: Counting objects: 100% (70/70), done.
+remote: Compressing objects: 100% (58/58), done.
+remote: Total 720 (delta 21), reused 23 (delta 11), pack-reused 650 (from 2)
+Receiving objects: 100% (720/720), 976.45 KiB | 7.45 MiB/s, done.
+Resolving deltas: 100% (361/361), done.
+PS C:\> cd "chat-to-pdf"
+PS C:\chat-to-pdf> git pull origin main
+From https://github.com/GooseyPrime/Chat-to-PDF
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+PS C:\chat-to-pdf> railway up
+  Indexed                                                                                                                 Compressed [====================] 100%                                                                                  Uploaded                                                                                                                Build Logs: https://railway.com/project/5d5e1c54-f578-4b9b-8dd3-64c6a069761c/service/927db73a-456c-46ff-a934-ee2f0571f48e?id=6e76b7e3-8f1c-4767-b8fa-6ec7d78e2be1&
+Failed to stream build logs: Failed to retrieve build log
+Deploy complete
+Starting Container
+
+> rest-express@1.0.0 start
+> NODE_ENV=production node dist/index.js
+
+6:01:17 AM [express] ✅ Environment configuration loaded successfully
+6:01:17 AM [express] 🔍 Testing Firebase connection during startup...
+🔧 Initializing Firebase Admin for project: chat-transcript-converter
+✅ Firebase Admin initialized with GOOGLE_CREDENTIALS
+📋 Project: chat-transcript-converter
+📧 Service Account: firebase-adminsdk-fbsvc@chat-transcript-converter.iam.gserviceaccount.com
+🔍 Testing Firestore connection (attempt 1/3)...
+✅ Firestore connection test successful
+🎉 Firestore is ready and accessible
+6:01:18 AM [express] ✅ Firebase connection test successful
+6:01:18 AM [express] serving on port 8080
+6:01:18 AM [express] 🚂 Railway deployment detected. Public domain: yanked.chat
+🔍 Testing Firestore connection (attempt 1/3)...
+✅ Firestore connection test successful
+🎉 Firestore is ready and accessible
+  hasApiKey: true,
+  hasAppId: true,
+  projectId: 'chat-trans...'
+}
+✅ Providing Firebase configuration to client
+Error getting user PDF records: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+  metadata: Metadata {
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User PDFs error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    options: {}
+Caused by: Error
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+  metadata: Metadata {
+  }
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+}
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    options: {}
+  }
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+}
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+6:01:49 AM [express] GET /api/user-pdfs 500 in 234ms :: {"message":"Failed to get PDF records"}
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+  code: 9,
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+  metadata: Metadata {
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+  }
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+Caused by: Error
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+  metadata: Metadata {
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    options: {}
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User stats error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+}
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+Error getting user PDF records: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    options: {}
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+Caused by: Error
+  }
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+}
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+6:01:49 AM [express] GET /api/auth/user 500 in 307ms :: {"message":"Failed to fetch user"}
+for call at
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+  }
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+}
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+User PDFs error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+  code: 9,
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+Caused by: Error
+  metadata: Metadata {
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+Caused by: Error
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+for call at
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    options: {}
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+6:01:49 AM [express] GET /api/user-stats 500 in 235ms :: {"message":"Failed to get user stats"}
+    options: {}
+for call at
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+  }
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+}
+  code: 9,
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+6:01:50 AM [express] GET /api/user-pdfs 500 in 96ms :: {"message":"Failed to get PDF records"}
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+}
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+Caused by: Error
+for call at
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+  code: 9,
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+  metadata: Metadata {
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    options: {}
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+  }
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error fetching user: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User stats error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+6:01:50 AM [express] GET /api/user-stats 500 in 129ms :: {"message":"Failed to get user stats"}
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Caused by: Error
+Railway rate limit of 500 logs/sec reached for replica, update your application to reduce the logging rate. Messages dropped: 424
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error fetching user: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+6:02:12 AM [express] GET /api/auth/user 500 in 90ms :: {"message":"Failed to fetch user"}
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+Caused by: Error
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+  }
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+}
+    options: {}
+  }
+User stats error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    options: {}
+}
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+  }
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+}
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+6:02:45 AM [express] GET /api/user-stats 500 in 54ms :: {"message":"Failed to get user stats"}
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+for call at
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+Caused by: Error
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+for call at
+for call at
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+  code: 9,
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+  metadata: Metadata {
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error fetching user: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+6:02:45 AM [express] GET /api/auth/user 500 in 96ms :: {"message":"Failed to fetch user"}
+Error getting user PDF records: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User PDFs error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+6:02:45 AM [express] GET /api/user-pdfs 500 in 121ms :: {"message":"Failed to get PDF records"}
+Error getting active subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+Error checking and updating expired subscription: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User stats error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=CmVwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdWJzY3JpcHRpb25IaXN0b3J5L2luZGV4ZXMvXxABGgoKBnN0YXR1cxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+6:02:46 AM [express] GET /api/user-stats 500 in 97ms :: {"message":"Failed to get user stats"}
+Error getting user PDF records: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+User PDFs error: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+    at callErrorFromStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:359:73)
+    at Object.onReceiveStatus (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:324:181)
+    at /app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/client.js:342:32)
+    at ServiceClientImpl.<anonymous> (/app/node_modules/google-gax/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+    at /app/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+    at /app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+    at /app/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+    at Object.request (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:234:40)
+    at makeRequest (/app/node_modules/retry-request/index.js:159:28)
+    at retryRequest (/app/node_modules/retry-request/index.js:119:5)
+    at StreamProxy.setStream (/app/node_modules/google-gax/build/src/streamingCalls/streaming.js:225:37)
+    at StreamingApiCaller.call (/app/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+Caused by: Error
+    at QueryUtil._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query-util.js:44:23)
+    at Query._getResponse (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:784:32)
+    at Query._get (/app/node_modules/@google-cloud/firestore/build/src/reference/query.js:777:35)
+    at /app/node_modules/@google-cloud/firestore/build/src/reference/query.js:745:43
+    at /app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+    at NoopContextManager.with (/app/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/app/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/app/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at EnabledTraceUtil.startActiveSpan (/app/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28) {
+  code: 9,
+  details: 'The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/chat-transcript-converter/firestore/indexes?create_composite=Clxwcm9qZWN0cy9jaGF0LXRyYW5zY3JpcHQtY29udmVydGVyL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9wZGZSZWNvcmRzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI',
+  metadata: Metadata {
+    internalRepr: Map(1) { 'x-debug-tracking-id' => [Array] },
+    options: {}
+  }
+}
+6:02:46 AM [express] GET /api/user-pdfs 500 in 107ms :: {"message":"Failed to get PDF records"}
