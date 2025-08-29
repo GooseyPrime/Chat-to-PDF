@@ -53,7 +53,7 @@ Ensure your Stripe pricing table uses **subscription** prices (not one-time paym
 
 - `Resources/stripe_service.ts` - Fixed payment mode subscription
 - `client/src/pages/Subscribe.tsx` - Dynamic pricing table ID
-- `DEPLOYMENT_TROUBLESHOOTING.md` - Enhanced with subscription fixes
+- `README.md` - Enhanced with subscription troubleshooting information
 - `RAILWAY_ENVIRONMENT_SETUP.md` - Added client-side variables
 - `FIRESTORE_INDEXES.md` - New index creation guide
 - `.env.example` - Added pricing table ID variable
